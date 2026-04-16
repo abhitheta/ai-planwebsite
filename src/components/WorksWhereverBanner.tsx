@@ -6,7 +6,7 @@ export function WorksWhereverBanner() {
       className="px-4 pb-0"
       style={{
         background:
-          'linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 55%, #EFF0FF 55%, #EFF0FF 100%)',
+          'linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 55%, #e8f0f8 55%, #e8f0f8 100%)',
       }}
     >
       <div className="max-w-[1280px] mx-auto">
@@ -17,7 +17,7 @@ export function WorksWhereverBanner() {
           <div className="flex flex-col items-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-[#36B37E] px-8 py-3.5 text-[15.6px] font-normal text-[#EFF0FF] shadow-[0_0_0_4.45px_#B7FFE0] hover:bg-[#2ea06e] transition-colors tracking-[0.08px] leading-[27px]"
+              className="inline-flex items-center justify-center rounded-full bg-[#0f2d52] px-8 py-3.5 text-[15.6px] font-normal text-[#e8f0f8] shadow-[0_0_0_4.45px_#e8f0f8] hover:bg-[#0052a3] transition-colors tracking-[0.08px] leading-[27px]"
             >
               Contact Sales
             </Link>

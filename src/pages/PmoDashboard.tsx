@@ -43,7 +43,7 @@ export function PmoDashboard() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-[#36B37E] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-[#0f2d52] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-[#3B394E]">Loading...</p>
         </div>
       </div>
@@ -125,7 +125,7 @@ export function PmoDashboard() {
         <span
           className={`px-3 py-1 rounded-full text-xs font-medium ${
             row.status === 'On Track'
-              ? 'bg-[#B7FFE0] text-[#224229]'
+              ? 'bg-[#e8f0f8] text-[#0f2d52]'
               : row.status === 'At Risk'
               ? 'bg-orange-100 text-orange-700'
               : 'bg-blue-100 text-blue-700'
@@ -143,7 +143,7 @@ export function PmoDashboard() {
         <div className="flex items-center gap-3 min-w-[120px]">
           <div className="flex-1 bg-gray-200 rounded-full h-2">
             <div
-              className={`h-2 rounded-full ${row.status === 'At Risk' ? 'bg-orange-500' : 'bg-[#36B37E]'}`}
+              className={`h-2 rounded-full ${row.status === 'At Risk' ? 'bg-orange-500' : 'bg-[#0f2d52]'}`}
               style={{ width: `${row.progress}%` }}
             />
           </div>
@@ -184,12 +184,12 @@ export function PmoDashboard() {
     >
       {/* Organization info */}
       {onboardingData?.companyName && (
-        <div className="mb-6 flex items-center gap-4 bg-[#B7FFE0]/20 px-5 py-3 rounded-xl border border-[#36B37E]/20">
+        <div className="mb-6 flex items-center gap-4 bg-[#e8f0f8]/20 px-5 py-3 rounded-xl border border-[#0f2d52]/20">
           <div>
             <p className="text-xs text-[#3B394E]">Organization</p>
             <p className="text-sm font-medium text-[#252434]">{onboardingData.companyName}</p>
           </div>
-          <div className="w-px h-8 bg-[#36B37E]/20" />
+          <div className="w-px h-8 bg-[#0f2d52]/20" />
           <div>
             <p className="text-xs text-[#3B394E]">Industry</p>
             <p className="text-sm font-medium text-[#252434]">{onboardingData.industry}</p>
@@ -241,7 +241,7 @@ export function PmoDashboard() {
           {/* Milestones */}
           <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
-              <Calendar className="w-5 h-5 text-[#36B37E]" />
+              <Calendar className="w-5 h-5 text-[#0f2d52]" />
               <h3 className="font-semibold text-[#252434]">Upcoming Milestones</h3>
             </div>
             <div className="space-y-3">
@@ -249,7 +249,7 @@ export function PmoDashboard() {
                 <div key={i} className="pb-3 border-b border-gray-50 last:border-0 last:pb-0">
                   <p className="text-sm font-medium text-[#252434] mb-0.5">{m.milestone}</p>
                   <p className="text-xs text-[#3B394E]">{m.project}</p>
-                  <p className="text-xs text-[#36B37E] font-medium mt-1">{m.date}</p>
+                  <p className="text-xs text-[#0f2d52] font-medium mt-1">{m.date}</p>
                 </div>
               ))}
             </div>
@@ -277,7 +277,7 @@ export function PmoDashboard() {
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-[#B7FFE0]/20 rounded-2xl border border-[#36B37E]/15 p-6">
+          <div className="bg-[#e8f0f8]/20 rounded-2xl border border-[#0f2d52]/15 p-6">
             <h3 className="font-semibold text-[#252434] mb-4">Quick Actions</h3>
             <div className="space-y-2">
               <Link
@@ -288,17 +288,17 @@ export function PmoDashboard() {
                   <Activity className="w-5 h-5 text-orange-600" />
                   <span className="text-sm font-medium text-[#252434]">AI Safety Guardian Dashboard</span>
                 </div>
-                <span className="text-[#36B37E]">&rarr;</span>
+                <span className="text-[#0f2d52]">&rarr;</span>
               </Link>
               <Link
                 to="/theta-pmo"
                 className="flex items-center justify-between p-3 bg-white rounded-xl hover:shadow-md transition"
               >
                 <div className="flex items-center gap-3">
-                  <BarChart3 className="w-5 h-5 text-[#36B37E]" />
+                  <BarChart3 className="w-5 h-5 text-[#0f2d52]" />
                   <span className="text-sm font-medium text-[#252434]">Explore PMO Features</span>
                 </div>
-                <span className="text-[#36B37E]">&rarr;</span>
+                <span className="text-[#0f2d52]">&rarr;</span>
               </Link>
             </div>
           </div>

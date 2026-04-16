@@ -19,6 +19,18 @@ export const router = createBrowserRouter([
         lazy: () => import("./pages/HowItWorks").then((m) => ({ Component: m.HowItWorks })),
       },
       {
+        path: "solutions",
+        lazy: () => import("./pages/HowItWorks").then((m) => ({ Component: m.HowItWorks })),
+      },
+      {
+        path: "features",
+        lazy: () => import("./pages/ThetaOpsAssistant").then((m) => ({ Component: m.ThetaOpsAssistant })),
+      },
+      {
+        path: "platform",
+        lazy: () => import("./pages/ThetaPMO").then((m) => ({ Component: m.ThetaPMO })),
+      },
+      {
         path: "contact",
         lazy: () => import("./pages/Contact").then((m) => ({ Component: m.Contact })),
       },

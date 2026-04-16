@@ -13,6 +13,7 @@ import productImg7 from "../assets/thetaEngage.png"
 import heroPreviewImage from '../assets/da9160705c98e71563d498abb92c880ae16f869c.png';
 import cyberImage from "../assets/image.png"
 import designBG from '../assets/designBG.png';
+import heroVideo from '../assets/demo.mp4';
 import chartViewIcon from '../assets/icons/chartView.png';
 import messageIcon from '../assets/icons/messageIcon.png';
 import noteIcon from '../assets/icons/noteIcon.png';
@@ -328,11 +329,11 @@ export function Home() {
       icon: Layers,
       image: productImg1,
       bg: 'from-[#f5fbf7] via-[#edf7f0] to-[#ffffff]',
-      glow: 'bg-[#4ab57a]/20',
-      accent: 'border-[#4ab57a] bg-[#f8fffa]',
-      marker: 'bg-[#4ab57a]/15 border-[#4ab57a]/25',
-      lineStrong: 'bg-[#4ab57a]/35',
-      lineSoft: 'bg-[#4ab57a]/18',
+      glow: 'bg-[#0066cc]/20',
+      accent: 'border-[#0066cc] bg-[#f8fffa]',
+      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
+      lineStrong: 'bg-[#0066cc]/35',
+      lineSoft: 'bg-[#0066cc]/18',
       miniTitle: 'Project Data Hub',
       miniDesc: 'Centralize live project data, tracking, and operational visibility.',
     },
@@ -356,11 +357,11 @@ export function Home() {
       icon: Sparkles,
       image: productImg3,
       bg: 'from-[#fbf7ff] via-[#f2ecff] to-[#ffffff]',
-      glow: 'bg-[#c38cff]/18',
-      accent: 'border-[#c38cff] bg-[#fdfaff]',
-      marker: 'bg-[#c38cff]/15 border-[#c38cff]/25',
-      lineStrong: 'bg-[#c38cff]/35',
-      lineSoft: 'bg-[#c38cff]/18',
+      glow: 'bg-[#0066cc]/18',
+      accent: 'border-[#0066cc] bg-[#fdfaff]',
+      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
+      lineStrong: 'bg-[#0066cc]/35',
+      lineSoft: 'bg-[#0066cc]/18',
       miniTitle: 'AI Project Advisor',
       miniDesc: 'Ask natural-language questions and get guided project support.',
     },
@@ -370,11 +371,11 @@ export function Home() {
       icon: Brain,
       image: productImg4,
       bg: 'from-[#fff9f3] via-[#fff1e7] to-[#ffffff]',
-      glow: 'bg-[#ff9c57]/18',
-      accent: 'border-[#ff9c57] bg-[#fffcf8]',
-      marker: 'bg-[#ff9c57]/15 border-[#ff9c57]/25',
-      lineStrong: 'bg-[#ff9c57]/35',
-      lineSoft: 'bg-[#ff9c57]/18',
+      glow: 'bg-[#0066cc]/18',
+      accent: 'border-[#0066cc] bg-[#fffcf8]',
+      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
+      lineStrong: 'bg-[#0066cc]/35',
+      lineSoft: 'bg-[#0066cc]/18',
       miniTitle: 'Intelligence Hub',
       miniDesc: 'Bring insights, alerts, and operational intelligence together.',
     },
@@ -412,11 +413,11 @@ export function Home() {
       icon: Target,
       image: productImg3,
       bg: 'from-[#fff8f2] via-[#fff0e5] to-[#ffffff]',
-      glow: 'bg-[#ff8f59]/18',
-      accent: 'border-[#ff8f59] bg-[#fffaf7]',
-      marker: 'bg-[#ff8f59]/15 border-[#ff8f59]/25',
-      lineStrong: 'bg-[#ff8f59]/35',
-      lineSoft: 'bg-[#ff8f59]/18',
+      glow: 'bg-[#0066cc]/18',
+      accent: 'border-[#0066cc] bg-[#fffaf7]',
+      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
+      lineStrong: 'bg-[#0066cc]/35',
+      lineSoft: 'bg-[#0066cc]/18',
       miniTitle: 'Prediction what if',
       miniDesc: 'Run scenarios and compare likely outcomes before acting.',
     },
@@ -424,39 +425,39 @@ export function Home() {
 
   const processSteps = [
     {
-      key: 'automation-processing',
-      title: 'Automation Processing',
-      description: 'Automates intake, sorting, and processing of operational records for faster project execution.',
+      key: 'dynamic-orders',
+      title: 'Stage 1: Dynamic Orders',
+      description: 'Ingests regular and emergency orders and enriches them with optimization-ready data like locations, time windows, and constraints.',
       image: productImg1,
-      subtitleLink: '/how-it-works#automation-processing',
+      subtitleLink: '/how-it-works#dynamic-orders',
     },
     {
-      key: 'human-validation',
-      title: 'Human In The Loop Validation',
-      description: 'Allows teams to review AI outputs, validate decisions, and maintain quality control checkpoints.',
+      key: 'optimized-trips',
+      title: 'Stage 2: Optimized Trips',
+      description: 'Builds efficient multi-drop trips using AI routing, live traffic, risk scoring, and operational constraints.',
       image: productImg2,
-      subtitleLink: '/how-it-works#human-validation',
+      subtitleLink: '/how-it-works#optimized-trips',
     },
     {
-      key: 'ai-analysis',
-      title: 'AI Analysis & Predictions - What-IFs',
-      description: 'Pushes alerts and actionable tasks directly to field teams via a dedicated mobile app.',
+      key: 'resource-assignment',
+      title: 'Stage 3: Intelligent Resource Assignment',
+      description: 'Assigns the right truck and driver based on compatibility, certifications, capacity, and real-time status.',
       image: productImg5,
-      subtitleLink: '/how-it-works#ai-analysis',
+      subtitleLink: '/how-it-works#resource-assignment',
     },
     {
-      key: 'mobile-notifications',
-      title: 'Mobile App Notifications',
-      description: 'Delivers instant mobile notifications to field teams so actions can be closed without delay.',
+      key: 'sequential-dispatch',
+      title: 'Stage 4: Real-Time Sequential Dispatch',
+      description: 'Monitors execution, tracks progress, handles exceptions, and dynamically re-optimizes plans in real time.',
       image: productImg3,
-      subtitleLink: '/how-it-works#mobile-notifications',
+      subtitleLink: '/how-it-works#sequential-dispatch',
     },
     {
-      key: 'report-analysis',
-      title: 'Report & Analytics',
-      description: 'Generates clear dashboards and performance reports so teams can track progress, spot trends, and make faster decisions.',
+      key: 'continuous-learning',
+      title: 'Stage 5: Continuous Learning',
+      description: 'Execution data continuously feeds back into the AI models to refine forecasting, routing, and planning for future operations.',
       image: productImg3,
-      subtitleLink: '/how-it-works#report-analysis',
+      subtitleLink: '/how-it-works#continuous-learning',
     },
   ];
 
@@ -545,26 +546,38 @@ export function Home() {
 
   return (
     <div className=" bg-white">
-      {/* Hero Section */}
-      <section className="relative pt-16 overflow-hidden bg-white">
+      {/* Hero Section with AI Planning violet-navy gradient */}
+      <section className="relative pt-16 overflow-hidden bg-gradient-to-b from-white via-[#e0e7ff] to-white">
+        {/* Radial purple glow behind the dashboard */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 50% 45%, rgba(99,72,229,0.22) 0%, rgba(99,72,229,0.08) 45%, rgba(255,255,255,0) 75%)',
+          }}
+        />
         <div className="relative z-20 pt-8 sm:pt-10"
 
         >
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm sm:text-base text-[#38a56a] mb-3">
-              Start With THETA AI
+            <p className="text-sm sm:text-base text-[#0066cc] mb-3">
+              AI-Planning.io
             </p>
             <h2 className="text-4xl sm:text-5xl lg:text-[58px] font-semibold tracking-tight text-slate-900 leading-tight">
-              The Zero-Surprise Enterprise Powered by Theta AI
+              Smart Logistics Planning.
+              <br />
+              Built for real operations.
             </h2>
             <h3 className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Always-on digital intelligence for Project, Operations, Safety, and Procurement control.
+              AI-powered fuel delivery planning and tracking platform. Optimize routes, predict demand,
+              and manage your fleet with real-time visibility.
             </h3>
 
             <div className="mt-14 flex flex-col items-center gap-3">
               <Link
                 to="/how-it-works"
-                className="inline-flex items-center justify-center rounded-full bg-[#38b679] px-10 py-3 text-sm font-medium text-white shadow-[0_10px_25px_rgba(56,182,121,0.28)] hover:bg-[#2e9f67] transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-[#0066cc] px-10 py-3 text-sm font-medium text-white shadow-[0_10px_25px_rgba(56,182,121,0.28)] hover:bg-[#0052a3] transition-colors"
               >
                 Get Started
               </Link>
@@ -603,18 +616,17 @@ export function Home() {
               // style={{ background: 'radial-gradient(circle at bottom right, rgba(22,101,52,0.72) 0%, rgba(22,101,52,0.36) 34%, rgba(22,101,52,0.00) 72%)' }}
               />
 
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={activeHeroOption}
-                  src={(heroOptions.find((option) => option.key === activeHeroOption) ?? heroOptions[0]).image}
-                  alt="Theta AI interface preview"
-                  className={`relative mx-auto block w-[92%] max-w-[560px] h-auto rounded-[18px] border-2 border-white/80 object-contain shadow-[0px_10px_30px_rgba(0,180,119,0.35)] transition-all duration-500 sm:w-[88%] sm:max-w-[720px] sm:rounded-[24px] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[1000px] lg:max-w-none lg:h-[600px] lg:rounded-[30px] lg:object-top lg:-translate-x-1/2 lg:-translate-y-1/2 lg:shadow-[0px_15px_50px_0px_#00B477] ${isMobileHero ? 'blur-0' : activeHeroOption === '' ? 'blur-[2px]' : 'blur-0'}`}
-                  initial={{ opacity: 0, scale: 1.04, x: 14 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 1.02, x: -14 }}
-                  transition={{ duration: 0.45, ease: 'easeInOut' }}
-                />
-              </AnimatePresence>
+              {/* Continuously-looping hero video (replaces static dashboard image) */}
+              <video
+                src={heroVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                aria-label="AI Planning platform preview"
+                className="relative mx-auto block w-[92%] max-w-[560px] h-auto rounded-[18px] border-2 border-white/80 object-cover bg-white shadow-[0px_10px_30px_rgba(15,45,82,0.35)] transition-all duration-500 sm:w-[88%] sm:max-w-[720px] sm:rounded-[24px] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[1000px] lg:max-w-none lg:h-[600px] lg:rounded-[30px] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:shadow-[0px_15px_50px_0px_rgba(99,72,229,0.55)]"
+              />
 
               <div className="relative min-h-0 pb-6 sm:pb-8 lg:min-h-[720px] lg:pb-0">
                 {/* <motion.div
@@ -682,7 +694,7 @@ export function Home() {
                         onClick={() => setActiveHeroOption(option.key)}
                         className={`group flex min-h-[84px] p-4  flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2 text-center text-[10px] leading-snug transition-all duration-200 ${isActive ? `${option.accent} shadow-sm` : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'}`}
                       >
-                        <div className={`flex h-8 w-8 items-center justify-center rounded-full border transition-colors ${isActive ? 'border-[#4ab57a] bg-[#4ab57a]/10 text-[#4ab57a]' : 'border-slate-200 bg-slate-50 text-slate-300 group-hover:text-slate-400'}`}>
+                        <div className={`flex h-8 w-8 items-center justify-center rounded-full border transition-colors ${isActive ? 'border-[#0066cc] bg-[#0066cc]/10 text-[#0066cc]' : 'border-slate-200 bg-slate-50 text-slate-300 group-hover:text-slate-400'}`}>
                           <OptionIcon className="h-3 w-3" />
                         </div>
                         <span className="text-slate-800 line-clamp-2">{option.label}</span>
@@ -726,7 +738,7 @@ export function Home() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className={`p-8 rounded-2xl border-2 transition-all duration-300 ${
                         activeProduct === index
-                          ? 'border-[#478560] bg-white shadow-xl'
+                          ? 'border-[#0f2d52] bg-white shadow-xl'
                           : 'border-gray-200 bg-white/50'
                       }`}
                     >
@@ -745,7 +757,7 @@ export function Home() {
                       <ul className="space-y-3">
                         {product.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#478560] shrink-0 mt-0.5" />
+                            <CheckCircle className="w-5 h-5 text-[#0f2d52] shrink-0 mt-0.5" />
                             <span className="text-gray-700">{feature}</span>
                           </li>
                         ))}
@@ -779,7 +791,7 @@ export function Home() {
                           <div
                             key={idx}
                             className={`h-1.5 rounded-full transition-all duration-300 ${
-                              idx === activeProduct ? 'w-8 bg-[#478560]' : 'w-1.5 bg-gray-300'
+                              idx === activeProduct ? 'w-8 bg-[#0f2d52]' : 'w-1.5 bg-gray-300'
                             }`}
                           />
                         ))}
@@ -805,7 +817,7 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               className={sectionTitleClass}
             >
-              Theta AI: <span className="bg-clip-text text-[#6B8E23]">Predictive Intelligence</span> for Industrial Operations
+              Theta AI: <span className="bg-clip-text text-[#0f2d52]">Predictive Intelligence</span> for Industrial Operations
             </motion.h1>
           </header>
 
@@ -872,75 +884,79 @@ export function Home() {
         <div className="w-full rounded-[28px]  px-5 py-10 sm:px-8 sm:py-12 lg:px-16 lg:py-14">
           <div className="text-center">
             <h2 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl lg:text-[56px]">
-              Solutions We Provide
+              Core Capabilities
             </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+              Complete visibility, complete control. Powerful features designed to optimize every
+              aspect of your fuel delivery operations.
+            </p>
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             <Link to="/theta-pmo" className="block h-full">
-              <div className="group h-full min-h-[220px] rounded-xl bg-[#eef3ec] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
+              <div className="group h-full min-h-[220px] rounded-xl bg-[#e8f0f8] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
                 <div className="mb-4 flex justify-end">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#d9e5de] text-[#4e8f66]">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#c8d7ea] text-[#0f2d52]">
                     <Sparkles className="h-5 w-5" />
                   </span>
                 </div>
                 <h3 className="text-[26px] font-semibold leading-tight text-slate-900 sm:text-[30px]">
-                  AI PMO Assistant
+                  Real-time GPS
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  Eliminate project surprises. Take control before it's too late — a digital layer across your
-                  project controls environment that identifies risks early.
+                  Track trucks live with precise timestamps. Know exactly where every vehicle is and when
+                  it will arrive. Complete visibility across your entire fleet.
                 </p>
               </div>
             </Link>
 
             <Link to="/theta-hse" className="block h-full">
-              <div className="group h-full min-h-[220px] rounded-xl bg-[#eef3ec] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
+              <div className="group h-full min-h-[220px] rounded-xl bg-[#e8f0f8] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
                 <div className="mb-4 flex justify-end">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#d9e5de] text-[#4e8f66]">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#c8d7ea] text-[#0f2d52]">
                     <Shield className="h-5 w-5" />
                   </span>
                 </div>
                 <h3 className="text-[26px] font-semibold leading-tight text-slate-900 sm:text-[30px]">
-                  AI Safety Guardian
+                  Smart scheduling
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  From reporting incidents to preventing them. Real-time, predictive safety intelligence
-                  that monitors people, equipment, and work zones.
+                  Predict demand and auto-assign deliveries. Let AI handle the complexity of driver shifts
+                  and route planning. Optimize for efficiency automatically.
                 </p>
               </div>
             </Link>
 
             <Link to="/theta-ops-assistant" className="block h-full">
-              <div className="group h-full min-h-[220px] rounded-xl bg-[#eef3ec] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
+              <div className="group h-full min-h-[220px] rounded-xl bg-[#e8f0f8] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
                 <div className="mb-4 flex justify-end">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#d9e5de] text-[#4e8f66]">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#c8d7ea] text-[#0f2d52]">
                     <Wrench className="h-5 w-5" />
                   </span>
                 </div>
                 <h3 className="text-[26px] font-semibold leading-tight text-slate-900 sm:text-[30px]">
-                  AI Cost of Operations Assistant
+                  Route optimization
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  Find hidden waste. Improve productivity without increasing cost — uncover where value
-                  is being lost across consumables, labour, and processes.
+                  Reduce miles and maximize utilization. Our algorithms find the most efficient paths while
+                  respecting driver hours and fuel requirements.
                 </p>
               </div>
             </Link>
 
             <Link to="/theta-procurement-assistant" className="block h-full">
-              <div className="group h-full min-h-[220px] rounded-xl bg-[#eef3ec] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
+              <div className="group h-full min-h-[220px] rounded-xl bg-[#e8f0f8] px-6 py-7 shadow-[0_3px_12px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1">
                 <div className="mb-4 flex justify-end">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#d9e5de] text-[#4e8f66]">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#c8d7ea] text-[#0f2d52]">
                     <Settings className="h-5 w-5" />
                   </span>
                 </div>
                 <h3 className="text-[26px] font-semibold leading-tight text-slate-900 sm:text-[30px]">
-                  AI Procurement & Invoice Control Assistant
+                  Exception handling
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  Stop overpaying. Enforce what you already negotiated — continuously compares invoices
-                  against contract rates to prevent leakage.
+                  Delays trigger alerts and escalations automatically. Stay ahead of problems before they
+                  impact your customers. Smart notifications keep you informed.
                 </p>
               </div>
             </Link>
@@ -953,23 +969,23 @@ export function Home() {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-900 leading-tight">
-              From Reactive Reporting to <span className="text-[#4b8f67]">Predictive Control</span>
+              The smarter way to <span className="text-[#0066cc]">plan, predict, and perform</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-              We combine history, live data, and custom LLM AI to eliminate surprises and automate enterprise intelligence.
+              From forecasting to final delivery, everything you need to manage a reliable, on-time fuel network.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8 sm:p-10">
               <p className="text-[13px] font-semibold tracking-[0.2em] text-slate-500 uppercase mb-4">
-                The Reactive Past
+                The Manual Past
               </p>
               <ul className="space-y-4">
                 {[
-                  'Siloed, static data and manual reports',
-                  'Post-incident lagging indicators',
-                  'Unforeseen delays and operational surprises',
+                  'Spreadsheet-driven planning and disconnected systems',
+                  'Reactive dispatch after delays have already happened',
+                  'Static routes and guesswork demand planning',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-[15px] leading-[24px] text-slate-700">
                     <span className="mt-[9px] w-1.5 h-1.5 bg-slate-400 rounded-full flex-shrink-0" />
@@ -980,17 +996,17 @@ export function Home() {
             </div>
 
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 sm:p-10">
-              <p className="text-[13px] font-semibold tracking-[0.2em] text-[#4b8f67] uppercase mb-4">
-                The Predictive Future
+              <p className="text-[13px] font-semibold tracking-[0.2em] text-[#0f2d52] uppercase mb-4">
+                The AI-Planning Future
               </p>
               <ul className="space-y-4">
                 {[
-                  'Live IoT, edge vision, and continuous learning',
-                  'Early anomaly detection and leading indicators',
-                  'Automated, preventative enterprise intelligence',
+                  'Real-time GPS tracking across your entire fleet',
+                  'AI demand forecasting with auto-assigned deliveries',
+                  'Self-correcting routes using live traffic & constraints',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-[15px] leading-[24px] text-slate-800">
-                    <span className="mt-[9px] w-1.5 h-1.5 bg-[#4b8f67] rounded-full flex-shrink-0" />
+                    <span className="mt-[9px] w-1.5 h-1.5 bg-[#0f2d52] rounded-full flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -1001,61 +1017,18 @@ export function Home() {
       </section>
 
       {/* ── Selecting the Right Theta Intelligence Layer ── */}
-      <section className="bg-[#f8faf8] px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-900 leading-tight">
-              Selecting the Right Theta Intelligence Layer
-              <br className="hidden sm:block" /> for Your Pain Point
-            </h2>
-          </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <table className="w-full min-w-[720px] text-left">
-              <thead className="bg-slate-50">
-                <tr>
-                  {['Module', 'Primary Pain Point', 'Key Data Inputs', 'Target Audience', 'Core AI Methodology'].map((h) => (
-                    <th key={h} className="px-5 py-4 text-[13px] font-semibold text-slate-700">
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {[
-                  { module: 'AI PMO Assistant', pain: 'Project Slippage & Overruns', data: 'Primavera P6, Excel, ERP', audience: 'PMO Leaders', method: 'LLM Forecasting' },
-                  { module: 'AI Cost of Ops', pain: 'Consumable Waste & Shrinkage', data: 'CMMS, ERP', audience: 'Operations Managers', method: 'Anomaly Detection' },
-                  { module: 'AI Maintenance', pain: 'Unplanned Asset Downtime', data: 'Live IoT Telemetry', audience: 'Reliability Managers', method: 'Behavioral Learning' },
-                  { module: 'AI Safety Guardian', pain: 'High-Risk Exposure Incidents', data: 'Edge Cameras, UHF RFID', audience: 'HSE Site Leaders', method: 'Vision AI Logic' },
-                  { module: 'AI Procurement', pain: 'Capital Leakage & Overpayments', data: 'Invoices, OCR, Contracts', audience: 'Commercial Teams', method: 'Pattern Recognition' },
-                ].map((row) => (
-                  <tr key={row.module} className="hover:bg-slate-50 transition-colors">
-                    <td className="px-5 py-4 text-[14px] font-semibold text-slate-900">{row.module}</td>
-                    <td className="px-5 py-4 text-[14px] text-slate-700">{row.pain}</td>
-                    <td className="px-5 py-4 text-[14px] text-slate-700">{row.data}</td>
-                    <td className="px-5 py-4 text-[14px] text-slate-700">{row.audience}</td>
-                    <td className="px-5 py-4 text-[14px] text-slate-700">{row.method}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mt-8 text-center text-[15px] text-slate-600 italic max-w-3xl mx-auto">
-            Five distinct assistants running on one shared, continuously learning enterprise AI foundation.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Unifying Enterprise Data into a Single Analytical Layer ── */}
+      {/* ── Sync your tools, keep teams connected ── */}
       <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-tight text-slate-900 leading-tight">
-              Unifying Enterprise Data into a <span className="text-[#4b8f67]">Single Analytical Layer</span>
+              Sync your tools,
+              <br />
+              keep teams <span className="text-[#0066cc]">connected</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-              Continuously learning from historical project behaviour to power every Theta assistant.
+              Integrate your favorite apps with AI-Planning.io, keeping all your work in sync and your team in the loop.
             </p>
           </div>
 
@@ -1066,7 +1039,7 @@ export function Home() {
                 Data Sources
               </h3>
               <div className="grid grid-cols-3 gap-3 text-center">
-                {['IoT', 'ERP', 'Primavera P6', 'Cameras', 'UHF RFID', 'Excel', 'CMMS', 'OCR', 'Sensors'].map((src) => (
+                {['PostgreSQL', 'AWS', 'Google', 'Microsoft', 'Power BI', 'SQL', 'Tank Sensors', 'Telematics', 'ERP'].map((src) => (
                   <div key={src} className="rounded-xl bg-white border border-slate-200 px-3 py-4 text-[12px] font-medium text-slate-700">
                     {src}
                   </div>
@@ -1074,20 +1047,20 @@ export function Home() {
               </div>
             </div>
 
-            {/* The Theta AI Layer */}
-            <div className="rounded-2xl border border-[#4b8f67]/30 bg-[#eef3ec] p-6 sm:p-8">
+            {/* The AI Planning Layer */}
+            <div className="rounded-2xl border border-[#0f2d52]/30 bg-gradient-to-br from-[#e8f0f8] to-[#c8d7ea] p-6 sm:p-8">
               <h3 className="text-[18px] font-semibold text-slate-900 mb-5 text-center">
-                The Theta AI Layer
+                The AI-Planning Layer
               </h3>
               <div className="grid grid-cols-2 gap-3 text-center">
-                {['Custom LLMs', 'Machine Learning', 'OCR Vision', 'Edge AI Analytics'].map((l) => (
-                  <div key={l} className="rounded-xl bg-white border border-[#4b8f67]/30 px-3 py-5 text-[13px] font-semibold text-[#2f6e4a]">
+                {['Custom AI Engine', 'Demand Forecasting', 'Route Optimizer', 'Exception Handler'].map((l) => (
+                  <div key={l} className="rounded-xl bg-white border border-[#0f2d52]/30 px-3 py-5 text-[13px] font-semibold text-[#0052a3]">
                     {l}
                   </div>
                 ))}
               </div>
               <p className="mt-5 text-center text-[12px] italic text-slate-600">
-                Continuously learning from historical project behaviour.
+                Continuously learning from every trip, order, and delivery.
               </p>
             </div>
 
@@ -1097,7 +1070,7 @@ export function Home() {
                 Action Interfaces
               </h3>
               <div className="grid grid-cols-2 gap-3 text-center">
-                {['Web Dashboards', 'Field Apps', 'Automated Alerts', 'Theta Engage Platform'].map((l) => (
+                {['Web Dashboards', 'Driver Mobile App', 'Automated Alerts', 'Dispatch Console'].map((l) => (
                   <div key={l} className="rounded-xl bg-white border border-slate-200 px-3 py-5 text-[13px] font-medium text-slate-800">
                     {l}
                   </div>
@@ -1108,32 +1081,43 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── Driving Enterprise ROI ── */}
-      <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      {/* ── Driving ROI Across Fuel Operations ── */}
+      <section className="bg-gradient-to-b from-white via-[#eff6ff] to-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-tight text-slate-900 leading-tight">
-              Driving Enterprise ROI Across <span className="text-[#4b8f67]">Risk, Capital, and Operations</span>
+              Trusted by <span className="text-[#0066cc]">industry leaders</span>
             </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
+              Our platform serves fuel distributors, logistics companies, and fleet operators of all sizes.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                title: 'Predictive Agility',
-                desc: 'Moving from manual oversight to automated, data-driven decision making via LLM forecasting and What-If simulations.',
+                title: 'Regional Distribution Networks',
+                desc: 'Coordinate deliveries across multiple stations with centralized dispatch and real-time visibility.',
               },
               {
-                title: 'Zero-Harm Protection',
-                desc: 'Preventing incidents before they occur, improving compliance, and driving audit readiness via real-time edge vision.',
+                title: 'Logistics Providers',
+                desc: 'Optimize delivery routes, reduce fuel costs, and improve customer satisfaction with data-driven insights.',
               },
               {
-                title: 'Capital Recovery',
-                desc: 'Immediate reduction in procurement leakage, overpayments, and invoice errors via volume leverage analysis.',
+                title: 'Enterprise Fleets',
+                desc: 'Manage large-scale operations with enterprise-grade security, compliance, and scalability.',
               },
               {
-                title: 'Asset Uptime',
-                desc: 'Eliminating unplanned downtime, reducing energy spend, and improving FTE output through anomaly detection.',
+                title: 'Collaborative Teams',
+                desc: 'Enable cross-functional collaboration with shared dashboards and task assignments.',
+              },
+              {
+                title: 'Cost Savings',
+                desc: 'Reduce operational expenses through optimized routing and resource utilization.',
+              },
+              {
+                title: 'On-Time Deliveries',
+                desc: 'Achieve higher punctuality with predictive ETAs and proactive adjustments.',
               },
             ].map((card) => (
               <div key={card.title} className="rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]">
@@ -1149,230 +1133,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="w-full">
-          <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-900">
-              <span className="text-[#4b8f67]">Our 5-</span> Step Intelligent Process
-            </h2>
-            <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-              Seamlessly record and embed videos within the development tools you already use.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.95fr_1.25fr] lg:gap-5 items-stretch">
-            <div className=" p-4 sm:p-5">
-              <div className="space-y-0">
-                {processSteps.map((step, index) => {
-                  const isActive = activeProcessStep === step.key;
-
-                  return (
-                    <div
-                      key={step.key}
-                      className={` bg-[#F9FFFB] py-2.5`}
-                    >
-                      <div className={`w-full rounded-lg px-2 py-2 text-left transition-colors ${isActive ? 'bg-white/55' : 'hover:bg-white/35'}`}>
-                        <div className={`${isActive ? 'border-l-[3px] border-l-[#4b8f67] pl-3' : 'pl-3'} `}>
-                          <div className="flex items-start justify-between gap-3">
-                            <button
-                              type="button"
-                              onClick={() => setActiveProcessStep(step.key)}
-                              className="flex-1 text-left"
-                            >
-                              <h3 className="text-[12px] leading-tight font-medium text-slate-900 sm:text-[30px]">
-                                {step.title}
-                              </h3>
-                            </button>
-                            <Link
-                              to={step.subtitleLink}
-                              aria-label={`Open ${step.title} in How It Works`}
-                              className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full text-[#4b8f67] transition-colors hover:bg-[#e9f4ee] hover:text-[#386d50]"
-                            >
-                              <ArrowRight className="h-4 w-4 -rotate-45" />
-                            </Link>
-                          </div>
-                          {isActive && (
-                            <p className="mt-2 text-sm text-slate-600 leading-relaxed sm:text-base">
-                              {step.description}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="relative  p-3 shadow-[0_12px_34px_rgba(25,74,48,0.12)]">
-              <img
-                src={activeProcess.image}
-                alt="Theta process dashboard preview"
-                className="h-full min-h-[280px] w-full rounded-xl object-cover object-top"
-              />
-              <div className="pointer-events-none absolute -bottom-4 right-3 h-28 w-28 rounded-full bg-[#7ae2a5]/55 blur-3xl" />
-              <button
-                type="button"
-                aria-label="Pause preview"
-                className="absolute bottom-4 right-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#4b8f67] shadow-md"
-              >
-                <span className="flex items-center gap-1">
-                  <span className="h-3.5 w-1 rounded-sm bg-[#4b8f67]" />
-                  <span className="h-3.5 w-1 rounded-sm bg-[#4b8f67]" />
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#e9eeea] py-14 overflow-visible lg:py-16">
-        <div className="w-full">
-          <div className="rounded-[8px] border border-[#dde4de]  py-8 "
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, rgba(190,204,194,0.32) 1px, transparent 1px), linear-gradient(to bottom, rgba(190,204,194,0.32) 1px, transparent 1px)',
-              backgroundSize: '100px 84px',
-            }}
-          >
-            {/* <div className="max-w-4xl px-10">
-              <h2 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-                Everything You Need to Succeed
-              </h2>
-              <p className="mt-3 text-xl text-slate-800/90">
-                Theta AI: Predictive Intelligence for Industrial Operations
-              </p>
-            </div>
-
-            <div className="mt-8 grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-              <div className="lg:sticky lg:top-20">
-                <div className="relative w-full pt-1">
-                  <div className="pointer-events-none px-4 absolute -bottom-10 left-1/2 h-28 w-[82%] -translate-x-1/2 rounded-full bg-[#7acaa0]/28 blur-2xl" />
-                  <div className="relative overflow-hidden mx-10 rounded-[2px] border-[3px] border-[#1f8ce0] bg-[#f2f4f3]">
-                    {isShowcaseImageError ? (
-                      <div className="flex h-[260px] w-full items-center justify-center bg-gradient-to-br from-[#f4f7f5] to-[#e8efea] text-sm font-medium text-slate-600 sm:h-[360px] lg:h-[500px]">
-                        Preview image unavailable
-                      </div>
-                    ) : (
-                      <img
-                        src={activeShowcaseFeature.image}
-                        alt={activeShowcaseFeature.title}
-                        className="h-[260px] w-full object-cover object-top sm:h-[360px] lg:h-[500px]"
-                        onError={() => setIsShowcaseImageError(true)}
-                      />
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative overflow-visible lg:min-h-[210vh]">
-                <div className="sticky top-24">
-                  <div className="relative mx-auto w-full max-w-[340px] sm:h-[500px]">
-                    <div className="grid grid-cols-1 gap-3 sm:hidden">
-                      {SHOWCASE_FEATURES.map((feature, index) => {
-                        const isActive = activeFeature === feature.key;
-                        return (
-                          <button
-                            key={feature.key}
-                            type="button"
-                            onClick={() => {
-                              setActiveFeature(feature.key);
-                              featureRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            }}
-                            className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${isActive ? 'border-[#7fd7ac] bg-[#eefcf3] text-[#1d6643]' : 'border-slate-300 bg-white text-slate-700'}`}
-                          >
-                            {feature.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    <div className="hidden h-full items-center sm:flex">
-                      <div className="flex w-full flex-col items-start gap-12">
-                        {desktopFeatureSlots.map(({ feature, originalIndex }, slotIndex) => {
-                          const isActive = activeFeature === feature.key;
-                          const chipPositionClass = getDesktopChipPositionClass(slotIndex);
-
-                          return (
-                            <button
-                              key={feature.key}
-                              type="button"
-                              onClick={() => {
-                                setActiveFeature(feature.key);
-                                featureRefs.current[originalIndex]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                              }}
-                              className={`max-w-full rounded-full border px-5 py-3 text-left text-base font-medium transition-all duration-300 ${chipPositionClass} ${isActive ? 'border-[#71cda2] bg-[#f2fff7] text-[#204f37] shadow-[0_8px_20px_rgba(46,115,78,0.12)]' : 'border-[#d8ddd9] bg-white text-slate-800 hover:bg-[#fbfdfc]'}`}
-                            >
-                              {feature.label}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pointer-events-none hidden lg:block">
-                  {SHOWCASE_FEATURES.map((feature, index) => (
-                    <div
-                      key={feature.key}
-                      data-feature-key={feature.key}
-                      ref={(el) => {
-                        featureRefs.current[index] = el;
-                      }}
-                      className="h-[42vh]"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div> */}
-
-
-            <div className="px-4 py-4 sm:px-8 lg:px-12">
-              <div className="text-center">
-                <p className="text-xs font-semibold tracking-[0.22em] text-[#4b8f67] uppercase">Our Clients</p>
-                <h3 className="mt-2 text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-tight text-slate-900">
-                  Trusted by Industry Leaders
-                </h3>
-                <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-                  Organizations across engineering, infrastructure, manufacturing, and services rely on Theta Dynamics to improve delivery, safety, and cost performance.
-                </p>
-              </div>
-
-              <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
-                {[
-                  { name: 'Descon Engineering', logo: DesconIcon },
-                  { name: 'NSCC International', logo: NSCCIcon },
-                ].map((client) => {
-
-                  return (
-                    <div
-                      key={client.name}
-                      className="group rounded-xl border border-[#d8e2db] bg-white/85 px-3 py-4 text-center shadow-[0_4px_16px_rgba(35,80,56,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(35,80,56,0.16)]"
-                    >
-                      <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-[#1b4f38] text-white shadow-[0_6px_18px_rgba(18,57,42,0.22)]">
-                        <img
-                          src={client.logo}
-                          alt={`${client.name} logo`}
-                          className="h-10 w-10 object-contain"
-                        />
-                      </div>
-                      {/* <div className="mx-auto mb-2 inline-flex rounded-full bg-[#f3f8f5] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-[#38684d]">
-                        {client.name
-                          .split(' ')
-                          .slice(0, 2)
-                          .map((word) => word.charAt(0))
-                          .join('')}
-                      </div> */}
-                      <p className="text-xs sm:text-sm font-medium leading-snug text-slate-800">{client.name}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Stats Section */}
       {/* <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-200">
           <div className="max-w-7xl mx-auto">
@@ -1416,7 +1177,7 @@ export function Home() {
                 {currentStage === 1 && (
                   <div className="space-y-6">
                     <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center animate-scale-in">
-                      <BarChart3 className="w-6 h-6 text-[#478560]" />
+                      <BarChart3 className="w-6 h-6 text-[#0f2d52]" />
                     </div>
                     <h2 className="text-4xl font-bold text-gray-900 leading-tight animate-slide-up-delay-1">
                       AI PMO Assistant
@@ -1434,14 +1195,14 @@ export function Home() {
                         { icon: FileText, text: 'Predicts delays and simulates recovery actions' }
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${idx * 100}ms` }}>
-                          <item.icon className="w-6 h-6 text-[#478560] flex-shrink-0 mt-0.5" />
+                          <item.icon className="w-6 h-6 text-[#0f2d52] flex-shrink-0 mt-0.5" />
                           <span className="text-lg text-gray-700">{item.text}</span>
                         </li>
                       ))}
                     </ul>
                     <Link
                       to="/theta-pmo"
-                      className="inline-flex items-center px-6 py-3 bg-[#478560] text-white rounded-lg font-medium hover:bg-[#3a6d4e] transition hover:scale-105 animate-slide-up-delay-4"
+                      className="inline-flex items-center px-6 py-3 bg-[#0f2d52] text-white rounded-lg font-medium hover:bg-[#0052a3] transition hover:scale-105 animate-slide-up-delay-4"
                     >
                       Explore AI PMO Assistant
                     </Link>
@@ -1452,7 +1213,7 @@ export function Home() {
                 {currentStage === 2 && (
                   <div className="space-y-6">
                     <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center animate-scale-in">
-                      <BarChart3 className="w-6 h-6 text-[#478560]" />
+                      <BarChart3 className="w-6 h-6 text-[#0f2d52]" />
                     </div>
                     <h2 className="text-4xl font-bold text-gray-900 animate-slide-up-delay-1">
                       AI Safety Guardian
@@ -1470,14 +1231,14 @@ export function Home() {
                         { icon: ClipboardList, text: 'Stronger safety compliance and governance' }
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${idx * 100}ms` }}>
-                          <item.icon className="w-6 h-6 text-[#478560] flex-shrink-0 mt-0.5" />
+                          <item.icon className="w-6 h-6 text-[#0f2d52] flex-shrink-0 mt-0.5" />
                           <span className="text-lg text-gray-700">{item.text}</span>
                         </li>
                       ))}
                     </ul>
                     <Link
                       to="/theta-hse"
-                      className="inline-flex items-center px-6 py-3 bg-[#478560] text-white rounded-lg font-medium hover:bg-[#3a6d4e] transition hover:scale-105 animate-slide-up-delay-4"
+                      className="inline-flex items-center px-6 py-3 bg-[#0f2d52] text-white rounded-lg font-medium hover:bg-[#0052a3] transition hover:scale-105 animate-slide-up-delay-4"
                     >
                       Explore AI Safety Guardian
                     </Link>
@@ -1539,7 +1300,7 @@ export function Home() {
                           <div className="bg-blue-50 rounded-lg p-4">
                             <div className="text-xs text-gray-600 mb-1">Total Budget</div>
                             <div className="text-3xl font-bold text-gray-900">$8.5M</div>
-                            <div className="text-xs text-[#478560] mt-1">68% utilized</div>
+                            <div className="text-xs text-[#0f2d52] mt-1">68% utilized</div>
                           </div>
                         </div>
 
@@ -1561,7 +1322,7 @@ export function Home() {
                                 <span className="font-semibold text-gray-900">85%</span>
                               </div>
                               <div className="w-full bg-gray-200 rounded-full h-2">
-                                <div className="bg-[#478560] h-2 rounded-full" style={{ width: '85%' }}></div>
+                                <div className="bg-[#0f2d52] h-2 rounded-full" style={{ width: '85%' }}></div>
                               </div>
                             </div>
                           </div>
@@ -1578,7 +1339,7 @@ export function Home() {
               {[1, 2].map((stage) => (
                 <div
                   key={stage}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${currentStage === stage ? 'w-8 bg-[#478560]' : 'w-1.5 bg-gray-300'
+                  className={`h-1.5 rounded-full transition-all duration-500 ${currentStage === stage ? 'w-8 bg-[#0f2d52]' : 'w-1.5 bg-gray-300'
                     }`}
                 />
               ))}
@@ -1600,9 +1361,9 @@ export function Home() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl border-2 border-gray-200 hover:border-[#478560] transition-all p-8 group">
+            <div className="bg-white rounded-xl border-2 border-gray-200 hover:border-[#0f2d52] transition-all p-8 group">
               <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition">
-                <BarChart3 className="w-6 h-6 text-[#478560]" />
+                <BarChart3 className="w-6 h-6 text-[#0f2d52]" />
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 mb-3">AI PMO Assistance</h3>
@@ -1619,7 +1380,7 @@ export function Home() {
                   'Executive reporting dashboards'
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#478560] flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-[#0f2d52] flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -1627,16 +1388,16 @@ export function Home() {
 
               <Link
                 to="/theta-pmo"
-                className="inline-flex items-center text-[#478560] font-medium hover:text-[#3a6d4e]"
+                className="inline-flex items-center text-[#0f2d52] font-medium hover:text-[#0052a3]"
               >
                 Learn more
                 <ArrowRight className="w-5 h-5 ml-1" />
               </Link>
             </div>
 
-            <div className="bg-white rounded-xl border-2 border-gray-200 hover:border-[#478560] transition-all p-8 group">
+            <div className="bg-white rounded-xl border-2 border-gray-200 hover:border-[#0f2d52] transition-all p-8 group">
               <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition">
-                <Brain className="w-6 h-6 text-[#478560]" />
+                <Brain className="w-6 h-6 text-[#0f2d52]" />
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 mb-3">AI Safety Guardian</h3>
@@ -1653,7 +1414,7 @@ export function Home() {
                   'Safety analytics & reporting'
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#478560] flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-[#0f2d52] flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -1661,7 +1422,7 @@ export function Home() {
 
               <Link
                 to="/theta-hse"
-                className="inline-flex items-center text-[#478560] font-medium hover:text-[#3a6d4e]"
+                className="inline-flex items-center text-[#0f2d52] font-medium hover:text-[#0052a3]"
               >
                 Learn more
                 <ArrowRight className="w-5 h-5 ml-1" />
@@ -1674,123 +1435,6 @@ export function Home() {
 
 
       {/* Why + CTA Section */}
-      <section className="pt-16 pb-14   ">
-        <div className="w-full">
-          <div className="text-center mb-7">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight mb-4">
-              Why Organizations Choose <span className="text-[#4b8c66]">Theta Dynamics</span>
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Built for enterprise requirements with security, scalability, and reliability at the core
-            </p>
-          </div>
-
-          <div className=" overflow-hidden ">
-            <div className="relative h-30 sm:h-36 bg-cover bg-center overflow-hidden" style={{ backgroundImage: `url(${cyberImage})` }}>
-              <div className="absolute inset-0 bg-black/20" />
-            </div>
-
-            <div className="px-4 sm:px-8 py-6 bg-[#f7f7f7]">
-              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                {[
-                  'Enterprise Security',
-                  'Scalable Architecture',
-                  'Fast Implementation',
-                  'AI-Powered Intelligence',
-                ].map((item) => (
-                  <div key={item} className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm text-gray-600 font-medium justify-center">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#4b8c66]">
-                      <Check className="h-3.5 w-3.5 text-2xl text-white" />
-                    </span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-3">
-                {[
-                  'Real-Time Insights',
-                  'Proven ROI',
-                ].map((item) => (
-                  <div key={item} className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm text-gray-600 font-medium justify-center">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#4b8c66]">
-                      <Check className="h-3.5 w-3.5 text-white" />
-                    </span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden px-6 sm:px-12 py-10 sm:py-16">
-            <div
-              className="pointer-events-none absolute inset-0 opacity-35"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to right, rgba(148,163,184,0.22) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.22) 1px, transparent 1px)',
-                backgroundSize: '115px 85px',
-              }}
-            />
-            <div className="absolute top-10 left-10 h-80 w-80 rounded-full bg-[#478661] opacity-40 blur-3xl" />
-            <div className="absolute top-12 right-16 h-72 w-72 rounded-full bg-[#478661] opacity-45 blur-3xl" />
-
-            <div className="hidden md:block absolute left-[18%] top-8 rounded-xl bg-white/95 p-4 shadow-md">
-              <img src={settingIcon} alt="" className="h-12 w-12 object-contain" />
-            </div>
-            <div className="hidden md:block absolute right-[16%] top-4 rounded-xl bg-white/95 p-4 shadow-md">
-              <img src={upDirectionIcon} alt="" className="h-12 w-12 object-contain" />
-            </div>
-            <div className="hidden md:block absolute right-1/2 translate-x-[190px] top-1/2 -translate-y-[34px]">
-              <img src={messageIcon} alt="" className="h-10 w-10 object-contain opacity-90" />
-            </div>
-            <div className="hidden md:block absolute right-[6%] top-[45%] rounded-lg bg-white/95 p-2.5 shadow-sm">
-              <img src={settingIcon} alt="" className="h-8 w-8 object-contain" />
-            </div>
-            <div className="hidden md:block absolute right-[16%] bottom-10 rounded-xl bg-white/95 p-3 shadow-md">
-              <img src={noteIcon} alt="" className="h-16 w-16 object-contain" />
-            </div>
-            <div className="hidden md:block absolute left-[6%] bottom-8 rounded-xl bg-white/95 p-4 shadow-md rotate-[-12deg]">
-              <img src={chartViewIcon} alt="" className="h-16 w-16 object-contain" />
-            </div>
-
-            <div className="relative z-10 max-w-3xl mx-auto text-center">
-              <h3
-                className="text-5xl font-semibold md:text-6xl lg:text-7xl mb-6 leading-tight bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: 'linear-gradient(90deg, #40C862 0%, #1F6230 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                Ready to Transform
-                <br />
-                Your Operations?
-              </h3>
-              <p className="text-xl text-gray-700 mt-5 mb-8">
-                Join hundreds of enterprises using Theta Dynamics to manage projects and control costs
-              </p>
-              <div className="relative flex flex-col sm:flex-row gap-4 justify-center">
-                <div className="hidden md:block absolute left-[26%] -translate-x-full top-1/2 -translate-y-1/2">
-                  <img src={shareIcon} alt="" className="h-20 w-20 object-contain" />
-                </div>
-                <Link
-                  to="/how-it-works"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-[#478560] text-white rounded-lg font-medium hover:bg-[#3a6d4e] transition"
-                >
-                  Start Free Trial
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-[#478560] border-2 border-[#8ab69d] rounded-lg font-medium hover:border-[#478560] transition"
-                >
-                  Contact Sales
-                </Link>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
     </div>
   );
 }

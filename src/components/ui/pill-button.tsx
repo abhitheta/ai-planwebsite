@@ -10,9 +10,9 @@ interface PillButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const PillButton = forwardRef<HTMLButtonElement, PillButtonProps>(
   ({ className, variant = 'primary', size = 'md', glowRing = false, children, ...props }, ref) => {
     const variants = {
-      primary: 'bg-[#36B37E] text-[#EFF0FF] hover:bg-[#2ea06e]',
-      secondary: 'bg-[#5BE6AB] text-[#224229] hover:bg-[#4dd99e]',
-      outline: 'bg-transparent border-2 border-[#36B37E] text-[#36B37E] hover:bg-[#36B37E]/10',
+      primary: 'bg-[#0f2d52] text-[#e8f0f8] hover:bg-[#0052a3]',
+      secondary: 'bg-[#0066cc] text-[#0f2d52] hover:bg-[#0066cc]',
+      outline: 'bg-transparent border-2 border-[#0f2d52] text-[#0f2d52] hover:bg-[#0f2d52]/10',
     };
 
     const sizes = {
@@ -28,7 +28,7 @@ const PillButton = forwardRef<HTMLButtonElement, PillButtonProps>(
           'rounded-full font-normal tracking-[0.08px] transition-all duration-200 inline-flex items-center justify-center whitespace-nowrap',
           variants[variant],
           sizes[size],
-          glowRing && 'shadow-[0_0_0_4.45px_#B7FFE0]',
+          glowRing && 'shadow-[0_0_0_4.45px_#e8f0f8]',
           className
         )}
         {...props}

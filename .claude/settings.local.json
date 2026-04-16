@@ -11,7 +11,18 @@
       "Bash(npx vite:*)",
       "Bash(node -e 'const fs=require\\('\\\\''fs'\\\\''\\);const s=fs.readFileSync\\('\\\\''__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='\\\\''{'\\\\''\\)o++;else if\\(ch==='\\\\''}'\\\\''\\)c++;else if\\(ch==='\\\\''\\('\\\\''\\)op++;else if\\(ch==='\\\\''\\)'\\\\''\\)cp++;else if\\(ch==='\\\\''['\\\\''\\)ob++;else if\\(ch==='\\\\'']'\\\\''\\)cb++;}console.log\\('\\\\''braces:'\\\\'',o,c,'\\\\''parens:'\\\\'',op,cp,'\\\\''brackets:'\\\\'',ob,cb\\);')",
       "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/Home.tsx','utf8'\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='{'\\)o++;else if\\(ch==='}'\\)c++;else if\\(ch==='\\('\\)op++;else if\\(ch==='\\)'\\)cp++;else if\\(ch==='['\\)ob++;else if\\(ch===']'\\)cb++;}console.log\\('braces:',o,c,'parens:',op,cp,'brackets:',ob,cb\\);\")",
-      "Bash(node -e 'const fs=require\\('\\\\''fs'\\\\''\\);const s=fs.readFileSync\\('\\\\''C:/Projects/IMPORTANT/New folder/ai-planwebsite/__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='\\\\''{'\\\\''\\)o++;else if\\(ch==='\\\\''}'\\\\''\\)c++;else if\\(ch==='\\\\''\\('\\\\''\\)op++;else if\\(ch==='\\\\''\\)'\\\\''\\)cp++;else if\\(ch==='\\\\''['\\\\''\\)ob++;else if\\(ch==='\\\\'']'\\\\''\\)cb++;}console.log\\('\\\\''braces:'\\\\'',o,c,'\\\\''parens:'\\\\'',op,cp,'\\\\''brackets:'\\\\'',ob,cb\\);')"
+      "Bash(node -e 'const fs=require\\('\\\\''fs'\\\\''\\);const s=fs.readFileSync\\('\\\\''C:/Projects/IMPORTANT/New folder/ai-planwebsite/__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='\\\\''{'\\\\''\\)o++;else if\\(ch==='\\\\''}'\\\\''\\)c++;else if\\(ch==='\\\\''\\('\\\\''\\)op++;else if\\(ch==='\\\\''\\)'\\\\''\\)cp++;else if\\(ch==='\\\\''['\\\\''\\)ob++;else if\\(ch==='\\\\'']'\\\\''\\)cb++;}console.log\\('\\\\''braces:'\\\\'',o,c,'\\\\''parens:'\\\\'',op,cp,'\\\\''brackets:'\\\\'',ob,cb\\);')",
+      "WebFetch(domain:ai-planning-main.vercel.app)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -sL \"https://ai-planning-main.vercel.app/\")",
+      "Bash(curl -sL \"https://ai-planning-main.vercel.app/assets/index-Dn3oz3V8.css\" -o /tmp/aiplan-styles.css)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL \"https://ai-planning-main.vercel.app/assets/index-DuTRhgFC.js\" -o /tmp/aiplan-app.js)",
+      "Bash(grep -oE '\"[A-Z][a-zA-Z][^\"]{10,120}\"' /tmp/aiplan-app.js)",
+      "Bash(grep -oE '\"[A-Z][^\"]{8,150}\"' /tmp/aiplan-app.js)",
+      "Bash(grep -iE \"\\\\.\\(mp4|webm|mov|avi|mkv\\)$\")",
+      "Bash(grep -nE \"^      <section|^    </section>$\" \"C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/Home.tsx\")",
+      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/AboutUs.tsx','utf8'\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='{'\\)o++;else if\\(ch==='}'\\)c++;else if\\(ch==='\\('\\)op++;else if\\(ch==='\\)'\\)cp++;else if\\(ch==='['\\)ob++;else if\\(ch===']'\\)cb++;}console.log\\('braces:',o,c,'parens:',op,cp,'brackets:',ob,cb\\);\")"
     ]
   }
 }

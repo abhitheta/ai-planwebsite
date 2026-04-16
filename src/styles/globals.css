@@ -2,23 +2,23 @@
 
 :root {
   /* Theta Dynamics Brand Colors */
-  --theta-primary: #478560;
-  --theta-primary-dark: #3a6d4e;
+  --theta-primary: #0f2d52;
+  --theta-primary-dark: #0052a3;
   --theta-primary-light: #5a9d77;
   --theta-black: #000000;
   --theta-gray: #1a1a1a;
 
   /* Figma Design Colors */
-  --figma-green: #36B37E;
-  --figma-green-light: #5BE6AB;
-  --figma-green-glow: #B7FFE0;
-  --figma-green-mint: #D0FFCD;
+  --figma-green: #0f2d52;
+  --figma-green-light: #0066cc;
+  --figma-green-glow: #e8f0f8;
+  --figma-green-mint: #e8f0f8;
   --figma-green-hero-shadow: #00B477;
   --figma-dark: #252434;
   --figma-dark-deep: #111019;
   --figma-text: #3B394E;
-  --figma-text-green: #224229;
-  --figma-lavender: #EFF0FF;
+  --figma-text-green: #0f2d52;
+  --figma-lavender: #e8f0f8;
   --figma-purple: #4B42AD;
   --figma-purple-dark: #3D2E7C;
   --figma-gray-212121: #212121;
@@ -30,7 +30,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #478560;
+  --primary: #0f2d52;
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.95 0.0058 264.53);
   --secondary-foreground: #000000;
@@ -46,8 +46,8 @@
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #478560;
-  --chart-1: #478560;
+  --ring: #0f2d52;
+  --chart-1: #0f2d52;
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
@@ -55,12 +55,12 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #478560;
+  --sidebar-primary: #0f2d52;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: #478560;
+  --sidebar-ring: #0f2d52;
 }
 
 .dark {

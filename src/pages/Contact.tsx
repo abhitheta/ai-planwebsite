@@ -55,14 +55,14 @@ export function Contact() {
   };
 
   const inputClass =
-    'w-full px-4 py-3 rounded-[12px] bg-white border border-[#E5E7EC] text-[15px] text-[#111019] placeholder:text-[#9CA0AD] focus:border-[#007695] focus:ring-2 focus:ring-[#CCE4EC] outline-none transition';
+    'w-full px-4 py-3 rounded-[12px] bg-white border border-[#E5E7EC] text-[15px] text-[#111019] placeholder:text-[#9CA0AD] focus:border-[#0066cc] focus:ring-2 focus:ring-[#c8d7ea] outline-none transition';
 
   return (
     <div className="min-h-screen bg-white">
       {/* ── Hero ── */}
       <section className="pt-[140px] sm:pt-[160px] lg:pt-[180px] pb-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#007695] uppercase mb-5">
+          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#0066cc] uppercase mb-5">
             Get in Touch
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-[72px] font-normal tracking-tight lg:tracking-[-3px] text-[#111019] leading-[1.05] mb-6">
@@ -96,8 +96,8 @@ export function Contact() {
                       key={channel.label}
                       className="bg-white rounded-[18px] p-4 sm:p-6 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]"
                     >
-                      <div className="w-10 h-10 rounded-[12px] bg-[#E6F4F8] flex items-center justify-center mb-4">
-                        <channel.icon className="w-5 h-5 text-[#007695]" />
+                      <div className="w-10 h-10 rounded-[12px] bg-[#e8f0f8] flex items-center justify-center mb-4">
+                        <channel.icon className="w-5 h-5 text-[#0066cc]" />
                       </div>
                       <p className="text-[12px] font-semibold tracking-[0.1em] text-[#6B6A7C] uppercase mb-1.5">
                         {channel.label}
@@ -105,7 +105,7 @@ export function Contact() {
                       {channel.href ? (
                         <a
                           href={channel.href}
-                          className="block text-[14px] sm:text-[15px] font-semibold text-[#111019] hover:text-[#007695] transition-colors break-all"
+                          className="block text-[14px] sm:text-[15px] font-semibold text-[#111019] hover:text-[#0066cc] transition-colors break-all"
                         >
                           {channel.value}
                         </a>
@@ -144,7 +144,7 @@ export function Contact() {
 
                     {submitted && (
                       <div className="mb-6 p-4 bg-[#E6F7EE] border border-[#B7E8C9] rounded-[12px] flex items-center gap-3">
-                        <div className="w-6 h-6 bg-[#36B37E] rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-6 h-6 bg-[#0f2d52] rounded-full flex items-center justify-center flex-shrink-0">
                           <svg
                             className="w-4 h-4 text-white"
                             fill="none"
@@ -159,7 +159,7 @@ export function Contact() {
                             />
                           </svg>
                         </div>
-                        <p className="text-[#224229] font-medium text-[14px]">
+                        <p className="text-[#0f2d52] font-medium text-[14px]">
                           Thank you! We'll get back to you soon.
                         </p>
                       </div>
@@ -286,7 +286,7 @@ export function Contact() {
 
                       <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center rounded-full bg-[#007695] px-8 py-4 text-[15.6px] font-medium text-white shadow-[0_0_0_4.45px_#CCE4EC] hover:bg-[#005d77] transition-colors tracking-[0.08px]"
+                        className="w-full inline-flex items-center justify-center rounded-full bg-[#0066cc] px-8 py-4 text-[15.6px] font-medium text-white shadow-[0_0_0_4.45px_#c8d7ea] hover:bg-[#0052a3] transition-colors tracking-[0.08px]"
                       >
                         <Send className="w-4 h-4 mr-2" />
                         Send Message
@@ -300,7 +300,7 @@ export function Contact() {
         </FadeInView>
       </section>
 
-      <WorksWhereverBanner />
+      {/* <WorksWhereverBanner /> */}
     </div>
   );
 }

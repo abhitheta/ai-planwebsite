@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import { LogOut, Settings, Bell, Shield, AlertTriangle, Users, Camera, Radio, Activity, MapPin, Eye, CheckCircle, BarChart3 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { OnboardingWizard } from '../components/OnboardingWizard';
-import thetaLogo from 'figma:asset/597399b234f8fb65f05b6e291a4f06fe5c46a34a.png';
+import thetaLogo from '../assets/ai-plan.png';
 
 
 export function HseDashboard() {
@@ -105,7 +105,7 @@ export function HseDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-3">
-              <img src={thetaLogo} alt="Theta AI" className="h-8" />
+              <img src={thetaLogo} alt="AI Planning" className="h-8" />
               <div className="border-l border-gray-300 pl-3">
                 <span className="text-sm font-semibold text-orange-600">AI Safety Guardian</span>
               </div>
@@ -352,7 +352,7 @@ export function HseDashboard() {
               <div className="space-y-2">
                 <Link to="/theta-pmo/dashboard" className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-md transition">
                   <div className="flex items-center space-x-3">
-                    <BarChart3 className="w-5 h-5 text-[#478560]" />
+                    <BarChart3 className="w-5 h-5 text-[#0f2d52]" />
                     <span className="text-sm font-medium text-gray-900">PMO Dashboard</span>
                   </div>
                   <span className="text-orange-600">→</span>

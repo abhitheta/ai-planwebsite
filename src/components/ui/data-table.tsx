@@ -55,14 +55,14 @@ export function DataTable<T extends Record<string, unknown>>({
       <div className="hidden md:block overflow-x-auto rounded-xl border border-gray-100">
         <table className="w-full">
           <thead>
-            <tr className="bg-[#EFF0FF]">
+            <tr className="bg-[#e8f0f8]">
               {columns.map((col) => (
                 <th
                   key={col.key}
                   onClick={col.sortable ? () => handleSort(col.key) : undefined}
                   className={cn(
                     'px-5 py-3.5 text-left text-xs font-medium text-[#3D2E7C] uppercase tracking-wider',
-                    col.sortable && 'cursor-pointer select-none hover:bg-[#e4e5f5]',
+                    col.sortable && 'cursor-pointer select-none hover:bg-[#c8d7ea]',
                     col.className
                   )}
                 >

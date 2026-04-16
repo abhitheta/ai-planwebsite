@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { WorksWhereverBanner } from '../components/WorksWhereverBanner';
 import { FadeInView } from '../components/FadeInView';
-import thetaLogo from 'figma:asset/597399b234f8fb65f05b6e291a4f06fe5c46a34a.png';
+import thetaLogo from '../assets/ai-plan.png';
 
 export function ThetaHSE() {
   return (
@@ -25,13 +25,13 @@ export function ThetaHSE() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
             <Link
               to="/login?redirect=/theta-hse/dashboard"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#5BE6AB] to-[#1E8F5A] shadow-[0_0_0_4px_#DFF7EA,0_6px_14px_rgba(30,143,90,0.22)] hover:from-[#4ddb9c] hover:to-[#187a4c]"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0f2d52] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(30,143,90,0.22)] hover:from-[#0066cc] hover:to-[#0052a3]"
             >
               Start Free Trial
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#6DECB3] to-[#27A06B] shadow-[0_0_0_4px_#DFF7EA,0_6px_14px_rgba(30,143,90,0.18)] hover:from-[#5ee0a4] hover:to-[#1f8e5d]"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0052a3] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(30,143,90,0.18)] hover:from-[#0066cc] hover:to-[#0052a3]"
             >
               Schedule Demo
             </Link>
@@ -83,7 +83,7 @@ export function ThetaHSE() {
       </section>
 
       {/* ── Core Functionality ── */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#E8F5E9]">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#e8f0f8]">
         <FadeInView>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-10">
@@ -101,20 +101,20 @@ export function ThetaHSE() {
             <div className="bg-white rounded-[20px] p-6 sm:p-8 shadow-sm border border-gray-100">
               <div className="flex items-center justify-between mb-6">
                 <h4 className="text-[18px] font-semibold text-[#111019]">AI Cost Auditor</h4>
-                <span className="px-3 py-1 bg-[#E8F5E9] text-[#36B37E] text-[12px] font-medium rounded-full">
+                <span className="px-3 py-1 bg-[#e8f0f8] text-[#0f2d52] text-[12px] font-medium rounded-full">
                   Live
                 </span>
               </div>
 
-              <div className="bg-[#F5FAF5] rounded-[12px] p-5 mb-6">
+              <div className="bg-[#f8fafc] rounded-[12px] p-5 mb-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 bg-[#36B37E] rounded-full" />
+                  <span className="w-2 h-2 bg-[#0f2d52] rounded-full" />
                   <span className="text-[15px] font-semibold text-[#111019]">Anomaly Detected</span>
                 </div>
                 <p className="text-[13px] text-[#3B394E] mb-4">
                   Project Alpha showing 18% cost variance above forecast
                 </p>
-                <button className="w-full bg-[#36B37E] text-white rounded-[10px] py-3 text-[14px] font-medium hover:bg-[#2ea06e] transition-colors">
+                <button className="w-full bg-[#0f2d52] text-white rounded-[10px] py-3 text-[14px] font-medium hover:bg-[#0052a3] transition-colors">
                   Analyze Data
                 </button>
               </div>
@@ -126,7 +126,7 @@ export function ThetaHSE() {
                 </div>
                 <div>
                   <p className="text-[12px] text-[#3B394E] mb-1">Savings Found</p>
-                  <p className="text-3xl font-semibold text-[#36B37E]">$2.4M</p>
+                  <p className="text-3xl font-semibold text-[#0f2d52]">$2.4M</p>
                 </div>
               </div>
             </div>
@@ -288,7 +288,7 @@ export function ThetaHSE() {
       </section>
 
       {/* ── Business Impact ── */}
-      <section className="py-12 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#E8F5E9]">
+      <section className="py-12 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#e8f0f8]">
         <FadeInView>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-10 sm:mb-12">
@@ -397,7 +397,7 @@ export function ThetaHSE() {
       </section>
 
       {/* ── Final CTA ── */}
-      {/* <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#EFF0FF]">
+      {/* <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#e8f0f8]">
         <div className="max-w-[700px] mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-2px] text-[#111019] leading-[1.15] mb-4">
             Protect Your Workforce Today
@@ -409,13 +409,13 @@ export function ThetaHSE() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <Link
               to="/login?redirect=/theta-hse/dashboard"
-              className="inline-flex items-center justify-center rounded-full bg-[#36B37E] px-8 py-3.5 text-[15.6px] font-normal text-[#EFF0FF] shadow-[0_0_0_4.45px_#B7FFE0] hover:bg-[#2ea06e] transition-colors tracking-[0.08px] min-w-[200px]"
+              className="inline-flex items-center justify-center rounded-full bg-[#0f2d52] px-8 py-3.5 text-[15.6px] font-normal text-[#e8f0f8] shadow-[0_0_0_4.45px_#e8f0f8] hover:bg-[#0052a3] transition-colors tracking-[0.08px] min-w-[200px]"
             >
               Start Free Trial
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-[#5BE6AB] px-8 py-3.5 text-[15.6px] font-normal text-[#224229] shadow-[0_0_0_4.45px_#B7FFE0] hover:bg-[#4dd99e] transition-colors tracking-[0.08px] min-w-[200px]"
+              className="inline-flex items-center justify-center rounded-full bg-[#0066cc] px-8 py-3.5 text-[15.6px] font-normal text-[#0f2d52] shadow-[0_0_0_4.45px_#e8f0f8] hover:bg-[#0066cc] transition-colors tracking-[0.08px] min-w-[200px]"
             >
               Schedule Demo
             </Link>
@@ -431,7 +431,7 @@ export function ThetaHSE() {
       </section> */}
 
       {/* ── Zero-Harm Outcome Metrics ── */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#E8F5E9]">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#e8f0f8]">
         <FadeInView>
           <div className="max-w-[1100px] mx-auto">
             <div className="text-center mb-10">
@@ -462,9 +462,9 @@ export function ThetaHSE() {
                   desc: 'Continuous evidence capture and governance-ready safety analytics for HSE teams.',
                 },
               ].map((card) => (
-                <div key={card.label} className="bg-white rounded-[20px] p-7 border border-[#C8E6C9] shadow-sm">
+                <div key={card.label} className="bg-white rounded-[20px] p-7 border border-[#c8d7ea] shadow-sm">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#36B37E] text-white text-[20px] font-semibold">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0f2d52] text-white text-[20px] font-semibold">
                       {card.arrow}
                     </span>
                     <h3 className="text-[20px] font-semibold text-[#111019]">{card.label}</h3>
@@ -482,7 +482,7 @@ export function ThetaHSE() {
         </FadeInView>
       </section>
 
-      <WorksWhereverBanner />
+      {/* <WorksWhereverBanner /> */}
     </div>
   );
 }

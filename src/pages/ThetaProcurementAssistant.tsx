@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { WorksWhereverBanner } from '../components/WorksWhereverBanner';
 import { FadeInView } from '../components/FadeInView';
-import thetaLogo from 'figma:asset/597399b234f8fb65f05b6e291a4f06fe5c46a34a.png';
+import thetaLogo from '../assets/ai-plan.png';
 
 export function ThetaProcurementAssistant() {
   return (
@@ -25,13 +25,13 @@ export function ThetaProcurementAssistant() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#9B5CFF] to-[#5A189F] shadow-[0_0_0_4px_#EADCFB,0_6px_14px_rgba(90,24,159,0.28)] hover:from-[#8a4cf0] hover:to-[#4e1490]"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0f2d52] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(90,24,159,0.28)] hover:from-[#0066cc] hover:to-[#0052a3]"
             >
               Stop Cost Leaks
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#B084FF] to-[#7A3DCC] shadow-[0_0_0_4px_#EADCFB,0_6px_14px_rgba(90,24,159,0.22)] hover:from-[#a278f4] hover:to-[#6d34bd]"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0f2d52] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(90,24,159,0.22)] hover:from-[#0066cc] hover:to-[#0052a3]"
             >
               Schedule Demo
             </Link>
@@ -79,7 +79,7 @@ export function ThetaProcurementAssistant() {
               </div>
 
               <p className="text-[13px] leading-[20px] text-[#111019] italic text-center mt-10 max-w-[640px] mx-auto">
-                <strong className="not-italic text-[#5A189F]">Theta Advantage — Human-in-the-Loop:</strong> AI performs heavy-lifting OCR; expert
+                <strong className="not-italic text-[#0f2d52]">Theta Advantage — Human-in-the-Loop:</strong> AI performs heavy-lifting OCR; expert
                 review guarantees absolute accuracy.
               </p>
             </div>
@@ -88,7 +88,7 @@ export function ThetaProcurementAssistant() {
       </section>
 
       {/* ── Protect Your Bottom Line ── */}
-      <section className="py-12 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#D4C5F9]">
+      <section className="py-12 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#c8d7ea]">
         <FadeInView>
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-12">
@@ -359,13 +359,13 @@ export function ThetaProcurementAssistant() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[180px] transition-all bg-gradient-to-b from-[#9B5CFF] to-[#5A189F] shadow-[0_0_0_4px_#EADCFB,0_6px_14px_rgba(90,24,159,0.28)] hover:from-[#8a4cf0] hover:to-[#4e1490]"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[180px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0f2d52] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(90,24,159,0.28)] hover:from-[#0066cc] hover:to-[#0052a3]"
               >
                 Start Saving Now
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[180px] transition-all bg-gradient-to-b from-[#B084FF] to-[#7A3DCC] shadow-[0_0_0_4px_#EADCFB,0_6px_14px_rgba(90,24,159,0.22)] hover:from-[#a278f4] hover:to-[#6d34bd]"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[180px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0f2d52] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(90,24,159,0.22)] hover:from-[#0066cc] hover:to-[#0052a3]"
               >
                 Schedule Consultation
               </Link>
@@ -375,7 +375,7 @@ export function ThetaProcurementAssistant() {
       </section>
 
 
-      <WorksWhereverBanner />
+      {/* <WorksWhereverBanner /> */}
     </div>
   );
 }

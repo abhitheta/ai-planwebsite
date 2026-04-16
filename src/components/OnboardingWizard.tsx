@@ -65,7 +65,7 @@ export function OnboardingWizard({ product, userName, onComplete }: OnboardingWi
   const totalSteps = 3;
 
   const isPmo = product === 'pmo';
-  const brandColor = isPmo ? '#478560' : '#ea580c';
+  const brandColor = isPmo ? '#0f2d52' : '#ea580c';
   const brandBg = isPmo ? 'from-emerald-50 to-teal-50' : 'from-orange-50 to-red-50';
   const productName = isPmo ? 'AI PMO Assistance' : 'AI Safety Guardian';
 
@@ -243,7 +243,7 @@ export function OnboardingWizard({ product, userName, onComplete }: OnboardingWi
             <div className="p-8 md:p-10">
               <div className="flex items-center space-x-3 mb-2">
                 <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center">
-                  <Briefcase className="w-6 h-6 text-[#478560]" />
+                  <Briefcase className="w-6 h-6 text-[#0f2d52]" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900">Create Your First Project</h2>
@@ -263,7 +263,7 @@ export function OnboardingWizard({ product, userName, onComplete }: OnboardingWi
                     value={data.projectName}
                     onChange={(e) => updateData('projectName', e.target.value)}
                     placeholder="e.g. ERP System Implementation"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#478560] focus:border-transparent outline-none transition text-gray-900"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0f2d52] focus:border-transparent outline-none transition text-gray-900"
                   />
                 </div>
 
@@ -273,7 +273,7 @@ export function OnboardingWizard({ product, userName, onComplete }: OnboardingWi
                     <select
                       value={data.estimatedBudget}
                       onChange={(e) => updateData('estimatedBudget', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#478560] focus:border-transparent outline-none transition text-gray-900 bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0f2d52] focus:border-transparent outline-none transition text-gray-900 bg-white"
                     >
                       <option value="">Select range</option>
                       <option value="<50K">Less than $50K</option>
@@ -290,7 +290,7 @@ export function OnboardingWizard({ product, userName, onComplete }: OnboardingWi
                     <select
                       value={data.timeline}
                       onChange={(e) => updateData('timeline', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#478560] focus:border-transparent outline-none transition text-gray-900 bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0f2d52] focus:border-transparent outline-none transition text-gray-900 bg-white"
                     >
                       <option value="">Select duration</option>
                       <option value="1-3">1-3 months</option>
@@ -306,7 +306,7 @@ export function OnboardingWizard({ product, userName, onComplete }: OnboardingWi
                     <select
                       value={data.teamSize}
                       onChange={(e) => updateData('teamSize', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#478560] focus:border-transparent outline-none transition text-gray-900 bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0f2d52] focus:border-transparent outline-none transition text-gray-900 bg-white"
                     >
                       <option value="">Select size</option>
                       <option value="1-5">1-5 people</option>

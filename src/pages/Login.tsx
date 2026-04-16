@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router';
 import { useAuth } from '../contexts/AuthContext';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
-import thetaLogo from 'figma:asset/597399b234f8fb65f05b6e291a4f06fe5c46a34a.png';
+import thetaLogo from '../assets/ai-plan.png';
 
 
 export function Login() {
@@ -36,7 +36,7 @@ export function Login() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-[#478560] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-12 h-12 border-4 border-[#0f2d52] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
         </div>
       </div>
     );
@@ -55,11 +55,11 @@ export function Login() {
               <div className="mb-8">
                 <img 
                   src={thetaLogo} 
-                  alt="Theta Dynamics" 
+                  alt="AI Planning" 
                   className="h-12 mb-6"
                 />
                 <h1 className="text-4xl font-bold text-gray-900 mb-2">Sign in</h1>
-                <p className="text-gray-600">to access Theta Dynamics Platform</p>
+                <p className="text-gray-600">to access AI Planning Platform</p>
               </div>
 
               {/* Email Input */}
@@ -67,14 +67,14 @@ export function Login() {
                 <input
                   type="text"
                   placeholder="Email address or mobile number"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#478560] focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f2d52] focus:border-transparent"
                   disabled
                 />
               </div>
 
               {/* Next Button */}
               <button
-                className="w-full py-3 bg-[#478560] hover:bg-[#3a6d4e] text-white font-semibold rounded-lg transition mb-8"
+                className="w-full py-3 bg-[#0f2d52] hover:bg-[#0052a3] text-white font-semibold rounded-lg transition mb-8"
                 disabled
               >
                 Next
@@ -96,11 +96,11 @@ export function Login() {
                 <button
                   onClick={handleSignIn}
                   disabled={signingIn}
-                  className="w-12 h-12 flex items-center justify-center rounded-lg border-2 border-gray-300 hover:border-[#478560] hover:shadow-md transition disabled:opacity-50"
+                  className="w-12 h-12 flex items-center justify-center rounded-lg border-2 border-gray-300 hover:border-[#0f2d52] hover:shadow-md transition disabled:opacity-50"
                   title="Sign in with Google"
                 >
                   {signingIn ? (
-                    <div className="w-5 h-5 border-2 border-[#478560] border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-5 h-5 border-2 border-[#0f2d52] border-t-transparent rounded-full animate-spin"></div>
                   ) : (
                     <svg className="w-6 h-6" viewBox="0 0 24 24">
                       <path
@@ -125,7 +125,7 @@ export function Login() {
 
                 {/* Facebook */}
                 <button
-                  className="w-12 h-12 flex items-center justify-center rounded-lg border-2 border-gray-300 hover:border-[#478560] hover:shadow-md transition"
+                  className="w-12 h-12 flex items-center justify-center rounded-lg border-2 border-gray-300 hover:border-[#0f2d52] hover:shadow-md transition"
                   title="Sign in with Facebook"
                   disabled
                 >
@@ -175,14 +175,14 @@ export function Login() {
               {/* Sign Up Link */}
               <div className="text-center text-sm text-gray-600">
                 Don't have a Theta account?{' '}
-                <button className="text-[#478560] hover:text-[#3a6d4e] font-medium">
+                <button className="text-[#0f2d52] hover:text-[#0052a3] font-medium">
                   Sign up now
                 </button>
               </div>
 
               {/* Back to Home */}
               <div className="mt-8 pt-6 border-t border-gray-200 text-center">
-                <Link to="/" className="text-[#478560] hover:text-[#3a6d4e] text-sm font-medium">
+                <Link to="/" className="text-[#0f2d52] hover:text-[#0052a3] text-sm font-medium">
                   ← Back to Home
                 </Link>
               </div>
@@ -194,17 +194,17 @@ export function Login() {
                 <div className="w-64 h-64 mx-auto mb-6 relative">
                   {/* Security Illustration */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-48 h-48 bg-gradient-to-br from-[#478560] to-[#5a9d77] rounded-3xl transform rotate-6 opacity-20"></div>
+                    <div className="w-48 h-48 bg-gradient-to-br from-[#0f2d52] to-[#5a9d77] rounded-3xl transform rotate-6 opacity-20"></div>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-40 h-40 bg-white rounded-2xl shadow-2xl flex items-center justify-center">
-                      <svg className="w-24 h-24 text-[#478560]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-24 h-24 text-[#0f2d52]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                       </svg>
                     </div>
                   </div>
                   {/* Floating Icons */}
-                  <div className="absolute top-8 left-4 w-12 h-12 bg-[#478560] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                  <div className="absolute top-8 left-4 w-12 h-12 bg-[#0f2d52] rounded-full flex items-center justify-center shadow-lg animate-bounce">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>

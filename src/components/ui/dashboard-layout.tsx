@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router';
 import { Menu, X, LogOut, type LucideIcon } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import thetaLogo from 'figma:asset/597399b234f8fb65f05b6e291a4f06fe5c46a34a.png';
+import thetaLogo from '../../assets/ai-plan.png';
 
 export interface SidebarItem {
   label: string;
@@ -37,7 +37,7 @@ export function DashboardLayout({
       {/* Logo */}
       <div className="p-5 border-b border-gray-100">
         <Link to="/" className="flex items-center">
-          <ImageWithFallback src={thetaLogo} alt="Theta Dynamics" className="h-8 w-auto" />
+          <ImageWithFallback src={thetaLogo} alt="AI Planning" className="h-8 w-auto" />
         </Link>
       </div>
 
@@ -49,14 +49,14 @@ export function DashboardLayout({
             <div
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 item.active
-                  ? 'bg-[#36B37E]/10 text-[#36B37E]'
+                  ? 'bg-[#0f2d52]/10 text-[#0f2d52]'
                   : 'text-[#3B394E] hover:bg-gray-50 hover:text-[#252434]'
               }`}
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
               <span className="flex-1">{item.label}</span>
               {item.badge != null && (
-                <span className="bg-[#36B37E] text-white text-xs px-2 py-0.5 rounded-full">
+                <span className="bg-[#0f2d52] text-white text-xs px-2 py-0.5 rounded-full">
                   {item.badge}
                 </span>
               )}
@@ -94,7 +94,7 @@ export function DashboardLayout({
               {userAvatar ? (
                 <img src={userAvatar} alt="" className="w-8 h-8 rounded-full" />
               ) : (
-                <div className="w-8 h-8 rounded-full bg-[#36B37E] flex items-center justify-center text-white text-sm font-medium">
+                <div className="w-8 h-8 rounded-full bg-[#0f2d52] flex items-center justify-center text-white text-sm font-medium">
                   {userName.charAt(0).toUpperCase()}
                 </div>
               )}

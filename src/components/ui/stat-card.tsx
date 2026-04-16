@@ -30,7 +30,7 @@ export function StatCard({ title, value, icon, trend, description, className }: 
             className={cn(
               'inline-flex items-center text-sm font-medium px-2.5 py-1 rounded-full',
               trend.positive
-                ? 'bg-[#B7FFE0] text-[#224229]'
+                ? 'bg-[#e8f0f8] text-[#0f2d52]'
                 : 'bg-red-100 text-red-700'
             )}
           >

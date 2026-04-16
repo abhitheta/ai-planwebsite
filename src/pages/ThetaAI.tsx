@@ -469,7 +469,7 @@ export function ThetaAI() {
           </div>
         </section>
 
-        <WorksWhereverBanner />
+        {/* <WorksWhereverBanner /> */}
 
         {/* <Footer /> */}
       </div>

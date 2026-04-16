@@ -7,34 +7,34 @@ import { WorksWhereverBanner } from '../components/WorksWhereverBanner';
 
 const EXECUTION_STEPS = [
   {
-    key: 'automation-processing',
-    title: 'Automation Processing',
-    body: 'Theta automatically ingests, classifies, and processes operational records from connected systems. This removes repetitive manual effort, standardizes incoming data, and gives teams a clean, reliable starting point for execution.',
-    outcome: 'Faster intake cycles, fewer manual errors, and better data consistency across teams.',
+    key: 'dynamic-orders',
+    title: 'Stage 1: Dynamic Orders',
+    body: 'Ingests regular and emergency orders and enriches them with optimization-ready data like locations, time windows, and constraints. The system collects orders from multiple sources and evaluates key factors such as priority level, delivery time windows, location, package type, and urgency.',
+    outcome: 'Balanced order flow, fewer bottlenecks, every order enters the planning pipeline at the right time with the right priority.',
   },
   {
-    key: 'human-validation',
-    title: 'Human In The Loop Validation',
-    body: 'Critical AI outputs are routed through human checkpoints for approval and correction. Domain experts can validate sensitive recommendations, handle exceptions, and ensure decisions align with business policy and field reality.',
-    outcome: 'Higher trust in AI recommendations and stronger quality control before action.',
+    key: 'optimized-trips',
+    title: 'Stage 2: Optimized Trips',
+    body: 'Builds efficient multi-drop trips using AI routing, live traffic, risk scoring, and operational constraints. Our engine balances driver hours, fuel requirements, and customer windows to deliver the most efficient plan every time.',
+    outcome: 'Fewer miles, higher truck utilisation, and protected service levels — without manual re-planning.',
   },
   {
-    key: 'ai-analysis',
-    title: 'AI Analysis & Predictions',
-    body: 'The platform analyzes trends, detects weak signals, and runs what-if scenarios to model different operational choices. Teams can compare paths side by side before committing resources, helping reduce risk and avoid avoidable delays.',
-    outcome: 'Smarter planning, earlier risk mitigation, and more confident decision-making.',
+    key: 'resource-assignment',
+    title: 'Stage 3: Intelligent Resource Assignment',
+    body: 'Assigns the right truck and driver based on compatibility, certifications, capacity, and real-time status. AI matches trucks to trips by product compatibility, ELD hours, licence class, and proximity — in seconds, not hours.',
+    outcome: 'Right driver, right truck, right trip — with compliance and capacity enforced automatically.',
   },
   {
-    key: 'mobile-notifications',
-    title: 'Mobile App Notifications',
-    body: 'Time-sensitive alerts, follow-up tasks, and escalation prompts are delivered directly to field teams through mobile notifications. Teams receive exactly what to do next, who owns it, and when it is due.',
-    outcome: 'Reduced response latency, clearer ownership, and faster closure of on-ground actions.',
+    key: 'sequential-dispatch',
+    title: 'Stage 4: Real-Time Sequential Dispatch',
+    body: 'Monitors execution, tracks progress, handles exceptions, and dynamically re-optimizes plans in real time. When delays, breakdowns, or priority changes hit, the engine reshuffles remaining trips to protect SLAs.',
+    outcome: 'Live visibility from depot to customer, with proactive recovery instead of reactive firefighting.',
   },
   {
-    key: 'report-analysis',
-    title: 'Reports & Analytics',
-    body: 'Theta consolidates operational activity into clear dashboards and executive-ready reports. Leaders get live visibility into KPI trends, completion rates, bottlenecks, and performance movement across teams and projects.',
-    outcome: 'Transparent performance tracking and quicker strategic decisions backed by evidence.',
+    key: 'continuous-learning',
+    title: 'Stage 5: Continuous Learning',
+    body: 'The Continuous Learning engine improves system intelligence over time by learning from execution data such as actual delivery times, driver behaviour, route performance, and demand variations. This self-correcting feedback loop ensures every planning cycle becomes more accurate than the last.',
+    outcome: 'Every trip makes the platform smarter — forecasting, routing, and planning improve continuously.',
   },
 ];
 
@@ -42,74 +42,74 @@ const MODEL_PILLARS = [
   {
     icon: Database,
     num: '01',
-    title: 'Analysis',
-    desc: 'We begin by deeply understanding your current operations, identifying inefficiencies, cost leakages, and optimization opportunities.',
-    items: ['Data collection & integration', 'Process mapping', 'Baseline establishment', 'Gap analysis'],
+    title: 'Ingest',
+    desc: 'Connect multiple data sources — orders, driver apps, telematics, sensors, and enterprise systems — into a unified planning layer.',
+    items: ['Orders & schedules', 'Telematics & GPS', 'Tank & sensor feeds', 'ERP / CMMS / Excel'],
   },
   {
     icon: Brain,
     num: '02',
-    title: 'Prediction',
-    desc: 'Our AI algorithms analyze patterns, forecast trends, and predict potential issues before they become problems.',
-    items: ['AI-powered forecasting', 'Risk identification', 'Cost projection', 'Performance modeling'],
+    title: 'Plan',
+    desc: 'A custom AI processing layer forecasts demand from historical data, creates optimized orders and trips, and assigns the right drivers and trucks.',
+    items: ['Demand forecasting', 'Multi-drop routing', 'Resource assignment', 'What-If simulations'],
   },
   {
     icon: LineChart,
     num: '03',
-    title: 'Strategies',
-    desc: 'We implement targeted strategies and provide continuous optimization to achieve your operational goals.',
-    items: ['Actionable recommendations', 'Implementation roadmap', 'Continuous monitoring', 'Performance optimization'],
+    title: 'Execute & Learn',
+    desc: 'Continuously monitor execution with live traffic and operational data, handle exceptions, and feed outcomes back into the AI for continuous improvement.',
+    items: ['Live tracking', 'Real-time re-planning', 'Exception handling', 'Self-correcting learning'],
   },
 ];
 
 const SOLUTION_PROCESSES = [
   {
     icon: BarChart3,
-    name: 'AI PMO Assistance',
+    name: 'Regional Distribution Networks',
     steps: [
-      { title: 'Data Integration', desc: 'Connect your existing systems and import project, budget, and resource data' },
-      { title: 'Real-Time Monitoring', desc: 'Track timelines, budgets, and resources with live dashboards' },
-      { title: 'Variance Detection', desc: 'Automatically identify deviations from planned vs. actual metrics' },
-      { title: 'Actionable Insights', desc: 'Receive recommendations and reports to optimize performance' },
+      { title: 'Unified Dispatch', desc: 'Coordinate deliveries across multiple stations with centralized dispatch' },
+      { title: 'Real-time Visibility', desc: 'Live status for every station, truck, and driver in one view' },
+      { title: 'Inventory Sync', desc: 'Tank levels and delivery schedules auto-synchronized across the network' },
+      { title: 'Exception Handling', desc: 'Instant alerts and automated escalation when delays or runouts emerge' },
     ],
   },
   {
     icon: Brain,
-    name: 'AI Safety Guardian',
+    name: 'Logistics Providers',
     steps: [
-      { title: 'Edge Camera Deployment', desc: 'Install edge cameras and RFID sensors across your site for real-time monitoring' },
-      { title: 'Personnel & Zone Tracking', desc: 'RFID-based personnel tracking with zone-level monitoring and access control' },
-      { title: 'Real-Time Safety Alerts', desc: 'Instant notifications for PPE violations, unauthorized zone entry, and safety hazards' },
-      { title: 'Safety Analytics Dashboard', desc: 'Comprehensive safety score, incident trends, and compliance reporting' },
+      { title: 'Route Optimization', desc: 'AI finds the most efficient paths while respecting driver hours and fuel requirements' },
+      { title: 'Cost Reduction', desc: 'Reduce miles, fuel spend, and manual dispatch effort through intelligent automation' },
+      { title: 'Customer Experience', desc: 'Accurate ETAs and proactive communication improve customer satisfaction' },
+      { title: 'Data-driven Insights', desc: 'Dashboards reveal where margin is won and lost across every lane' },
     ],
   },
   {
     icon: Zap,
-    name: 'AI Operations Assistant',
+    name: 'Enterprise Fleets',
     steps: [
-      { title: 'Process Automation', desc: 'Automate routine operational tasks and workflows for maximum efficiency' },
-      { title: 'Intelligent Scheduling', desc: 'AI-powered resource allocation and task scheduling optimization' },
-      { title: 'Performance Monitoring', desc: 'Real-time tracking of operational KPIs and efficiency metrics' },
-      { title: 'Predictive Maintenance', desc: 'Anticipate issues and schedule maintenance before problems occur' },
+      { title: 'Scalable Architecture', desc: 'From 10 stations to 1000+, the platform scales seamlessly without performance degradation' },
+      { title: 'Enterprise-grade Security', desc: 'Bank-grade encryption, role-based access control, and SOC 2 compliance' },
+      { title: 'Compliance & Audit', desc: 'Full audit trail and automated compliance reporting for regulated operations' },
+      { title: 'Integration Ready', desc: 'APIs for ERP, telematics, tank sensors, and existing enterprise systems' },
     ],
   },
   {
     icon: LineChart,
-    name: 'AI Procurement Assistant',
+    name: 'Collaborative Teams',
     steps: [
-      { title: 'Smart Vendor Analysis', desc: 'AI-driven vendor evaluation and selection based on performance data' },
-      { title: 'Cost Optimization', desc: 'Identify savings opportunities and negotiate better pricing automatically' },
-      { title: 'Demand Forecasting', desc: 'Predict procurement needs and optimize inventory levels with AI' },
-      { title: 'Compliance & Risk Management', desc: 'Automated compliance checks and risk assessment for all purchases' },
+      { title: 'Shared Dashboards', desc: 'Enable cross-functional collaboration with live shared dashboards and task assignments' },
+      { title: 'In-app Messaging', desc: 'Notifications and messaging for drivers, dispatchers, and managers' },
+      { title: 'Mobile-first Field Ops', desc: 'Driver mobile app for iOS & Android with offline-safe trip updates' },
+      { title: 'Approval Workflows', desc: 'Admin approvals and exception handling built into every planning cycle' },
     ],
   },
 ];
 
 const DIFFERENTIATORS = [
-  { icon: Upload, title: 'Easy Integration', desc: 'Connect existing systems or upload data in any format' },
-  { icon: Zap, title: 'Real-Time Processing', desc: 'Instant insights as soon as new data arrives' },
-  { icon: Brain, title: 'AI-Powered', desc: 'Machine learning that gets smarter over time' },
-  { icon: BarChart3, title: 'Custom Dashboards', desc: 'Reporting tailored to your specific needs' },
+  { icon: Upload, title: 'Easy Integration', desc: 'Connect Primavera, ERP, tank sensors, and telematics out of the box' },
+  { icon: Zap, title: 'Real-Time Processing', desc: 'Instant insights and exception handling the moment events occur' },
+  { icon: Brain, title: 'AI-Powered Routing', desc: 'Self-correcting routing engine that learns from every trip' },
+  { icon: BarChart3, title: 'Operational Dashboards', desc: 'Live visibility into fleet, stations, and delivery performance' },
 ];
 
 export function HowItWorks() {
@@ -127,35 +127,90 @@ export function HowItWorks() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* ── Hero ── */}
-      <section className="pt-[140px] sm:pt-[160px] lg:pt-[180px] pb-24 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* ── Hero with light-blue gradient ── */}
+      <section className="pt-[140px] sm:pt-[160px] lg:pt-[180px] pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#eff6ff] via-white to-white">
         <div className="max-w-[900px] mx-auto text-center">
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#007695] uppercase mb-5">
-            The Theta Methodology
+          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#0066cc] uppercase mb-5">
+            Solutions
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-[72px] font-normal tracking-tight lg:tracking-[-3px] text-[#111019] leading-[1.05] mb-6">
-            How Theta Works
+          <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold tracking-tight lg:tracking-[-3px] text-[#0f2d52] leading-[1.05] mb-6">
+            AI-Driven Intelligent Logistics Planning
           </h1>
-          <p className="text-base sm:text-lg lg:text-[18px] leading-[30px] text-[#3B394E] font-normal max-w-[720px] mx-auto">
-            Our proven methodology combines AI-powered automation with operational
-            expertise to deliver measurable results — from data intake to
-            decision-ready reporting.
+          <p className="text-base sm:text-lg lg:text-[18px] leading-[30px] text-[#3B394E] font-normal max-w-[780px] mx-auto">
+            AI Planning is an end-to-end intelligent logistics engine that automates, optimizes,
+            and continuously improves the entire process from order intake to final dispatch.
           </p>
         </div>
       </section>
 
-      {/* ── 5-Step Execution Flow ── */}
+      {/* ── What We Offer ── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <FadeInView>
+          <div className="max-w-[1100px] mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-normal tracking-[-2px] text-[#0f2d52] leading-[1.15] mb-4">
+                What We Offer
+              </h2>
+            </div>
+            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 items-center">
+              <div>
+                <h3 className="text-[26px] sm:text-[30px] font-semibold text-[#0f2d52] mb-4">
+                  AI Planning
+                </h3>
+                <p className="text-[15px] leading-[26px] text-[#3B394E]">
+                  AI Planning is an intelligent logistics planning system designed to manage the
+                  complete journey from data ingestion to real-time dispatch and execution. It
+                  connects multiple data sources such as orders, driver apps, telematics systems,
+                  sensors, and existing enterprise systems into a unified platform. Using a custom
+                  AI processing layer, the system generates demand from historical data, creates
+                  optimized orders and trips, assigns the right drivers and trucks, and continuously
+                  monitors execution using live traffic and operational data. The platform also
+                  supports admin approvals, exception handling, ETA management, and real-time
+                  re-planning, ensuring operations stay efficient and on track.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-gradient-to-br from-[#e8f0f8] to-[#c8d7ea] p-6 sm:p-8 shadow-sm">
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { label: 'Order Intake', desc: 'Orders & emergency requests' },
+                    { label: 'AI Optimization', desc: 'Routes, trips, assignments' },
+                    { label: 'Live Dispatch', desc: 'Real-time field execution' },
+                    { label: 'Continuous Learning', desc: 'Feedback loop to AI models' },
+                  ].map((b) => (
+                    <div key={b.label} className="rounded-xl bg-white p-4 shadow-sm">
+                      <p className="text-[13px] font-semibold text-[#0f2d52] mb-1">{b.label}</p>
+                      <p className="text-[11px] text-[#3B394E] leading-snug">{b.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </FadeInView>
+      </section>
+
+      {/* ── How It Works (5-Stage Flow) ── */}
       <section className="py-12 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#F7F9FC]">
         <FadeInView>
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-12">
-              <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-normal tracking-[-2.5px] text-[#111019] leading-[1.1] mb-5">
-                5-Step Execution Flow
+              <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-normal tracking-[-2.5px] text-[#0f2d52] leading-[1.1] mb-5">
+                How It Works
               </h2>
-              <p className="text-[16px] sm:text-[18px] leading-[28px] text-[#3B394E] font-normal max-w-[680px] mx-auto">
-                From automated data intake to decision-ready reporting — each step is
-                intentionally designed to improve visibility, shorten cycle times, and
-                create measurable outcomes.
+              <p className="text-[16px] sm:text-[18px] leading-[28px] text-[#3B394E] font-normal max-w-[720px] mx-auto">
+                From dynamic order intake to real-time dispatch and continuous learning — every
+                stage is designed to keep your fleet on-time and your network efficient.
+              </p>
+            </div>
+
+            {/* Self-Correcting Learning Loop banner */}
+            <div className="mb-10 rounded-2xl bg-gradient-to-r from-[#0f2d52] via-[#1a3d6b] to-[#2a5a8f] px-6 py-6 sm:px-10 sm:py-7 text-center shadow-lg">
+              <p className="text-[13px] font-semibold tracking-[0.2em] text-[#c8d7ea] uppercase mb-1">
+                The Self-Correcting Learning Loop
+              </p>
+              <p className="text-[17px] sm:text-[20px] font-semibold text-white leading-snug max-w-3xl mx-auto">
+                Execution data continuously feeds back into the AI models to refine forecasting,
+                routing, and planning for future operations.
               </p>
             </div>
 
@@ -167,7 +222,7 @@ export function HowItWorks() {
                   className="group relative h-full scroll-mt-28 bg-white rounded-[20px] p-4 sm:p-8 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(16,24,40,0.05),0_18px_36px_-10px_rgba(0,118,149,0.18)]"
                 >
                   <div className="flex items-baseline gap-3 mb-4">
-                    <span className="text-[40px] font-normal text-[#007695] leading-none tracking-[-1px]">
+                    <span className="text-[40px] font-normal text-[#0066cc] leading-none tracking-[-1px]">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <h3 className="text-[18px] sm:text-[20px] font-semibold text-[#111019] leading-snug">
@@ -177,7 +232,7 @@ export function HowItWorks() {
                   <p className="text-[14px] sm:text-[15px] leading-[24px] text-[#3B394E] mb-4">
                     {step.body}
                   </p>
-                  <p className="text-[13px] sm:text-[14px] leading-[22px] text-[#007695] font-medium">
+                  <p className="text-[13px] sm:text-[14px] leading-[22px] text-[#0066cc] font-medium">
                     {step.outcome}
                   </p>
                 </article>
@@ -207,8 +262,8 @@ export function HowItWorks() {
                   className="bg-white rounded-[20px] px-8 py-10 sm:px-10 sm:py-12 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-[14px] bg-[#E6F4F8] flex items-center justify-center flex-shrink-0">
-                      <pillar.icon className="w-6 h-6 text-[#007695]" />
+                    <div className="w-12 h-12 rounded-[14px] bg-[#e8f0f8] flex items-center justify-center flex-shrink-0">
+                      <pillar.icon className="w-6 h-6 text-[#0066cc]" />
                     </div>
                     <span className="text-[14px] font-semibold tracking-[0.15em] text-[#6B6A7C]">
                       STEP {pillar.num}
@@ -240,11 +295,11 @@ export function HowItWorks() {
         <FadeInView>
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-12">
-              <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-normal tracking-[-2.5px] text-[#111019] leading-[1.1] mb-5">
-                How Our Solutions Work
+              <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-normal tracking-[-2.5px] text-[#0f2d52] leading-[1.1] mb-5">
+                Trusted by industry leaders
               </h2>
               <p className="text-[16px] sm:text-[18px] leading-[28px] text-[#3B394E] font-normal">
-                Four tailored AI products, one consistent execution playbook
+                Our platform serves fuel distributors, logistics companies, and fleet operators of all sizes.
               </p>
             </div>
 
@@ -255,8 +310,8 @@ export function HowItWorks() {
                   className="bg-white rounded-[20px] px-8 py-10 sm:px-10 sm:py-12 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]"
                 >
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 rounded-[14px] bg-[#E6F4F8] flex items-center justify-center flex-shrink-0">
-                      <solution.icon className="w-6 h-6 text-[#007695]" />
+                    <div className="w-12 h-12 rounded-[14px] bg-[#e8f0f8] flex items-center justify-center flex-shrink-0">
+                      <solution.icon className="w-6 h-6 text-[#0066cc]" />
                     </div>
                     <h3 className="text-[22px] sm:text-[24px] font-medium text-[#111019] tracking-[-0.3px]">
                       {solution.name}
@@ -265,7 +320,7 @@ export function HowItWorks() {
                   <div className="space-y-5">
                     {solution.steps.map((step, idx) => (
                       <div key={step.title} className="flex items-start gap-4">
-                        <div className="w-8 h-8 rounded-full bg-[#E6F4F8] flex items-center justify-center flex-shrink-0 text-[13px] font-semibold text-[#007695]">
+                        <div className="w-8 h-8 rounded-full bg-[#e8f0f8] flex items-center justify-center flex-shrink-0 text-[13px] font-semibold text-[#0066cc]">
                           {idx + 1}
                         </div>
                         <div>
@@ -305,8 +360,8 @@ export function HowItWorks() {
                   key={feature.title}
                   className="bg-white rounded-[20px] p-4 sm:p-8 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)] transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="w-12 h-12 rounded-[14px] bg-[#E6F4F8] flex items-center justify-center mb-5">
-                    <feature.icon className="w-6 h-6 text-[#007695]" />
+                  <div className="w-12 h-12 rounded-[14px] bg-[#e8f0f8] flex items-center justify-center mb-5">
+                    <feature.icon className="w-6 h-6 text-[#0066cc]" />
                   </div>
                   <h3 className="text-[18px] sm:text-[20px] font-semibold text-[#111019] mb-2 tracking-[-0.3px]">
                     {feature.title}
@@ -321,28 +376,35 @@ export function HowItWorks() {
         </FadeInView>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="py-12 sm:py-10 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* ── Find the right solution CTA ── */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#0f2d52] via-[#1a3d6b] to-[#2a5a8f]">
         <FadeInView>
           <div className="max-w-[760px] mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-2px] text-[#111019] leading-[1.15] mb-4">
-              Ready to See It in Action?
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-1.5px] text-white leading-[1.15] mb-4">
+              Find the right solution for your business
             </h2>
-            <p className="text-[15px] leading-[26px] text-[#6B6A7C] font-normal max-w-[520px] mx-auto mb-8">
-              Schedule a demo and discover how Theta can transform your operations
-              into a measurable, predictable system.
+            <p className="text-[15px] leading-[26px] text-[#c8d7ea] font-normal max-w-[520px] mx-auto mb-8">
+              Talk to our team about your specific needs and challenges.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-[#007695] px-8 py-3.5 text-[15.6px] font-normal text-white shadow-[0_0_0_4.45px_#CCE4EC] hover:bg-[#005d77] transition-colors tracking-[0.08px] min-w-[200px]"
-            >
-              Get in Touch
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-[15px] font-medium text-[#0f2d52] hover:bg-[#e8f0f8] transition-colors min-w-[180px]"
+              >
+                Contact sales
+              </Link>
+              <Link
+                to="/features"
+                className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-sm px-8 py-3.5 text-[15px] font-medium text-white hover:bg-white/20 transition-colors min-w-[180px]"
+              >
+                View all features
+              </Link>
+            </div>
           </div>
         </FadeInView>
       </section>
 
-      <WorksWhereverBanner />
+      {/* <WorksWhereverBanner /> */}
     </div>
   );
 }
