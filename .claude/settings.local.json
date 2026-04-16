@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from docx import Document; d=Document\\('website information needed 2.docx'\\); [print\\(p.text\\) for p in d.paragraphs]\")",
+      "Bash(pip install:*)",
+      "Read(//tmp/docx_extract/**)",
+      "Read(//tmp/docx_extract/word/**)",
+      "Bash(python -c ':*)",
+      "Bash(wc -l \"C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/\"*.tsx \"C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/components/\"*.tsx)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)",
+      "Bash(node -e 'const fs=require\\('\\\\''fs'\\\\''\\);const s=fs.readFileSync\\('\\\\''__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='\\\\''{'\\\\''\\)o++;else if\\(ch==='\\\\''}'\\\\''\\)c++;else if\\(ch==='\\\\''\\('\\\\''\\)op++;else if\\(ch==='\\\\''\\)'\\\\''\\)cp++;else if\\(ch==='\\\\''['\\\\''\\)ob++;else if\\(ch==='\\\\'']'\\\\''\\)cb++;}console.log\\('\\\\''braces:'\\\\'',o,c,'\\\\''parens:'\\\\'',op,cp,'\\\\''brackets:'\\\\'',ob,cb\\);')",
+      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/Home.tsx','utf8'\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='{'\\)o++;else if\\(ch==='}'\\)c++;else if\\(ch==='\\('\\)op++;else if\\(ch==='\\)'\\)cp++;else if\\(ch==='['\\)ob++;else if\\(ch===']'\\)cb++;}console.log\\('braces:',o,c,'parens:',op,cp,'brackets:',ob,cb\\);\")",
+      "Bash(node -e 'const fs=require\\('\\\\''fs'\\\\''\\);const s=fs.readFileSync\\('\\\\''C:/Projects/IMPORTANT/New folder/ai-planwebsite/__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='\\\\''{'\\\\''\\)o++;else if\\(ch==='\\\\''}'\\\\''\\)c++;else if\\(ch==='\\\\''\\('\\\\''\\)op++;else if\\(ch==='\\\\''\\)'\\\\''\\)cp++;else if\\(ch==='\\\\''['\\\\''\\)ob++;else if\\(ch==='\\\\'']'\\\\''\\)cb++;}console.log\\('\\\\''braces:'\\\\'',o,c,'\\\\''parens:'\\\\'',op,cp,'\\\\''brackets:'\\\\'',ob,cb\\);')"
+    ]
+  }
+}
