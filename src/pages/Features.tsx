@@ -105,7 +105,7 @@ const FEATURES: Feature[] = [
 // ── Mockup visuals ───────────────────────────────────────────────────────────
 function Mockup({ kind }: { kind: MockupKind }) {
   const base =
-    'relative rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden w-full h-full min-h-[360px] aspect-[4/3] lg:aspect-auto';
+    'relative rounded-[16px] sm:rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden w-full h-full min-h-[280px] sm:min-h-[360px] aspect-[4/3] lg:aspect-auto';
 
   if (kind === 'map') {
     return (
@@ -426,15 +426,15 @@ export function Features() {
   return (
     <div className="min-h-screen bg-white overflow-x-clip">
       {/* ── Hero ── */}
-      <section className="pt-[112px] sm:pt-[130px] lg:pt-[150px] pb-12 sm:pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f7f9fc] via-white to-white">
+      <section className="pt-[112px] sm:pt-[130px] lg:pt-[150px] pb-10 sm:pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f7f9fc] via-white to-white">
         <div className="max-w-[1100px] mx-auto text-center">
           <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
             Features
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-bold tracking-tight lg:tracking-[-2.5px] text-[#0f2d52] leading-[1.05] mb-5">
+          <h1 className="text-[28px] sm:text-4xl lg:text-[52px] font-bold tracking-tight lg:tracking-[-2.5px] text-[#0f2d52] leading-[1.1] mb-4 sm:mb-5">
             Built for real-world operations
           </h1>
-          <p className="text-base sm:text-lg lg:text-[18px] leading-[30px] text-[#3B394E] font-normal max-w-[720px] mx-auto mb-10">
+          <p className="text-[14px] sm:text-base lg:text-[18px] leading-[24px] sm:leading-[30px] text-[#3B394E] font-normal max-w-[720px] mx-auto mb-8 sm:mb-10">
             From forecasting to final delivery, everything you need to manage a reliable, on-time
             fuel network.
           </p>
@@ -444,25 +444,25 @@ export function Features() {
             {/* Soft cyan glow behind the card for depth */}
             <div
               aria-hidden
-              className="pointer-events-none absolute -inset-10 rounded-[60px] blur-3xl"
+              className="pointer-events-none absolute -inset-6 sm:-inset-10 rounded-[40px] sm:rounded-[60px] blur-3xl"
               style={{
                 background:
                   'radial-gradient(circle at center, rgba(0,102,204,0.28) 0%, rgba(0,102,204,0.16) 38%, rgba(0,102,204,0.06) 62%, rgba(0,102,204,0) 80%)',
               }}
             />
 
-            <div className="relative rounded-[28px] bg-white px-5 py-9 sm:px-14 sm:py-12 shadow-[0_0_20px_rgba(0,102,204,0.18),0_0_40px_rgba(0,102,204,0.14),0_0_70px_rgba(0,102,204,0.10)]">
-              <ul className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 sm:gap-x-16 gap-y-8 sm:gap-y-10 list-none p-0 m-0">
+            <div className="relative rounded-[20px] sm:rounded-[28px] bg-white px-4 py-6 sm:px-14 sm:py-12 shadow-[0_0_20px_rgba(0,102,204,0.18),0_0_40px_rgba(0,102,204,0.14),0_0_70px_rgba(0,102,204,0.10)]">
+              <ul className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-10 lg:gap-x-16 gap-y-5 sm:gap-y-8 lg:gap-y-10 list-none p-0 m-0">
                 {CATEGORIES.map((c) => (
-                  <li key={c.label} className="flex items-center gap-4 text-left">
-                    <c.icon className="h-6 w-6 text-[#111019] flex-shrink-0" strokeWidth={1.75} />
-                    <span className="text-[16px] sm:text-[18px] font-medium text-[#111019] leading-tight">
+                  <li key={c.label} className="flex items-center gap-2.5 sm:gap-4 text-left">
+                    <c.icon className="h-5 w-5 sm:h-6 sm:w-6 text-[#0066cc] flex-shrink-0" strokeWidth={1.75} />
+                    <span className="text-[12.5px] sm:text-[16px] lg:text-[18px] font-medium text-[#111019] leading-tight">
                       {c.label}
                     </span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-12 text-center text-[14px] text-[#6B6A7C] italic">
+              <p className="mt-6 sm:mt-12 text-center text-[12px] sm:text-[14px] text-[#6B6A7C] italic">
                 Explore categories — each item maps to the features below.
               </p>
             </div>
@@ -509,32 +509,32 @@ export function Features() {
           <section
             key={f.id}
             id={f.id}
-            className={`py-14 sm:py-20 px-4 sm:px-6 lg:px-8 ${bg} scroll-mt-[140px] lg:scroll-mt-[180px]`}
+            className={`py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 ${bg} scroll-mt-[120px] sm:scroll-mt-[140px] lg:scroll-mt-[180px]`}
           >
             <FadeInView>
               <div className="max-w-[1200px] mx-auto">
-                <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-stretch">
+                <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 sm:gap-10 lg:gap-14 items-stretch">
                   {/* Text column */}
                   <div className={`flex flex-col ${flipped ? 'lg:order-2' : ''}`}>
-                    <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
+                    <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-3 sm:mb-4 self-start">
                       Feature · {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0f2d52] tracking-[-1.2px] leading-[1.1] mb-5">
+                    <h2 className="text-[26px] sm:text-4xl lg:text-[44px] font-bold text-[#0f2d52] tracking-[-0.8px] sm:tracking-[-1.2px] leading-[1.15] sm:leading-[1.1] mb-4 sm:mb-5">
                       {f.title}
                     </h2>
-                    <p className="text-[15px] sm:text-[16px] leading-[26px] text-[#3B394E] mb-6">
+                    <p className="text-[14px] sm:text-[15px] lg:text-[16px] leading-[24px] sm:leading-[26px] text-[#3B394E] mb-5 sm:mb-6">
                       {f.description}
                     </p>
-                    <div className="rounded-2xl bg-white border border-[#c8d7ea] p-4 sm:p-5 space-y-2 shadow-sm">
+                    <div className="rounded-xl sm:rounded-2xl bg-white border border-[#c8d7ea] p-3 sm:p-5 space-y-2 shadow-sm">
                       {f.bullets.map((b) => (
                         <div
                           key={b}
-                          className="flex items-center gap-3 rounded-xl bg-[#f7f9fc] px-4 py-3 border border-[#e8f0f8]"
+                          className="flex items-center gap-2.5 sm:gap-3 rounded-lg sm:rounded-xl bg-[#f7f9fc] px-3 sm:px-4 py-2.5 sm:py-3 border border-[#e8f0f8]"
                         >
-                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066cc] text-white flex-shrink-0">
-                            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                          <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#0066cc] text-white flex-shrink-0">
+                            <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={3} />
                           </span>
-                          <span className="text-[14px] font-medium text-[#0f2d52]">{b}</span>
+                          <span className="text-[13px] sm:text-[14px] font-medium text-[#0f2d52]">{b}</span>
                         </div>
                       ))}
                     </div>
@@ -545,7 +545,7 @@ export function Features() {
                     <Mockup kind={f.mockup} />
                     <div
                       aria-hidden
-                      className="pointer-events-none absolute -inset-6 -z-10 rounded-[32px] blur-3xl opacity-50"
+                      className="pointer-events-none absolute -inset-4 sm:-inset-6 -z-10 rounded-[24px] sm:rounded-[32px] blur-3xl opacity-50"
                       style={{
                         background:
                           'radial-gradient(circle at center, rgba(0,102,204,0.22) 0%, rgba(0,102,204,0) 70%)',
