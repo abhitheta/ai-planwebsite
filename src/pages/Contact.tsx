@@ -20,56 +20,21 @@ import {
   Briefcase,
 } from 'lucide-react';
 
-type TabKey = 'new' | 'existing' | 'general' | 'offices';
-
-const TABS: { key: TabKey; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { key: 'new', label: 'New Customer', icon: Sparkles },
-  { key: 'existing', label: 'Existing Customer', icon: LifeBuoy },
-  { key: 'general', label: 'General Inquiries', icon: MessageSquare },
-  { key: 'offices', label: 'Our Offices', icon: Globe },
+const NAV_PILLS: { label: string; href: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { label: 'New Customer', href: '#new-customer', icon: Sparkles },
+  { label: 'Existing Customer', href: '#existing-customer', icon: LifeBuoy },
+  { label: 'General', href: '#general', icon: MessageSquare },
+  { label: 'Offices', href: '#offices', icon: Globe },
 ];
 
 export function Contact() {
-  const [tab, setTab] = useState<TabKey>('new');
-
   return (
     <div className="min-h-screen bg-white overflow-x-clip">
       <HeroSection />
-
-      {/* Tab navigation */}
-      <section className="bg-white border-b border-[#e8f0f8]">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-start sm:justify-center gap-1 sm:gap-2 lg:gap-4 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {TABS.map((t) => {
-              const active = t.key === tab;
-              return (
-                <button
-                  key={t.key}
-                  type="button"
-                  onClick={() => setTab(t.key)}
-                  className={`relative whitespace-nowrap py-4 px-3 sm:px-5 text-[13px] sm:text-[14px] font-medium transition-colors inline-flex items-center gap-2 ${
-                    active ? 'text-[#0066cc]' : 'text-[#3B394E] hover:text-[#0f2d52]'
-                  }`}
-                >
-                  <t.icon className="w-4 h-4" />
-                  {t.label}
-                  {active && (
-                    <span className="absolute bottom-0 left-3 right-3 sm:left-5 sm:right-5 h-[2px] bg-[#0066cc]" />
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <div key={tab}>
-        {tab === 'new' && <NewCustomerSection />}
-        {tab === 'existing' && <ExistingCustomerSection />}
-        {tab === 'general' && <GeneralInquiriesSection />}
-        {tab === 'offices' && <OfficesSection />}
-      </div>
-
+      <NewCustomerSection />
+      <ExistingCustomerSection />
+      <GeneralInquiriesSection />
+      <OfficesSection />
       <FooterCTA />
     </div>
   );
@@ -99,6 +64,19 @@ function HeroSection() {
         <p className="text-base sm:text-[17px] leading-[28px] text-[#3B394E] max-w-[640px] mx-auto">
           Ready to transform your fuel delivery operations? Let's talk about your needs.
         </p>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          {NAV_PILLS.map((p) => (
+            <a
+              key={p.label}
+              href={p.href}
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#c8d7ea] bg-white/80 backdrop-blur px-4 py-1.5 text-[12.5px] font-medium text-[#0f2d52] hover:border-[#0066cc] hover:text-[#0066cc] transition-colors"
+            >
+              <p.icon className="w-3.5 h-3.5" />
+              {p.label}
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -132,7 +110,7 @@ function NewCustomerSection() {
   ];
 
   return (
-    <section id="new-customer" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#f7f9fc]">
+    <section id="new-customer" className="scroll-mt-24 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#f7f9fc]">
       <div className="max-w-[1200px] mx-auto">
         <SectionHeader
           tag="New Customer"
@@ -229,7 +207,7 @@ function NewCustomerSection() {
 // ═══════════════════════════════════════════════════════════════════════════
 function ExistingCustomerSection() {
   return (
-    <section id="existing-customer" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="existing-customer" className="scroll-mt-24 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-[1100px] mx-auto">
         <SectionHeader
           tag="Existing Customer"
@@ -328,7 +306,7 @@ function GeneralInquiriesSection() {
   return (
     <section
       id="general"
-      className="relative bg-gradient-to-b from-[#0066cc] via-[#0066cc] to-[#0052a3] py-14 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="scroll-mt-24 relative bg-gradient-to-b from-[#0066cc] via-[#0066cc] to-[#0052a3] py-14 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <div
         aria-hidden
@@ -353,28 +331,42 @@ function GeneralInquiriesSection() {
           {relations.map((r) => (
             <div
               key={r.title}
-              className="bg-white rounded-[16px] p-6 sm:p-7 text-center hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25)] transition-shadow"
+              className="group relative bg-white rounded-[20px] p-6 sm:p-7 text-center ring-1 ring-white/0 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.2)] hover:-translate-y-1.5 hover:shadow-[0_30px_50px_-15px_rgba(0,0,0,0.35)] hover:ring-white/40 transition-all duration-300 ease-out overflow-hidden"
             >
-              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[#e8f0f8] text-[#0066cc] mb-4">
-                <r.icon className="w-5 h-5" />
+              {/* Accent glow on hover */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 -top-1 h-24 bg-gradient-to-b from-[#4fa3ff]/0 to-transparent group-hover:from-[#4fa3ff]/20 transition-all duration-500"
+              />
+
+              <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e8f0f8] text-[#0066cc] mb-4 ring-4 ring-[#f7f9fc] group-hover:bg-[#0066cc] group-hover:text-white group-hover:scale-110 group-hover:rotate-[-4deg] transition-all duration-300 ease-out">
+                <r.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-[18px] font-bold text-[#0f2d52] mb-2">{r.title}</h3>
+              <h3 className="relative text-[18px] font-bold text-[#0f2d52] mb-2 group-hover:text-[#0066cc] transition-colors">
+                {r.title}
+              </h3>
               {r.contact ? (
                 <a
                   href={r.contact.href}
-                  className="block text-[13px] font-medium text-[#0066cc] hover:underline mb-4"
+                  className="relative inline-flex items-center gap-1 text-[13px] font-semibold text-[#0066cc] mb-4 group/link"
                 >
-                  {r.contact.label}
+                  <span className="bg-[linear-gradient(#0066cc,#0066cc)] bg-[length:0%_1.5px] bg-no-repeat bg-[position:0_100%] group-hover/link:bg-[length:100%_1.5px] transition-[background-size] duration-300">
+                    {r.contact.label}
+                  </span>
                 </a>
               ) : (
                 <div className="h-[22px] mb-4" />
               )}
-              <div className="pt-4 border-t border-[#e8f0f8]">
-                <p className="text-[14px] font-medium text-[#0f2d52] mb-1">{r.person}</p>
+              <div className="relative pt-4 border-t border-[#e8f0f8] group-hover:border-[#c8d7ea] transition-colors">
+                <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-[#6B6A7C] mb-1">
+                  Point of contact
+                </p>
+                <p className="text-[14px] font-semibold text-[#0f2d52] mb-1">{r.person}</p>
                 <a
                   href={`mailto:${r.personEmail}`}
-                  className="text-[12px] text-[#0066cc] hover:underline break-all"
+                  className="inline-flex items-center gap-1 text-[12px] text-[#0066cc] hover:underline break-all"
                 >
+                  <Mail className="w-3 h-3 flex-shrink-0" />
                   {r.personEmail}
                 </a>
               </div>
@@ -383,26 +375,32 @@ function GeneralInquiriesSection() {
         </div>
 
         {/* Partnership block */}
-        <div className="bg-white rounded-[16px] p-6 sm:p-8 lg:p-10">
-          <div className="grid sm:grid-cols-[1fr_200px] gap-6 items-center">
+        <div className="group relative bg-white rounded-[20px] p-6 sm:p-8 lg:p-10 overflow-hidden shadow-[0_10px_30px_-15px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_50px_-15px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-300 ease-out">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -left-20 -bottom-20 w-72 h-72 rounded-full bg-gradient-to-tr from-[#4fa3ff]/10 via-[#f4bb3a]/5 to-transparent group-hover:from-[#4fa3ff]/20 transition-all duration-500"
+          />
+          <div className="relative grid sm:grid-cols-[1fr_200px] gap-6 items-center">
             <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#e8f0f8] text-[#0066cc]">
-                  <Handshake className="w-4.5 h-4.5" />
+              <div className="flex items-center gap-3 mb-3">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#e8f0f8] to-[#dbeafe] text-[#0066cc] ring-4 ring-[#f7f9fc] group-hover:from-[#0066cc] group-hover:to-[#003d7a] group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                  <Handshake className="w-5 h-5" />
                 </span>
-                <h3 className="text-[22px] sm:text-[24px] font-bold text-[#0f2d52]">
+                <h3 className="text-[22px] sm:text-[24px] font-bold text-[#0f2d52] group-hover:text-[#0066cc] transition-colors">
                   Partnership Opportunities
                 </h3>
               </div>
-              <p className="text-[14px] leading-[22px] text-[#3B394E] mb-4 max-w-[520px]">
+              <p className="text-[14px] leading-[22px] text-[#3B394E] mb-5 max-w-[520px]">
                 Interested in partnering with AI-Planning.io? We'd love to explore collaboration
                 opportunities with your organization.
               </p>
               <a
                 href="mailto:partnerships@ai-planning.io"
-                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#0066cc] hover:underline"
+                className="inline-flex items-center gap-2 rounded-full bg-[#0066cc] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_8px_20px_-8px_rgba(0,102,204,0.55)] hover:bg-[#0052a3] hover:shadow-[0_12px_28px_-8px_rgba(0,102,204,0.75)] hover:-translate-y-0.5 transition-all duration-200"
               >
-                partnerships@ai-planning.io <ArrowUpRight className="w-4 h-4" />
+                <Mail className="w-4 h-4" />
+                partnerships@ai-planning.io
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
 
@@ -494,7 +492,7 @@ function OfficesSection() {
   const filtered = region === 'all' ? OFFICES : OFFICES.filter((o) => o.region === region);
 
   return (
-    <section id="offices" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#f7f9fc]">
+    <section id="offices" className="scroll-mt-24 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#f7f9fc]">
       <div className="max-w-[1100px] mx-auto">
         <div className="text-center mb-10">
           <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-white ring-4 ring-[#e8f0f8] shadow-sm">
