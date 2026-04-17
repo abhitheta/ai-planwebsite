@@ -4,7 +4,7 @@ import { WorksWhereverBanner } from '../components/WorksWhereverBanner';
 import { FadeInView } from '../components/FadeInView';
 import thetaLogo from '../assets/ai-plan.png';
 
-export function ThetaHSE() {
+export function Safety() {
   return (
     <div className="min-h-screen bg-white overflow-x-clip">
 

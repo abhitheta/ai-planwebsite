@@ -6,7 +6,7 @@ import { OnboardingWizard } from '../components/OnboardingWizard';
 import thetaLogo from '../assets/ai-plan.png';
 
 
-export function HseDashboard() {
+export function SafetyDashboard() {
   const { user, loading, signOut } = useAuth();
   const navigate = useNavigate();
   const [showOnboarding, setShowOnboarding] = useState(false);

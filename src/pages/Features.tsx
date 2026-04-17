@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   MapPin,
   Target,
@@ -105,11 +105,11 @@ const FEATURES: Feature[] = [
 // ── Mockup visuals ───────────────────────────────────────────────────────────
 function Mockup({ kind }: { kind: MockupKind }) {
   const base =
-    'relative rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden';
+    'relative rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden w-full h-full min-h-[360px] aspect-[4/3] lg:aspect-auto';
 
   if (kind === 'map') {
     return (
-      <div className={base + ' aspect-[4/3]'}>
+      <div className={base}>
         <div className="absolute inset-0 flex">
           <div className="w-1/4 bg-[#0f2d52] p-3 flex flex-col gap-2">
             {['Dashboard', 'Orders', 'Trips', 'Drivers', 'Trucks'].map((i) => (
@@ -117,7 +117,11 @@ function Mockup({ kind }: { kind: MockupKind }) {
             ))}
           </div>
           <div className="flex-1 relative bg-gradient-to-br from-[#eff6ff] to-[#c8d7ea]">
-            <svg viewBox="0 0 300 220" className="absolute inset-0 w-full h-full">
+            <svg
+              viewBox="0 0 300 220"
+              preserveAspectRatio="xMidYMid slice"
+              className="absolute inset-0 w-full h-full"
+            >
               <path
                 d="M30,180 Q90,140 130,150 T220,100 T280,50"
                 stroke="#0066cc"
@@ -149,9 +153,9 @@ function Mockup({ kind }: { kind: MockupKind }) {
       { d: 'Sun', v: 95 },
     ];
     return (
-      <div className={base + ' p-5 sm:p-6'}>
+      <div className={base + ' p-5 sm:p-6 flex flex-col'}>
         <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">7-Day Forecast</p>
-        <div className="space-y-3">
+        <div className="flex-1 flex flex-col justify-around gap-3">
           {days.map((d) => (
             <div key={d.d} className="flex items-center gap-3">
               <span className="w-10 text-[11px] font-medium text-[#3B394E]">{d.d}</span>
@@ -173,9 +177,13 @@ function Mockup({ kind }: { kind: MockupKind }) {
 
   if (kind === 'chart') {
     return (
-      <div className={base + ' aspect-[4/3] p-5'}>
+      <div className={base + ' p-5 flex flex-col'}>
         <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">Stock vs Sensor Reading</p>
-        <svg viewBox="0 0 300 180" className="w-full h-auto">
+        <svg
+          viewBox="0 0 300 180"
+          preserveAspectRatio="xMidYMid meet"
+          className="w-full flex-1 min-h-0"
+        >
           <defs>
             <linearGradient id="gr1" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#0066cc" stopOpacity="0.3" />
@@ -220,9 +228,9 @@ function Mockup({ kind }: { kind: MockupKind }) {
       { t: 'ETA updated: Trip 9018', tag: 'Info', color: 'bg-[#e8f0f8] text-[#0f2d52]' },
     ];
     return (
-      <div className={base + ' p-5'}>
+      <div className={base + ' p-5 flex flex-col'}>
         <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">Recent Alerts</p>
-        <div className="space-y-2.5">
+        <div className="flex-1 flex flex-col justify-around gap-2.5">
           {items.map((a, i) => (
             <div
               key={i}
@@ -242,7 +250,7 @@ function Mockup({ kind }: { kind: MockupKind }) {
 
   if (kind === 'dashboard') {
     return (
-      <div className={base + ' aspect-[4/3] p-5'}>
+      <div className={base + ' p-5 flex flex-col'}>
         <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">Operational Overview</p>
         <div className="grid grid-cols-3 gap-2.5 mb-4">
           {[
@@ -256,7 +264,11 @@ function Mockup({ kind }: { kind: MockupKind }) {
             </div>
           ))}
         </div>
-        <svg viewBox="0 0 300 90" className="w-full">
+        <svg
+          viewBox="0 0 300 90"
+          preserveAspectRatio="xMidYMax meet"
+          className="w-full flex-1 min-h-0"
+        >
           {[60, 50, 70, 45, 55, 30, 40, 55, 35, 25, 45, 30].map((h, i) => (
             <rect
               key={i}
@@ -276,8 +288,8 @@ function Mockup({ kind }: { kind: MockupKind }) {
 
   if (kind === 'loop') {
     return (
-      <div className={base + ' aspect-[4/3] p-6 flex items-center justify-center'}>
-        <svg viewBox="0 0 280 220" className="w-full h-auto">
+      <div className={base + ' p-6 flex items-center justify-center'}>
+        <svg viewBox="0 0 280 220" preserveAspectRatio="xMidYMid meet" className="w-full h-full max-h-[80%]">
           <defs>
             <marker
               id="arrow"
@@ -346,7 +358,7 @@ function Mockup({ kind }: { kind: MockupKind }) {
 
   // shield
   return (
-    <div className={base + ' aspect-[4/3] p-5 flex flex-col items-center justify-center gap-4'}>
+    <div className={base + ' p-5 flex flex-col items-center justify-center gap-4'}>
       <div className="w-24 h-24 rounded-full bg-[#0f2d52] flex items-center justify-center shadow-lg">
         <svg viewBox="0 0 24 24" className="w-12 h-12 text-white" fill="currentColor">
           <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z" />
@@ -377,8 +389,10 @@ function scrollToFeature(id: string) {
   }
 }
 
-export function ThetaOpsAssistant() {
+export function Features() {
   const [activeId, setActiveId] = useState<string>(FEATURES[0].id);
+  const tabBarRef = useRef<HTMLDivElement | null>(null);
+  const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   // Observe which feature section is most in view to highlight its tab
   useEffect(() => {
@@ -400,11 +414,23 @@ export function ThetaOpsAssistant() {
     return () => observer.disconnect();
   }, []);
 
+  // Keep the active tab horizontally centered in the scroller (mobile UX)
+  useEffect(() => {
+    const bar = tabBarRef.current;
+    const btn = tabRefs.current[activeId];
+    if (!bar || !btn) return;
+    const target = btn.offsetLeft - bar.clientWidth / 2 + btn.clientWidth / 2;
+    bar.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+  }, [activeId]);
+
   return (
     <div className="min-h-screen bg-white overflow-x-clip">
       {/* ── Hero ── */}
       <section className="pt-[112px] sm:pt-[130px] lg:pt-[150px] pb-12 sm:pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f7f9fc] via-white to-white">
         <div className="max-w-[1100px] mx-auto text-center">
+          <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
+            Features
+          </span>
           <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-bold tracking-tight lg:tracking-[-2.5px] text-[#0f2d52] leading-[1.05] mb-5">
             Built for real-world operations
           </h1>
@@ -421,11 +447,11 @@ export function ThetaOpsAssistant() {
               className="pointer-events-none absolute -inset-10 rounded-[60px] blur-3xl"
               style={{
                 background:
-                  'radial-gradient(circle at center, rgba(99,200,240,0.35) 0%, rgba(103,232,249,0.22) 38%, rgba(99,200,240,0.08) 62%, rgba(99,200,240,0) 80%)',
+                  'radial-gradient(circle at center, rgba(0,102,204,0.28) 0%, rgba(0,102,204,0.16) 38%, rgba(0,102,204,0.06) 62%, rgba(0,102,204,0) 80%)',
               }}
             />
 
-            <div className="relative rounded-[28px] bg-white px-5 py-9 sm:px-14 sm:py-12 shadow-[0_0_20px_rgba(99,200,240,0.22),0_0_40px_rgba(99,200,240,0.18),0_0_70px_rgba(103,232,249,0.14)]">
+            <div className="relative rounded-[28px] bg-white px-5 py-9 sm:px-14 sm:py-12 shadow-[0_0_20px_rgba(0,102,204,0.18),0_0_40px_rgba(0,102,204,0.14),0_0_70px_rgba(0,102,204,0.10)]">
               <ul className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 sm:gap-x-16 gap-y-8 sm:gap-y-10 list-none p-0 m-0">
                 {CATEGORIES.map((c) => (
                   <li key={c.label} className="flex items-center gap-4 text-left">
@@ -447,13 +473,20 @@ export function ThetaOpsAssistant() {
       {/* ── Sticky anchor tab bar ── */}
       <section className="sticky top-[80px] lg:top-[122px] z-40 bg-white/90 backdrop-blur-md border-y border-[#e8f0f8]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1 sm:gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div
+            ref={tabBarRef}
+            className="flex gap-1 sm:gap-2 overflow-x-auto scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             {FEATURES.map((t) => {
               const isActive = t.id === activeId;
               return (
                 <button
                   key={t.id}
-                  onClick={() => scrollToFeature(t.id)}
+                  ref={(el) => { tabRefs.current[t.id] = el; }}
+                  onClick={() => {
+                    setActiveId(t.id);
+                    scrollToFeature(t.id);
+                  }}
                   className={`whitespace-nowrap px-4 sm:px-5 py-3.5 text-[13px] sm:text-[14px] font-medium transition-colors border-b-2 -mb-[1px] ${
                     isActive
                       ? 'text-[#0066cc] border-[#0066cc]'
@@ -480,9 +513,9 @@ export function ThetaOpsAssistant() {
           >
             <FadeInView>
               <div className="max-w-[1200px] mx-auto">
-                <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+                <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-stretch">
                   {/* Text column */}
-                  <div className={flipped ? 'lg:order-2' : ''}>
+                  <div className={`flex flex-col ${flipped ? 'lg:order-2' : ''}`}>
                     <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
                       Feature · {String(idx + 1).padStart(2, '0')}
                     </span>
@@ -508,7 +541,7 @@ export function ThetaOpsAssistant() {
                   </div>
 
                   {/* Visual column */}
-                  <div className={`relative ${flipped ? 'lg:order-1' : ''}`}>
+                  <div className={`relative flex ${flipped ? 'lg:order-1' : ''}`}>
                     <Mockup kind={f.mockup} />
                     <div
                       aria-hidden

@@ -14,6 +14,7 @@ import heroPreviewImage from '../assets/da9160705c98e71563d498abb92c880ae16f869c
 import cyberImage from "../assets/image.png"
 import designBG from '../assets/designBG.png';
 import heroVideo from '../assets/demo.mp4';
+import heroVideoPoster from '../assets/videoframe_8177.png';
 import { useParallax } from '../components/useParallax';
 import chartViewIcon from '../assets/icons/chartView.png';
 import messageIcon from '../assets/icons/messageIcon.png';
@@ -23,6 +24,13 @@ import shareIcon from '../assets/icons/shareIcon.png';
 import upDirectionIcon from '../assets/icons/upDirection.png';
 import NSCCIcon from '../assets/icons/nsccIcon.png'
 import DesconIcon from '../assets/icons/desconIcon.png'
+
+import microsoftLogo from '../assets/brand/microsoft.png';
+import powerbiLogo from '../assets/brand/powerbi.png';
+import sqlLogo from '../assets/brand/sql.png';
+import nosqlLogo from '../assets/brand/nosql.png';
+import awsLogo from '../assets/brand/aws.png';
+import googleLogo from '../assets/brand/google.png';
 
 // --- Interfaces ---
 interface ProductTileProps {
@@ -565,9 +573,9 @@ export function Home() {
 
         >
           <div className="max-w-4xl mx-auto text-center" data-stagger>
-            <p className="text-sm sm:text-base text-[#0066cc] mb-3">
+            <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
               AI-Planning.io
-            </p>
+            </span>
             <h2 className="text-4xl sm:text-5xl lg:text-[58px] font-semibold tracking-tight text-slate-900 leading-tight">
               Smart Logistics Planning.
               <br />
@@ -623,13 +631,14 @@ export function Home() {
               {/* Continuously-looping hero video (replaces static dashboard image) */}
               <video
                 src={heroVideo}
+                poster={heroVideoPoster}
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
                 aria-label="AI Planning platform preview"
-                className="relative mx-auto block w-[92%] max-w-[560px] h-auto rounded-[18px] border-2 border-white/80 object-cover bg-white shadow-[0px_10px_30px_rgba(15,45,82,0.35)] transition-all duration-500 sm:w-[88%] sm:max-w-[720px] sm:rounded-[24px] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[1000px] lg:max-w-none lg:h-[600px] lg:rounded-[30px] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:shadow-[0px_15px_50px_0px_rgba(99,72,229,0.55)]"
+                className="relative mx-auto block w-[92%] max-w-[560px] h-auto rounded-[18px] border-2 border-white/80 object-cover bg-white shadow-[0px_10px_30px_rgba(0,102,204,0.35)] transition-all duration-500 sm:w-[88%] sm:max-w-[720px] sm:rounded-[24px] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[1000px] lg:max-w-none lg:h-[600px] lg:rounded-[30px] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:shadow-[0px_15px_50px_0px_rgba(0,102,204,0.45)]"
               />
 
               <div className="relative min-h-0 pb-6 sm:pb-8 lg:min-h-[720px] lg:pb-0">
@@ -936,8 +945,8 @@ export function Home() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 sm:p-10">
-              <p className="text-[13px] font-semibold tracking-[0.2em] text-[#0f2d52] uppercase mb-4">
+            <div className="rounded-2xl border border-[#c8d7ea] bg-gradient-to-br from-[#e8f0f8] via-[#eff6ff] to-white p-8 sm:p-10 shadow-[0_10px_30px_-12px_rgba(0,102,204,0.18)]">
+              <p className="text-[13px] font-semibold tracking-[0.2em] text-[#0066cc] uppercase mb-4">
                 The AI-Planning Future
               </p>
               <ul className="space-y-4">
@@ -947,7 +956,7 @@ export function Home() {
                   'Self-correcting routes using live traffic & constraints',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-[15px] leading-[24px] text-slate-800">
-                    <span className="mt-[9px] w-1.5 h-1.5 bg-[#0f2d52] rounded-full flex-shrink-0" />
+                    <span className="mt-[9px] w-1.5 h-1.5 bg-[#0066cc] rounded-full flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -974,89 +983,43 @@ export function Home() {
             </p>
           </div>
 
-          {/* Logo row */}
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-14 lg:gap-x-20 grayscale-0 opacity-90">
-            {/* Microsoft */}
-            <div className="flex items-center gap-2.5">
-              <svg width="26" height="26" viewBox="0 0 23 23" aria-hidden>
-                <rect x="0" y="0" width="11" height="11" fill="#F25022" />
-                <rect x="12" y="0" width="11" height="11" fill="#7FBA00" />
-                <rect x="0" y="12" width="11" height="11" fill="#00A4EF" />
-                <rect x="12" y="12" width="11" height="11" fill="#FFB900" />
-              </svg>
-              <span className="text-[26px] sm:text-[30px] font-normal text-[#737373] tracking-tight">
-                Microsoft
-              </span>
-            </div>
-
-            {/* Power BI */}
-            <div className="flex items-center gap-2.5">
-              <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden>
-                <rect x="3" y="14" width="4" height="7" rx="0.5" fill="#F2C811" />
-                <rect x="10" y="9" width="4" height="12" rx="0.5" fill="#F2C811" />
-                <rect x="17" y="3" width="4" height="18" rx="0.5" fill="#F2C811" />
-              </svg>
-              <span className="text-[26px] sm:text-[30px] font-normal text-[#F2C811] tracking-tight">
-                Power BI
-              </span>
-            </div>
-
-            {/* SQL */}
-            <div className="flex items-center gap-2.5">
-              <svg width="36" height="36" viewBox="0 0 32 32" aria-hidden>
-                <ellipse cx="16" cy="8" rx="11" ry="3.5" fill="none" stroke="#3b8ed3" strokeWidth="2" />
-                <path d="M5,8 V16 a11,3.5 0 0 0 22,0 V8" fill="none" stroke="#3b8ed3" strokeWidth="2" />
-                <path d="M5,16 V24 a11,3.5 0 0 0 22,0 V16" fill="none" stroke="#3b8ed3" strokeWidth="2" />
-              </svg>
-              <span className="text-[26px] sm:text-[30px] font-normal text-[#3b8ed3] tracking-tight">
-                SQL
-              </span>
-            </div>
-
-            {/* nosql */}
-            <div className="flex items-baseline gap-0.5">
-              <span className="text-[26px] sm:text-[30px] font-normal text-[#0f2d52] tracking-tight">
-                no
-              </span>
-              <span className="text-[26px] sm:text-[30px] font-normal text-[#D7263D] tracking-tight">
-                sql
-              </span>
-            </div>
-
-            {/* aws */}
-            <div className="flex flex-col items-center -gap-1">
-              <span className="text-[24px] sm:text-[28px] font-bold text-[#252F3E] tracking-tight leading-none">
-                aws
-              </span>
-              <svg width="50" height="14" viewBox="0 0 50 14" className="-mt-1" aria-hidden>
-                <path
-                  d="M2,8 Q25,14 48,8"
-                  fill="none"
-                  stroke="#FF9900"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M44,5 L48,8 L44,11"
-                  fill="none"
-                  stroke="#FF9900"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            {/* Google */}
-            <div className="flex items-baseline">
-              <span className="text-[26px] sm:text-[30px] font-normal tracking-tight">
-                <span className="text-[#4285F4]">G</span>
-                <span className="text-[#EA4335]">o</span>
-                <span className="text-[#FBBC05]">o</span>
-                <span className="text-[#4285F4]">g</span>
-                <span className="text-[#34A853]">l</span>
-                <span className="text-[#EA4335]">e</span>
-              </span>
+          {/* Infinite auto-scrolling logo marquee */}
+          <div
+            className="relative overflow-hidden"
+            style={{
+              maskImage:
+                'linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%)',
+            }}
+          >
+            <div className="flex w-max items-center gap-x-12 sm:gap-x-16 lg:gap-x-20 animate-logo-marquee">
+              {[
+                { src: microsoftLogo, alt: 'Microsoft' },
+                { src: powerbiLogo, alt: 'Power BI' },
+                { src: sqlLogo, alt: 'SQL' },
+                { src: nosqlLogo, alt: 'NoSQL' },
+                { src: awsLogo, alt: 'AWS' },
+                { src: googleLogo, alt: 'Google' },
+                { src: microsoftLogo, alt: 'Microsoft' },
+                { src: powerbiLogo, alt: 'Power BI' },
+                { src: sqlLogo, alt: 'SQL' },
+                { src: nosqlLogo, alt: 'NoSQL' },
+                { src: awsLogo, alt: 'AWS' },
+                { src: googleLogo, alt: 'Google' },
+              ].map((logo, i) => (
+                <div
+                  key={i}
+                  className="flex items-center h-10 sm:h-12 shrink-0"
+                  aria-hidden={i >= 6 ? true : undefined}
+                >
+                  <img
+                    src={logo.src}
+                    alt={i >= 6 ? '' : logo.alt}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

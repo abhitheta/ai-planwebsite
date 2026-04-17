@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer';
 import { WorksWhereverBanner } from '../components/WorksWhereverBanner';
 import { AuthProvider } from '../contexts/AuthContext';
 
-export function ThetaAI() {
+export function Maintenance() {
   return (
     <AuthProvider>
       <div className="min-h-screen bg-white">

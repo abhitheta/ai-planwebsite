@@ -1,7 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/ThetaOpsAssistant.tsx','utf8'\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='{'\\)o++;else if\\(ch==='}'\\)c++;else if\\(ch==='\\('\\)op++;else if\\(ch==='\\)'\\)cp++;else if\\(ch==='['\\)ob++;else if\\(ch===']'\\)cb++;}console.log\\('braces:',o,c,'parens:',op,cp,'brackets:',ob,cb\\);\")"
+      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/ThetaOpsAssistant.tsx','utf8'\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='{'\\)o++;else if\\(ch==='}'\\)c++;else if\\(ch==='\\('\\)op++;else if\\(ch==='\\)'\\)cp++;else if\\(ch==='['\\)ob++;else if\\(ch===']'\\)cb++;}console.log\\('braces:',o,c,'parens:',op,cp,'brackets:',ob,cb\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const html=fs.readFileSync\\('src/assets/AI-WebImages/AI Planning.html','utf8'\\); const matches=[...html.matchAll\\(/<img[^>]+>/g\\)]; matches.forEach\\(m=>{const a=m[0].match\\(/alt=\\\\\"\\([^\\\\\"]*\\)\\\\\"/\\); const s=m[0].match\\(/src=\\\\\"\\([^\\\\\"]*\\)\\\\\"/\\); const c=m[0].match\\(/class=\\\\\"\\([^\\\\\"]*\\)\\\\\"/\\); console.log\\('SRC:',s?s[1]:''\\); console.log\\('ALT:',a?a[1]:''\\); console.log\\('CLS:',c?c[1]:''\\); console.log\\('---'\\);}\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); ['11.html','22.html','33.html'].forEach\\(f=>{console.log\\('=====',f,'====='\\); const html=fs.readFileSync\\('src/assets/AI-WebImages/'+f,'utf8'\\); const matches=[...html.matchAll\\(/<img[^>]+>/g\\)]; const seen=new Set\\(\\); matches.forEach\\(m=>{const a=m[0].match\\(/alt=\\\\\"\\([^\\\\\"]*\\)\\\\\"/\\); const s=m[0].match\\(/src=\\\\\"\\([^\\\\\"]*\\)\\\\\"/\\); const key=\\(s?s[1]:''\\)+'|'+\\(a?a[1]:''\\); if\\(seen.has\\(key\\)\\) return; seen.add\\(key\\); console.log\\('SRC:',s?s[1]:''\\); console.log\\('ALT:',a?a[1]:''\\); console.log\\('---'\\);}\\);}\\);\")",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(node -e ' *)",
+      "Bash(ls src/styles/)",
+      "Bash(grep -n \"tailwindcss\" src/main.tsx src/App.tsx)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\('Handshake:', typeof l.Handshake\\); console.log\\('BadgeCheck:', typeof l.BadgeCheck\\); console.log\\('XCircle:', typeof l.XCircle\\); console.log\\('RefreshCw:', typeof l.RefreshCw\\); console.log\\('Briefcase:', typeof l.Briefcase\\);\")",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }

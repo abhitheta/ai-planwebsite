@@ -130,9 +130,9 @@ export function HowItWorks() {
       {/* ── Hero with light-blue gradient ── */}
       <section className="pt-[112px] sm:pt-[130px] lg:pt-[150px] pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#eff6ff] via-white to-white">
         <div className="max-w-[900px] mx-auto text-center">
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#0066cc] uppercase mb-5">
+          <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
             Solutions
-          </p>
+          </span>
           <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-bold tracking-tight lg:tracking-[-3px] text-[#0f2d52] leading-[1.05] mb-6">
             AI-Driven Intelligent Logistics Planning
           </h1>

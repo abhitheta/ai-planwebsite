@@ -3071,3 +3071,23 @@ html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(8)  
 [data-parallax] {
   will-change: transform;
 }
+
+
+/* Infinite logo marquee — used by Sync Your Tools section. */
+@keyframes logo-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-logo-marquee {
+  animation: logo-marquee 35s linear infinite;
+}
+
+.animate-logo-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-logo-marquee { animation: none; }
+}
+

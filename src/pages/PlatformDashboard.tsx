@@ -8,7 +8,7 @@ import { StatCard } from '../components/ui/stat-card';
 import { DataTable, type Column } from '../components/ui/data-table';
 
 
-export function PmoDashboard() {
+export function PlatformDashboard() {
   const { user, loading, signOut } = useAuth();
   const navigate = useNavigate();
   const [showOnboarding, setShowOnboarding] = useState(false);

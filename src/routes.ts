@@ -24,11 +24,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "features",
-        lazy: () => import("./pages/ThetaOpsAssistant").then((m) => ({ Component: m.ThetaOpsAssistant })),
+        lazy: () => import("./pages/Features").then((m) => ({ Component: m.Features })),
       },
       {
         path: "platform",
-        lazy: () => import("./pages/ThetaPMO").then((m) => ({ Component: m.ThetaPMO })),
+        lazy: () => import("./pages/Platform").then((m) => ({ Component: m.Platform })),
       },
       {
         path: "contact",
@@ -36,41 +36,38 @@ export const router = createBrowserRouter([
       },
       {
         path: "theta-pmo",
-        lazy: () => import("./pages/ThetaPMO").then((m) => ({ Component: m.ThetaPMO })),
+        lazy: () => import("./pages/Platform").then((m) => ({ Component: m.Platform })),
       },
       {
         path: "theta-ops-assistant",
-        lazy: () =>
-          import("./pages/ThetaOpsAssistant").then((m) => ({ Component: m.ThetaOpsAssistant })),
+        lazy: () => import("./pages/Features").then((m) => ({ Component: m.Features })),
       },
       {
         path: "theta-procurement-assistant",
         lazy: () =>
-          import("./pages/ThetaProcurementAssistant").then((m) => ({
-            Component: m.ThetaProcurementAssistant,
-          })),
+          import("./pages/Procurement").then((m) => ({ Component: m.Procurement })),
       },
       {
         path: "theta-hse",
-        lazy: () => import("./pages/ThetaHSE").then((m) => ({ Component: m.ThetaHSE })),
+        lazy: () => import("./pages/Safety").then((m) => ({ Component: m.Safety })),
       },
       {
         path: "theta-maintenance",
-        lazy: () => import("./pages/ThetaAI").then((m) => ({ Component: m.ThetaAI })),
+        lazy: () => import("./pages/Maintenance").then((m) => ({ Component: m.Maintenance })),
       },
       {
         path: "theta-ai",
-        lazy: () => import("./pages/ThetaAI").then((m) => ({ Component: m.ThetaAI })),
+        lazy: () => import("./pages/Maintenance").then((m) => ({ Component: m.Maintenance })),
       },
       {
         path: "theta-pmo/dashboard",
         lazy: () =>
-          import("./pages/PmoDashboard").then((m) => ({ Component: m.PmoDashboard })),
+          import("./pages/PlatformDashboard").then((m) => ({ Component: m.PlatformDashboard })),
       },
       {
         path: "theta-hse/dashboard",
         lazy: () =>
-          import("./pages/HseDashboard").then((m) => ({ Component: m.HseDashboard })),
+          import("./pages/SafetyDashboard").then((m) => ({ Component: m.SafetyDashboard })),
       },
       {
         path: "login",
