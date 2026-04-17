@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('C:/Projects/IMPORTANT/New folder/ai-planwebsite/src/pages/ThetaOpsAssistant.tsx','utf8'\\);let o=0,c=0,ob=0,cb=0,op=0,cp=0;for\\(const ch of s\\){if\\(ch==='{'\\)o++;else if\\(ch==='}'\\)c++;else if\\(ch==='\\('\\)op++;else if\\(ch==='\\)'\\)cp++;else if\\(ch==='['\\)ob++;else if\\(ch===']'\\)cb++;}console.log\\('braces:',o,c,'parens:',op,cp,'brackets:',ob,cb\\);\")"
+    ]
+  }
+}

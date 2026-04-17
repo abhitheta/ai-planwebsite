@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import { FadeInView } from '../components/FadeInView';
 
-// ── Feature category pills (hero) ────────────────────────────────────────────
 const CATEGORIES = [
   { icon: MapPin, label: 'Location Tracking' },
   { icon: Target, label: 'Accurate Predictions' },
@@ -414,25 +413,33 @@ export function ThetaOpsAssistant() {
             fuel network.
           </p>
 
-          <div className="rounded-2xl bg-gradient-to-b from-[#eff6ff] to-[#e8f0f8] border border-[#c8d7ea] px-4 sm:px-6 py-5 sm:py-6 shadow-sm">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-              {CATEGORIES.map((c) => (
-                <div
-                  key={c.label}
-                  className="group flex items-center gap-2 sm:gap-3 rounded-xl bg-white border border-[#c8d7ea] px-3 sm:px-4 py-2.5 sm:py-3 shadow-sm hover:border-[#0066cc] hover:shadow-md transition-all cursor-pointer"
-                >
-                  <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg bg-[#e8f0f8] text-[#0066cc] group-hover:bg-[#0066cc] group-hover:text-white transition-colors flex-shrink-0">
-                    <c.icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
-                  </span>
-                  <span className="text-[11px] sm:text-[12px] font-semibold text-[#0f2d52] uppercase tracking-wide leading-tight text-left">
-                    {c.label}
-                  </span>
-                </div>
-              ))}
+          {/* ── Platform Impact card — single clean card with 4 headline metrics ── */}
+          <div className="relative mx-auto max-w-[900px]">
+            {/* Soft cyan glow behind the card for depth */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-10 rounded-[60px] blur-3xl"
+              style={{
+                background:
+                  'radial-gradient(circle at center, rgba(99,200,240,0.35) 0%, rgba(103,232,249,0.22) 38%, rgba(99,200,240,0.08) 62%, rgba(99,200,240,0) 80%)',
+              }}
+            />
+
+            <div className="relative rounded-[28px] bg-white px-5 py-9 sm:px-14 sm:py-12 shadow-[0_0_20px_rgba(99,200,240,0.22),0_0_40px_rgba(99,200,240,0.18),0_0_70px_rgba(103,232,249,0.14)]">
+              <ul className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 sm:gap-x-16 gap-y-8 sm:gap-y-10 list-none p-0 m-0">
+                {CATEGORIES.map((c) => (
+                  <li key={c.label} className="flex items-center gap-4 text-left">
+                    <c.icon className="h-6 w-6 text-[#111019] flex-shrink-0" strokeWidth={1.75} />
+                    <span className="text-[16px] sm:text-[18px] font-medium text-[#111019] leading-tight">
+                      {c.label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-12 text-center text-[14px] text-[#6B6A7C] italic">
+                Explore categories — each item maps to the features below.
+              </p>
             </div>
-            <p className="mt-4 text-[12px] text-[#6B6A7C] italic">
-              Explore categories — each pill maps to the features below.
-            </p>
           </div>
         </div>
       </section>
