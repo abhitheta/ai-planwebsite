@@ -14,6 +14,7 @@ import heroPreviewImage from '../assets/da9160705c98e71563d498abb92c880ae16f869c
 import cyberImage from "../assets/image.png"
 import designBG from '../assets/designBG.png';
 import heroVideo from '../assets/demo.mp4';
+import { useParallax } from '../components/useParallax';
 import chartViewIcon from '../assets/icons/chartView.png';
 import messageIcon from '../assets/icons/messageIcon.png';
 import noteIcon from '../assets/icons/noteIcon.png';
@@ -223,6 +224,8 @@ export function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState('automation-processing');
   const [isMobileHero, setIsMobileHero] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  // Subtle parallax for the hero glow layer — premium, non-distracting
+  const heroGlowRef = useParallax<HTMLDivElement>(0.08);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLocked, setIsLocked] = useState(false);
   const [fadeIn, setFadeIn] = useState(false);
@@ -547,9 +550,10 @@ export function Home() {
   return (
     <div className=" bg-white">
       {/* Hero Section with AI Planning violet-navy gradient */}
-      <section className="relative pt-16 overflow-hidden bg-gradient-to-b from-white via-[#e0e7ff] to-white">
-        {/* Radial purple glow behind the dashboard */}
+      <section className="relative pt-[112px] sm:pt-[130px] lg:pt-[150px] overflow-hidden bg-gradient-to-b from-white via-[#e0e7ff] to-white">
+        {/* Radial purple glow — subtle parallax drifts slower than scroll for depth */}
         <div
+          ref={heroGlowRef}
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
@@ -560,7 +564,7 @@ export function Home() {
         <div className="relative z-20 pt-8 sm:pt-10"
 
         >
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center" data-stagger>
             <p className="text-sm sm:text-base text-[#0066cc] mb-3">
               AI-Planning.io
             </p>
@@ -639,70 +643,7 @@ export function Home() {
                   <div className={`h-10 w-10 rounded-xl border ${activeHeroTheme.marker}`} />
                 </motion.div> */}
 
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`${activeHeroOption}-mini-card`}
-                    className="absolute left-10 sm:left-6 bottom-6 hidden max-w-[210px] rounded-xl border border-white/70 bg-white/70 p-3 shadow-md backdrop-blur-md lg:block"
-                    initial={{ opacity: 0, y: 20, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 12, scale: 0.97 }}
-                    transition={{ duration: 0.35, ease: 'easeInOut' }}
-                  >
-                    <div className="text-xs font-semibold text-slate-900">{activeHeroTheme.miniTitle}</div>
-                    <p className="mt-1 text-[11px] text-slate-600 leading-relaxed">
-                      {activeHeroTheme.miniDesc}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`${activeHeroOption}-top-card`}
-                    className="absolute left-24  top-8 sm:top-20 hidden w-[140px] rounded-xl border border-white/70 bg-white/78 p-3 shadow-md backdrop-blur-md lg:block"
-                    initial={{ opacity: 0, y: -20, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -12, scale: 0.97 }}
-                    transition={{ duration: 0.35, ease: 'easeInOut' }}
-                  >
-                    <p className="mt-1 text-[9px] font-medium text-slate-500 leading-snug">{activeHeroTheme.label}</p>
-                  </motion.div>
-                </AnimatePresence>
               </div>
-
-              <motion.div
-                className="absolute right-28 -top-6 z-30 hidden w-[310px] h-[355px] overflow-hidden rounded-[10px] border border-slate-200 bg-white/92 p-3.5 shadow-[0_18px_40px_rgba(15,23,42,0.14)] backdrop-blur-md lg:block"
-                // style={{ width: '310px', height: '355px', top: '', right: '80px', opacity: 1 }}
-
-                onMouseLeave={() => setActiveHeroOption('')}
-                initial={{ opacity: 0, x: 26 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.55, delay: 0.35 }}
-              >
-                <p className="px-1 pb-2 text-[11px] sm:text-xs font-medium text-slate-700">
-                  What would you like to explore ?
-                </p>
-                <div className="grid grid-cols-3 gap-1.5">
-                  {heroOptions.map((option) => {
-                    const isActive = activeHeroOption === option.key;
-                    const OptionIcon = option.icon;
-                    return (
-                      <button
-                        key={option.key}
-                        type="button"
-                        onMouseEnter={() => setActiveHeroOption(option.key)}
-                        onClick={() => setActiveHeroOption(option.key)}
-                        className={`group flex min-h-[84px] p-4  flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2 text-center text-[10px] leading-snug transition-all duration-200 ${isActive ? `${option.accent} shadow-sm` : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'}`}
-                      >
-                        <div className={`flex h-8 w-8 items-center justify-center rounded-full border transition-colors ${isActive ? 'border-[#0066cc] bg-[#0066cc]/10 text-[#0066cc]' : 'border-slate-200 bg-slate-50 text-slate-300 group-hover:text-slate-400'}`}>
-                          <OptionIcon className="h-3 w-3" />
-                        </div>
-                        <span className="text-slate-800 line-clamp-2">{option.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>
@@ -1019,63 +960,103 @@ export function Home() {
       {/* ── Selecting the Right Theta Intelligence Layer ── */}
 
       {/* ── Sync your tools, keep teams connected ── */}
-      <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-tight text-slate-900 leading-tight">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-[56px] font-bold tracking-tight text-[#0f2d52] leading-[1.1]">
               Sync your tools,
               <br />
-              keep teams <span className="text-[#0066cc]">connected</span>
+              keep teams connected
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-              Integrate your favorite apps with AI-Planning.io, keeping all your work in sync and your team in the loop.
+            <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Integrate your favorite apps with AI-Planning.io, keeping all your work in sync
+              and your team in the loop.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-6 items-stretch">
-            {/* Data Sources */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-              <h3 className="text-[18px] font-semibold text-slate-900 mb-5 text-center">
-                Data Sources
-              </h3>
-              <div className="grid grid-cols-3 gap-3 text-center">
-                {['PostgreSQL', 'AWS', 'Google', 'Microsoft', 'Power BI', 'SQL', 'Tank Sensors', 'Telematics', 'ERP'].map((src) => (
-                  <div key={src} className="rounded-xl bg-white border border-slate-200 px-3 py-4 text-[12px] font-medium text-slate-700">
-                    {src}
-                  </div>
-                ))}
-              </div>
+          {/* Logo row */}
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-14 lg:gap-x-20 grayscale-0 opacity-90">
+            {/* Microsoft */}
+            <div className="flex items-center gap-2.5">
+              <svg width="26" height="26" viewBox="0 0 23 23" aria-hidden>
+                <rect x="0" y="0" width="11" height="11" fill="#F25022" />
+                <rect x="12" y="0" width="11" height="11" fill="#7FBA00" />
+                <rect x="0" y="12" width="11" height="11" fill="#00A4EF" />
+                <rect x="12" y="12" width="11" height="11" fill="#FFB900" />
+              </svg>
+              <span className="text-[26px] sm:text-[30px] font-normal text-[#737373] tracking-tight">
+                Microsoft
+              </span>
             </div>
 
-            {/* The AI Planning Layer */}
-            <div className="rounded-2xl border border-[#0f2d52]/30 bg-gradient-to-br from-[#e8f0f8] to-[#c8d7ea] p-6 sm:p-8">
-              <h3 className="text-[18px] font-semibold text-slate-900 mb-5 text-center">
-                The AI-Planning Layer
-              </h3>
-              <div className="grid grid-cols-2 gap-3 text-center">
-                {['Custom AI Engine', 'Demand Forecasting', 'Route Optimizer', 'Exception Handler'].map((l) => (
-                  <div key={l} className="rounded-xl bg-white border border-[#0f2d52]/30 px-3 py-5 text-[13px] font-semibold text-[#0052a3]">
-                    {l}
-                  </div>
-                ))}
-              </div>
-              <p className="mt-5 text-center text-[12px] italic text-slate-600">
-                Continuously learning from every trip, order, and delivery.
-              </p>
+            {/* Power BI */}
+            <div className="flex items-center gap-2.5">
+              <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden>
+                <rect x="3" y="14" width="4" height="7" rx="0.5" fill="#F2C811" />
+                <rect x="10" y="9" width="4" height="12" rx="0.5" fill="#F2C811" />
+                <rect x="17" y="3" width="4" height="18" rx="0.5" fill="#F2C811" />
+              </svg>
+              <span className="text-[26px] sm:text-[30px] font-normal text-[#F2C811] tracking-tight">
+                Power BI
+              </span>
             </div>
 
-            {/* Action Interfaces */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-              <h3 className="text-[18px] font-semibold text-slate-900 mb-5 text-center">
-                Action Interfaces
-              </h3>
-              <div className="grid grid-cols-2 gap-3 text-center">
-                {['Web Dashboards', 'Driver Mobile App', 'Automated Alerts', 'Dispatch Console'].map((l) => (
-                  <div key={l} className="rounded-xl bg-white border border-slate-200 px-3 py-5 text-[13px] font-medium text-slate-800">
-                    {l}
-                  </div>
-                ))}
-              </div>
+            {/* SQL */}
+            <div className="flex items-center gap-2.5">
+              <svg width="36" height="36" viewBox="0 0 32 32" aria-hidden>
+                <ellipse cx="16" cy="8" rx="11" ry="3.5" fill="none" stroke="#3b8ed3" strokeWidth="2" />
+                <path d="M5,8 V16 a11,3.5 0 0 0 22,0 V8" fill="none" stroke="#3b8ed3" strokeWidth="2" />
+                <path d="M5,16 V24 a11,3.5 0 0 0 22,0 V16" fill="none" stroke="#3b8ed3" strokeWidth="2" />
+              </svg>
+              <span className="text-[26px] sm:text-[30px] font-normal text-[#3b8ed3] tracking-tight">
+                SQL
+              </span>
+            </div>
+
+            {/* nosql */}
+            <div className="flex items-baseline gap-0.5">
+              <span className="text-[26px] sm:text-[30px] font-normal text-[#0f2d52] tracking-tight">
+                no
+              </span>
+              <span className="text-[26px] sm:text-[30px] font-normal text-[#D7263D] tracking-tight">
+                sql
+              </span>
+            </div>
+
+            {/* aws */}
+            <div className="flex flex-col items-center -gap-1">
+              <span className="text-[24px] sm:text-[28px] font-bold text-[#252F3E] tracking-tight leading-none">
+                aws
+              </span>
+              <svg width="50" height="14" viewBox="0 0 50 14" className="-mt-1" aria-hidden>
+                <path
+                  d="M2,8 Q25,14 48,8"
+                  fill="none"
+                  stroke="#FF9900"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M44,5 L48,8 L44,11"
+                  fill="none"
+                  stroke="#FF9900"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* Google */}
+            <div className="flex items-baseline">
+              <span className="text-[26px] sm:text-[30px] font-normal tracking-tight">
+                <span className="text-[#4285F4]">G</span>
+                <span className="text-[#EA4335]">o</span>
+                <span className="text-[#FBBC05]">o</span>
+                <span className="text-[#4285F4]">g</span>
+                <span className="text-[#34A853]">l</span>
+                <span className="text-[#EA4335]">e</span>
+              </span>
             </div>
           </div>
         </div>

@@ -3018,3 +3018,56 @@ html {
 
 
 @import "tailwindcss";
+/* ── Global scroll-reveal for page <section> blocks ───────────────────────── */
+/* SectionRevealer (mounted in Root) flips data-reveal-ready on <html> once
+   the IntersectionObserver is wired up. Until then sections render normally
+   so we never get a flash-of-invisible-content.                              */
+
+html[data-reveal-ready]:not([data-no-reveal]) section {
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html[data-reveal-ready]:not([data-no-reveal]) section:not([data-revealed]) {
+  opacity: 0;
+  transform: translateY(42px);
+}
+
+html[data-reveal-ready]:not([data-no-reveal]) section[data-revealed] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered child reveal — containers marked data-stagger have their
+   direct children slide up + fade sequentially once the parent section
+   is revealed. Useful for headline + paragraph + CTA clusters.              */
+html[data-reveal-ready]:not([data-no-reveal]) [data-stagger] > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html[data-reveal-ready]:not([data-no-reveal]) section[data-revealed] [data-stagger] > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(1)  { transition-delay: 60ms; }
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(2)  { transition-delay: 150ms; }
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(3)  { transition-delay: 240ms; }
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(4)  { transition-delay: 330ms; }
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(5)  { transition-delay: 420ms; }
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(6)  { transition-delay: 510ms; }
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(7)  { transition-delay: 600ms; }
+html[data-reveal-ready] section[data-revealed] [data-stagger] > *:nth-child(8)  { transition-delay: 690ms; }
+
+/* Parallax promotion — ParallaxLayer sets transform3d; compositor pre-warm
+   helps keep motion smooth without janky repaints.                          */
+[data-parallax] {
+  will-change: transform;
+}

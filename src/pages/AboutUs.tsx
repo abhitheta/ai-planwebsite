@@ -317,7 +317,7 @@ export function AboutUs() {
   return (
     <div className="min-h-screen bg-white overflow-x-clip">
       {/* ── Hero (navy gradient + crafted right-side composition) ─────────── */}
-      <section className="relative pt-[120px] sm:pt-[140px] lg:pt-[160px] pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#0f2d52] via-[#1a3d6b] to-[#2a5a8f] overflow-hidden">
+      <section className="relative pt-[112px] sm:pt-[130px] lg:pt-[150px] pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#0f2d52] via-[#1a3d6b] to-[#2a5a8f] overflow-hidden">
         {/* Decorative grid + glow */}
         <div
           aria-hidden
@@ -335,7 +335,7 @@ export function AboutUs() {
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white mb-6">
             <Sparkles className="w-3.5 h-3.5 text-[#4fa3ff]" /> About Us
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold tracking-tight lg:tracking-[-2.5px] text-white leading-[1.05] mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-bold tracking-tight lg:tracking-[-2.5px] text-white leading-[1.05] mb-6">
             Building Intelligent Systems for{' '}
             <span className="relative inline-block">
               <span className="relative z-10 text-[#4fa3ff]">Smarter Operations</span>

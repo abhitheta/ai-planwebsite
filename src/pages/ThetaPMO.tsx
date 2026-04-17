@@ -15,9 +15,9 @@ export function ThetaPMO() {
     <div className="min-h-screen bg-white overflow-x-clip">
 
       {/* ── Hero Section ── */}
-      <section className="pt-[140px] sm:pt-[160px] lg:pt-[180px] pb-16 px-4 sm:px-6 lg:px-8 bg-white overflow-x-clip">
+      <section className="pt-[112px] sm:pt-[130px] lg:pt-[150px] pb-16 px-4 sm:px-6 lg:px-8 bg-white overflow-x-clip">
         <div className="max-w-[900px] mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-[72px] font-bold tracking-[-3px] text-[#0f2d52] leading-[1.05] mb-7">
+          <h1 className="text-3xl sm:text-4xl lg:text-[56px] font-bold tracking-[-3px] text-[#0f2d52] leading-[1.05] mb-7">
             Enterprise fuel delivery platform
           </h1>
 

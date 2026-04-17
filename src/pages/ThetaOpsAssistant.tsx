@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   MapPin,
   Target,
@@ -11,7 +11,6 @@ import {
   Zap,
   Check,
 } from 'lucide-react';
-import { WorksWhereverBanner } from '../components/WorksWhereverBanner';
 import { FadeInView } from '../components/FadeInView';
 
 // ── Feature category pills (hero) ────────────────────────────────────────────
@@ -26,28 +25,21 @@ const CATEGORIES = [
   { icon: Zap, label: 'Improved Efficiency' },
 ];
 
-// ── Interactive tabs ─────────────────────────────────────────────────────────
-type TabKey =
-  | 'ai-scheduling'
-  | 'demand-planner'
-  | 'auto-stock'
-  | 'alerts'
-  | 'visualisation'
-  | 'continuous-learning'
-  | 'security';
+// ── Feature sections (rendered as long-scroll page) ──────────────────────────
+type MockupKind = 'map' | 'forecast' | 'dashboard' | 'alerts' | 'chart' | 'loop' | 'shield';
 
-interface Tab {
-  key: TabKey;
+interface Feature {
+  id: string;
   label: string;
   title: string;
   description: string;
   bullets: string[];
-  mockup: 'map' | 'forecast' | 'dashboard' | 'alerts' | 'chart' | 'loop' | 'shield';
+  mockup: MockupKind;
 }
 
-const TABS: Tab[] = [
+const FEATURES: Feature[] = [
   {
-    key: 'ai-scheduling',
+    id: 'ai-scheduling',
     label: 'AI Scheduling',
     title: 'AI Scheduling',
     description:
@@ -56,7 +48,7 @@ const TABS: Tab[] = [
     mockup: 'map',
   },
   {
-    key: 'demand-planner',
+    id: 'demand-planner',
     label: 'Demand Planner',
     title: 'Demand Planner',
     description:
@@ -65,7 +57,7 @@ const TABS: Tab[] = [
     mockup: 'forecast',
   },
   {
-    key: 'auto-stock',
+    id: 'auto-stock',
     label: 'Auto Stock Reconciliation',
     title: 'Auto Stock Reconciliation',
     description:
@@ -74,7 +66,7 @@ const TABS: Tab[] = [
     mockup: 'chart',
   },
   {
-    key: 'alerts',
+    id: 'alerts',
     label: 'Alerts & Notifications',
     title: 'Alerts & Notifications',
     description:
@@ -83,7 +75,7 @@ const TABS: Tab[] = [
     mockup: 'alerts',
   },
   {
-    key: 'visualisation',
+    id: 'visualisation',
     label: 'Visualisation',
     title: 'Visualisation',
     description:
@@ -92,7 +84,7 @@ const TABS: Tab[] = [
     mockup: 'dashboard',
   },
   {
-    key: 'continuous-learning',
+    id: 'continuous-learning',
     label: 'Continuous Learning',
     title: 'Continuous Learning',
     description:
@@ -101,7 +93,7 @@ const TABS: Tab[] = [
     mockup: 'loop',
   },
   {
-    key: 'security',
+    id: 'security',
     label: 'Security & Enterprise Controls',
     title: 'Security & Enterprise Controls',
     description:
@@ -111,12 +103,12 @@ const TABS: Tab[] = [
   },
 ];
 
-// ── Mockup components (lightweight inline visuals for each tab) ──────────────
-function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
+// ── Mockup visuals ───────────────────────────────────────────────────────────
+function Mockup({ kind }: { kind: MockupKind }) {
   const base =
-    'relative rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_8px_32px_-12px_rgba(15,45,82,0.25)] overflow-hidden';
+    'relative rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden';
 
-  if (mockup === 'map') {
+  if (kind === 'map') {
     return (
       <div className={base + ' aspect-[4/3]'}>
         <div className="absolute inset-0 flex">
@@ -127,7 +119,12 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
           </div>
           <div className="flex-1 relative bg-gradient-to-br from-[#eff6ff] to-[#c8d7ea]">
             <svg viewBox="0 0 300 220" className="absolute inset-0 w-full h-full">
-              <path d="M30,180 Q90,140 130,150 T220,100 T280,50" stroke="#0066cc" strokeWidth="2.5" fill="none" />
+              <path
+                d="M30,180 Q90,140 130,150 T220,100 T280,50"
+                stroke="#0066cc"
+                strokeWidth="2.5"
+                fill="none"
+              />
               <circle cx="30" cy="180" r="6" fill="#0066cc" />
               <circle cx="130" cy="150" r="5" fill="#0066cc" />
               <circle cx="220" cy="100" r="5" fill="#0066cc" />
@@ -142,7 +139,7 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
     );
   }
 
-  if (mockup === 'forecast') {
+  if (kind === 'forecast') {
     const days = [
       { d: 'Mon', v: 65 },
       { d: 'Tue', v: 78 },
@@ -153,19 +150,21 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
       { d: 'Sun', v: 95 },
     ];
     return (
-      <div className={base + ' p-5'}>
-        <p className="text-[11px] font-semibold text-[#0f2d52] mb-3">7-Day Forecast</p>
-        <div className="space-y-2">
+      <div className={base + ' p-5 sm:p-6'}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">7-Day Forecast</p>
+        <div className="space-y-3">
           {days.map((d) => (
             <div key={d.d} className="flex items-center gap-3">
-              <span className="w-8 text-[10px] font-medium text-[#3B394E]">{d.d}</span>
-              <div className="flex-1 h-3 rounded-full bg-[#e8f0f8] overflow-hidden">
+              <span className="w-10 text-[11px] font-medium text-[#3B394E]">{d.d}</span>
+              <div className="flex-1 h-3.5 rounded-full bg-[#e8f0f8] overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-[#0066cc] to-[#0f2d52] rounded-full"
                   style={{ width: `${d.v}%` }}
                 />
               </div>
-              <span className="text-[10px] font-semibold text-[#0f2d52] w-8 text-right">{d.v}%</span>
+              <span className="text-[11px] font-semibold text-[#0f2d52] w-10 text-right">
+                {d.v}%
+              </span>
             </div>
           ))}
         </div>
@@ -173,10 +172,10 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
     );
   }
 
-  if (mockup === 'chart') {
+  if (kind === 'chart') {
     return (
-      <div className={base + ' aspect-[4/3] p-4'}>
-        <p className="text-[11px] font-semibold text-[#0f2d52] mb-3">Stock vs Sensor Reading</p>
+      <div className={base + ' aspect-[4/3] p-5'}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">Stock vs Sensor Reading</p>
         <svg viewBox="0 0 300 180" className="w-full h-auto">
           <defs>
             <linearGradient id="gr1" x1="0" y1="0" x2="0" y2="1">
@@ -184,15 +183,29 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
               <stop offset="100%" stopColor="#0066cc" stopOpacity="0" />
             </linearGradient>
           </defs>
-          <polyline points="10,140 50,120 90,130 130,90 170,110 210,70 250,85 290,55" stroke="#0066cc" strokeWidth="2.5" fill="none" />
-          <polyline points="10,140 50,120 90,130 130,90 170,110 210,70 250,85 290,55 290,160 10,160" fill="url(#gr1)" />
-          <polyline points="10,150 50,145 90,155 130,115 170,130 210,95 250,110 290,80" stroke="#0f2d52" strokeWidth="2" strokeDasharray="4,3" fill="none" />
+          <polyline
+            points="10,140 50,120 90,130 130,90 170,110 210,70 250,85 290,55"
+            stroke="#0066cc"
+            strokeWidth="2.5"
+            fill="none"
+          />
+          <polyline
+            points="10,140 50,120 90,130 130,90 170,110 210,70 250,85 290,55 290,160 10,160"
+            fill="url(#gr1)"
+          />
+          <polyline
+            points="10,150 50,145 90,155 130,115 170,130 210,95 250,110 290,80"
+            stroke="#0f2d52"
+            strokeWidth="2"
+            strokeDasharray="4,3"
+            fill="none"
+          />
         </svg>
-        <div className="flex gap-4 mt-2 text-[10px]">
-          <span className="flex items-center gap-1 text-[#0066cc]">
+        <div className="flex gap-4 mt-2 text-[11px]">
+          <span className="flex items-center gap-1.5 text-[#0066cc]">
             <span className="w-3 h-0.5 bg-[#0066cc]" /> Physical
           </span>
-          <span className="flex items-center gap-1 text-[#0f2d52]">
+          <span className="flex items-center gap-1.5 text-[#0f2d52]">
             <span className="w-3 h-0.5 bg-[#0f2d52]" /> System
           </span>
         </div>
@@ -200,7 +213,7 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
     );
   }
 
-  if (mockup === 'alerts') {
+  if (kind === 'alerts') {
     const items = [
       { t: 'Delivery delayed 18 min', tag: 'Critical', color: 'bg-[#0f2d52] text-white' },
       { t: 'Low inventory at Station #42', tag: 'Warning', color: 'bg-[#0066cc] text-white' },
@@ -208,14 +221,17 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
       { t: 'ETA updated: Trip 9018', tag: 'Info', color: 'bg-[#e8f0f8] text-[#0f2d52]' },
     ];
     return (
-      <div className={base + ' p-4'}>
-        <p className="text-[11px] font-semibold text-[#0f2d52] mb-3">Recent Alerts</p>
-        <div className="space-y-2">
+      <div className={base + ' p-5'}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">Recent Alerts</p>
+        <div className="space-y-2.5">
           {items.map((a, i) => (
-            <div key={i} className="flex items-center gap-3 rounded-lg border border-[#e8f0f8] p-2.5">
+            <div
+              key={i}
+              className="flex items-center gap-3 rounded-lg border border-[#e8f0f8] p-3"
+            >
               <Bell className="w-4 h-4 text-[#0066cc]" />
-              <span className="flex-1 text-[11px] text-[#0f2d52] font-medium">{a.t}</span>
-              <span className={`rounded-full px-2 py-0.5 text-[9px] font-semibold ${a.color}`}>
+              <span className="flex-1 text-[12px] text-[#0f2d52] font-medium">{a.t}</span>
+              <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${a.color}`}>
                 {a.tag}
               </span>
             </div>
@@ -225,37 +241,54 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
     );
   }
 
-  if (mockup === 'dashboard') {
+  if (kind === 'dashboard') {
     return (
-      <div className={base + ' aspect-[4/3] p-4'}>
-        <p className="text-[11px] font-semibold text-[#0f2d52] mb-3">Operational Overview</p>
-        <div className="grid grid-cols-3 gap-2 mb-3">
+      <div className={base + ' aspect-[4/3] p-5'}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">Operational Overview</p>
+        <div className="grid grid-cols-3 gap-2.5 mb-4">
           {[
             { l: 'On-time', v: '96%' },
             { l: 'Active', v: '214' },
             { l: 'Fuel Saved', v: '18%' },
           ].map((s) => (
-            <div key={s.l} className="rounded-lg bg-[#eff6ff] p-2 text-center">
+            <div key={s.l} className="rounded-lg bg-[#eff6ff] p-2.5 text-center">
               <p className="text-[9px] text-[#3B394E] uppercase tracking-wide">{s.l}</p>
-              <p className="text-[14px] font-bold text-[#0f2d52]">{s.v}</p>
+              <p className="text-[16px] font-bold text-[#0f2d52]">{s.v}</p>
             </div>
           ))}
         </div>
         <svg viewBox="0 0 300 90" className="w-full">
           {[60, 50, 70, 45, 55, 30, 40, 55, 35, 25, 45, 30].map((h, i) => (
-            <rect key={i} x={i * 25 + 5} y={90 - h} width="14" height={h} rx="2" fill="#0066cc" opacity={0.2 + i * 0.06} />
+            <rect
+              key={i}
+              x={i * 25 + 5}
+              y={90 - h}
+              width="14"
+              height={h}
+              rx="2"
+              fill="#0066cc"
+              opacity={0.2 + i * 0.06}
+            />
           ))}
         </svg>
       </div>
     );
   }
 
-  if (mockup === 'loop') {
+  if (kind === 'loop') {
     return (
-      <div className={base + ' aspect-[4/3] p-5 flex items-center justify-center'}>
+      <div className={base + ' aspect-[4/3] p-6 flex items-center justify-center'}>
         <svg viewBox="0 0 280 220" className="w-full h-auto">
           <defs>
-            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <marker
+              id="arrow"
+              viewBox="0 0 10 10"
+              refX="8"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto"
+            >
               <path d="M0,0 L10,5 L0,10 z" fill="#0066cc" />
             </marker>
           </defs>
@@ -266,16 +299,47 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
             { cx: 60, cy: 110, t: 'Refine' },
           ].map((n) => (
             <g key={n.t}>
-              <circle cx={n.cx} cy={n.cy} r="28" fill="#e8f0f8" stroke="#0066cc" strokeWidth="2" />
-              <text x={n.cx} y={n.cy + 4} textAnchor="middle" fontSize="11" fontWeight="600" fill="#0f2d52">
+              <circle cx={n.cx} cy={n.cy} r="30" fill="#e8f0f8" stroke="#0066cc" strokeWidth="2" />
+              <text
+                x={n.cx}
+                y={n.cy + 4}
+                textAnchor="middle"
+                fontSize="12"
+                fontWeight="600"
+                fill="#0f2d52"
+              >
                 {n.t}
               </text>
             </g>
           ))}
-          <path d="M168,50 Q210,70 212,90" stroke="#0066cc" strokeWidth="2" fill="none" markerEnd="url(#arrow)" />
-          <path d="M210,135 Q180,165 168,170" stroke="#0066cc" strokeWidth="2" fill="none" markerEnd="url(#arrow)" />
-          <path d="M112,170 Q75,150 72,135" stroke="#0066cc" strokeWidth="2" fill="none" markerEnd="url(#arrow)" />
-          <path d="M75,85 Q100,60 112,50" stroke="#0066cc" strokeWidth="2" fill="none" markerEnd="url(#arrow)" />
+          <path
+            d="M168,50 Q210,70 212,90"
+            stroke="#0066cc"
+            strokeWidth="2"
+            fill="none"
+            markerEnd="url(#arrow)"
+          />
+          <path
+            d="M210,135 Q180,165 168,170"
+            stroke="#0066cc"
+            strokeWidth="2"
+            fill="none"
+            markerEnd="url(#arrow)"
+          />
+          <path
+            d="M112,170 Q75,150 72,135"
+            stroke="#0066cc"
+            strokeWidth="2"
+            fill="none"
+            markerEnd="url(#arrow)"
+          />
+          <path
+            d="M75,85 Q100,60 112,50"
+            stroke="#0066cc"
+            strokeWidth="2"
+            fill="none"
+            markerEnd="url(#arrow)"
+          />
         </svg>
       </div>
     );
@@ -283,15 +347,18 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
 
   // shield
   return (
-    <div className={base + ' aspect-[4/3] p-4 flex flex-col items-center justify-center gap-3'}>
-      <div className="w-20 h-20 rounded-full bg-[#0f2d52] flex items-center justify-center shadow-lg">
-        <svg viewBox="0 0 24 24" className="w-10 h-10 text-white" fill="currentColor">
+    <div className={base + ' aspect-[4/3] p-5 flex flex-col items-center justify-center gap-4'}>
+      <div className="w-24 h-24 rounded-full bg-[#0f2d52] flex items-center justify-center shadow-lg">
+        <svg viewBox="0 0 24 24" className="w-12 h-12 text-white" fill="currentColor">
           <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z" />
         </svg>
       </div>
-      <div className="grid grid-cols-3 gap-2 w-full px-2">
+      <div className="grid grid-cols-3 gap-2 w-full px-4">
         {['SOC 2', 'GDPR', 'ISO 27001'].map((b) => (
-          <div key={b} className="rounded-lg border border-[#e8f0f8] py-2 text-center text-[10px] font-semibold text-[#0f2d52]">
+          <div
+            key={b}
+            className="rounded-lg border border-[#e8f0f8] py-2.5 text-center text-[11px] font-semibold text-[#0f2d52]"
+          >
             {b}
           </div>
         ))}
@@ -300,16 +367,46 @@ function TabMockup({ mockup }: { mockup: Tab['mockup'] }) {
   );
 }
 
+// ── Scroll helper for tab clicks ─────────────────────────────────────────────
+function scrollToFeature(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    // Navbar (88) + sticky tab bar (~52) on desktop; a little less on mobile
+    const navOffset = window.innerWidth >= 1024 ? 180 : 140;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
 export function ThetaOpsAssistant() {
-  const [activeTab, setActiveTab] = useState<TabKey>('ai-scheduling');
-  const tab = TABS.find((t) => t.key === activeTab) ?? TABS[0];
+  const [activeId, setActiveId] = useState<string>(FEATURES[0].id);
+
+  // Observe which feature section is most in view to highlight its tab
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) {
+          setActiveId((visible[0].target as HTMLElement).id);
+        }
+      },
+      { threshold: [0.25, 0.5, 0.75], rootMargin: '-140px 0px -40% 0px' }
+    );
+    FEATURES.forEach((f) => {
+      const el = document.getElementById(f.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white overflow-x-clip">
       {/* ── Hero ── */}
-      <section className="pt-[140px] sm:pt-[160px] lg:pt-[180px] pb-12 sm:pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f7f9fc] via-white to-white">
+      <section className="pt-[112px] sm:pt-[130px] lg:pt-[150px] pb-12 sm:pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f7f9fc] via-white to-white">
         <div className="max-w-[1100px] mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold tracking-tight lg:tracking-[-2.5px] text-[#0f2d52] leading-[1.05] mb-5">
+          <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-bold tracking-tight lg:tracking-[-2.5px] text-[#0f2d52] leading-[1.05] mb-5">
             Built for real-world operations
           </h1>
           <p className="text-base sm:text-lg lg:text-[18px] leading-[30px] text-[#3B394E] font-normal max-w-[720px] mx-auto mb-10">
@@ -317,7 +414,6 @@ export function ThetaOpsAssistant() {
             fuel network.
           </p>
 
-          {/* Category pills — 2 rows × 4 on desktop, compact grid on mobile */}
           <div className="rounded-2xl bg-gradient-to-b from-[#eff6ff] to-[#e8f0f8] border border-[#c8d7ea] px-4 sm:px-6 py-5 sm:py-6 shadow-sm">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
               {CATEGORIES.map((c) => (
@@ -341,85 +437,99 @@ export function ThetaOpsAssistant() {
         </div>
       </section>
 
-      {/* ── Interactive Feature Tabs ── */}
-      <section className="py-12 sm:py-14 px-4 sm:px-6 lg:px-8 bg-white">
-        <FadeInView>
-          <div className="max-w-[1200px] mx-auto">
-            {/* Tab navigation — horizontal scroll on mobile */}
-            <div className="relative mb-10 border-b border-[#e8f0f8]">
-              <div className="flex gap-1 sm:gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                {TABS.map((t) => {
-                  const isActive = t.key === activeTab;
-                  return (
-                    <button
-                      key={t.key}
-                      onClick={() => setActiveTab(t.key)}
-                      className={`whitespace-nowrap px-4 sm:px-5 py-3 text-[13px] sm:text-[14px] font-medium transition-colors border-b-2 -mb-[1px] ${
-                        isActive
-                          ? 'text-[#0066cc] border-[#0066cc]'
-                          : 'text-[#3B394E] border-transparent hover:text-[#0f2d52]'
-                      }`}
-                    >
-                      {t.label}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Active tab content — 2 column layout */}
-            <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-12 items-center">
-              {/* Left: title + description + bullet chips */}
-              <div>
-                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0f2d52] tracking-[-1.2px] leading-[1.1] mb-5">
-                  {tab.title}
-                </h2>
-                <p className="text-[15px] sm:text-[16px] leading-[26px] text-[#3B394E] mb-7">
-                  {tab.description}
-                </p>
-                <div className="rounded-2xl bg-gradient-to-br from-[#eff6ff] to-[#e8f0f8] border border-[#c8d7ea] p-4 sm:p-5 space-y-2">
-                  {tab.bullets.map((b) => (
-                    <div
-                      key={b}
-                      className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 border border-[#e8f0f8]"
-                    >
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066cc] text-white flex-shrink-0">
-                        <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                      </span>
-                      <span className="text-[14px] font-medium text-[#0f2d52]">{b}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: mockup illustration (changes per tab) */}
-              <div className="relative">
-                <TabMockup mockup={tab.mockup} />
-                {/* soft blue glow behind mockup */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-6 -z-10 rounded-[32px] blur-3xl opacity-50"
-                  style={{
-                    background:
-                      'radial-gradient(circle at center, rgba(0,102,204,0.22) 0%, rgba(0,102,204,0) 70%)',
-                  }}
-                />
-              </div>
-            </div>
+      {/* ── Sticky anchor tab bar ── */}
+      <section className="sticky top-[80px] lg:top-[122px] z-40 bg-white/90 backdrop-blur-md border-y border-[#e8f0f8]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-1 sm:gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {FEATURES.map((t) => {
+              const isActive = t.id === activeId;
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => scrollToFeature(t.id)}
+                  className={`whitespace-nowrap px-4 sm:px-5 py-3.5 text-[13px] sm:text-[14px] font-medium transition-colors border-b-2 -mb-[1px] ${
+                    isActive
+                      ? 'text-[#0066cc] border-[#0066cc]'
+                      : 'text-[#3B394E] border-transparent hover:text-[#0f2d52]'
+                  }`}
+                >
+                  {t.label}
+                </button>
+              );
+            })}
           </div>
-        </FadeInView>
+        </div>
       </section>
 
+      {/* ── Feature sections — alternating layout ── */}
+      {FEATURES.map((f, idx) => {
+        const flipped = idx % 2 === 1;
+        const bg = idx % 2 === 0 ? 'bg-white' : 'bg-[#f7f9fc]';
+        return (
+          <section
+            key={f.id}
+            id={f.id}
+            className={`py-14 sm:py-20 px-4 sm:px-6 lg:px-8 ${bg} scroll-mt-[140px] lg:scroll-mt-[180px]`}
+          >
+            <FadeInView>
+              <div className="max-w-[1200px] mx-auto">
+                <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+                  {/* Text column */}
+                  <div className={flipped ? 'lg:order-2' : ''}>
+                    <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
+                      Feature · {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0f2d52] tracking-[-1.2px] leading-[1.1] mb-5">
+                      {f.title}
+                    </h2>
+                    <p className="text-[15px] sm:text-[16px] leading-[26px] text-[#3B394E] mb-6">
+                      {f.description}
+                    </p>
+                    <div className="rounded-2xl bg-white border border-[#c8d7ea] p-4 sm:p-5 space-y-2 shadow-sm">
+                      {f.bullets.map((b) => (
+                        <div
+                          key={b}
+                          className="flex items-center gap-3 rounded-xl bg-[#f7f9fc] px-4 py-3 border border-[#e8f0f8]"
+                        >
+                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066cc] text-white flex-shrink-0">
+                            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                          </span>
+                          <span className="text-[14px] font-medium text-[#0f2d52]">{b}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Visual column */}
+                  <div className={`relative ${flipped ? 'lg:order-1' : ''}`}>
+                    <Mockup kind={f.mockup} />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute -inset-6 -z-10 rounded-[32px] blur-3xl opacity-50"
+                      style={{
+                        background:
+                          'radial-gradient(circle at center, rgba(0,102,204,0.22) 0%, rgba(0,102,204,0) 70%)',
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </FadeInView>
+          </section>
+        );
+      })}
+
       {/* ── Complete Feature Set ── */}
-      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#f7f9fc]">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#f7f9fc]">
         <FadeInView>
           <div className="max-w-[1100px] mx-auto">
-            <div className="text-center mb-10">
+            <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-1.5px] text-[#0f2d52] leading-[1.1] mb-4">
                 Complete feature set
               </h2>
               <p className="text-[15px] sm:text-[17px] leading-[26px] text-[#3B394E] max-w-[640px] mx-auto">
-                Powerful features designed to optimize every aspect of your fuel delivery operations.
+                Powerful features designed to optimize every aspect of your fuel delivery
+                operations.
               </p>
             </div>
 
