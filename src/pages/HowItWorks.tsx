@@ -251,7 +251,7 @@ export function HowItWorks() {
                 <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0066cc] to-[#0f2d52] px-3 py-1 mb-4 shadow-[0_6px_20px_-8px_rgba(0,102,204,0.6)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                   <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">
-                    Flagship Product
+                    What We Provide
                   </span>
                 </div>
                 <h3 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#0f2d52] leading-[1.15] mb-5 tracking-[-0.8px]">

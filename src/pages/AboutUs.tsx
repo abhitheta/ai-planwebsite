@@ -26,10 +26,8 @@ import {
 import { FadeInView } from "../components/FadeInView";
 
 // Real product/dashboard visuals we already have
-import intelligenceHub from "../assets/intelligenceHub.png";
-import projectHub from "../assets/projectHub.png";
-import reports from "../assets/reports.png";
-import aiAdvisor from "../assets/aiAdvisor.png";
+import missionDashboard from "../assets/screens/dashboard.png";
+import visionTracking from "../assets/screens/tracking.png";
 
 // ── Capability rows ──────────────────────────────────────────────────────────
 const CAPABILITIES = [
@@ -457,15 +455,6 @@ export function AboutUs() {
           </div>
         </div>
 
-        {/* Wave divider */}
-        <svg
-          aria-hidden
-          viewBox="0 0 1440 80"
-          className="absolute bottom-0 left-0 w-full h-12 sm:h-16"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,40 C360,80 720,0 1440,40 L1440,80 L0,80 Z" fill="white" />
-        </svg>
       </section>
 
       {/* ── What We Do ────────────────────────────────────────────────────── */}
@@ -597,8 +586,8 @@ export function AboutUs() {
                 <div className="absolute -bottom-4 -right-4 h-32 w-32 rounded-full bg-[#0f2d52]/10 blur-2xl" />
                 <div className="relative rounded-[24px] overflow-hidden border border-[#e8f0f8] shadow-[0_30px_60px_-20px_rgba(15,45,82,0.25)]">
                   <img
-                    src={projectHub}
-                    alt="Unified project workspace"
+                    src={missionDashboard}
+                    alt="AI-Planning operational dashboard"
                     className="w-full h-auto"
                   />
                 </div>
@@ -701,8 +690,8 @@ export function AboutUs() {
                 <div className="absolute -inset-4 bg-gradient-to-br from-[#4fa3ff]/15 to-[#0066cc]/10 blur-2xl rounded-[32px]" />
                 <div className="relative rounded-[24px] overflow-hidden border border-[#e8f0f8] shadow-[0_30px_60px_-20px_rgba(15,45,82,0.25)]">
                   <img
-                    src={reports}
-                    alt="Operational analytics"
+                    src={visionTracking}
+                    alt="Live visibility across the fleet"
                     className="w-full h-auto"
                   />
                 </div>

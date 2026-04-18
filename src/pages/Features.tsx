@@ -105,7 +105,7 @@ const FEATURES: Feature[] = [
 // ── Mockup visuals ───────────────────────────────────────────────────────────
 function Mockup({ kind }: { kind: MockupKind }) {
   const base =
-    'relative rounded-[16px] sm:rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden w-full h-full min-h-[280px] sm:min-h-[360px] aspect-[4/3] lg:aspect-auto';
+    'relative rounded-[16px] sm:rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden w-full max-w-full aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px]';
 
   if (kind === 'map') {
     return (
@@ -541,7 +541,7 @@ export function Features() {
                   </div>
 
                   {/* Visual column */}
-                  <div className={`relative flex ${flipped ? 'lg:order-1' : ''}`}>
+                  <div className={`relative flex min-w-0 w-full ${flipped ? 'lg:order-1' : ''}`}>
                     <Mockup kind={f.mockup} />
                     <div
                       aria-hidden
