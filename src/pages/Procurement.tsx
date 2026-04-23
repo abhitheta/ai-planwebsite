@@ -39,7 +39,6 @@ export function Procurement() {
 
           <div className="flex flex-wrap items-center justify-center gap-8 text-[12px] text-[#6B6A7C]">
             <span>No credit card required</span>
-            <span>14-day free trial</span>
             <span>Cancel anytime</span>
           </div>
         </div>
