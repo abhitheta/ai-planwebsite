@@ -61,12 +61,14 @@ export function Platform() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <Link
-              to="/login?redirect=/theta-pmo/dashboard"
+            <a
+              href="https://tpanel.thetadynamics.io"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-[#0066cc] px-8 py-3.5 text-[15.6px] font-normal text-white shadow-[0_0_0_4.45px_#c8d7ea] hover:bg-[#0052a3] transition-colors tracking-[0.08px] min-w-[200px]"
             >
               Start Free Trial
-            </Link>
+            </a>
             <Link
               to="/contact"
               className="inline-flex items-center justify-center rounded-full bg-[#0066cc] px-8 py-3.5 text-[15.6px] font-normal text-white shadow-[0_0_0_4.45px_#c8d7ea] hover:bg-[#0052a3] transition-colors tracking-[0.08px] min-w-[200px]"
@@ -78,68 +80,7 @@ export function Platform() {
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-8 text-[12px] text-[#6B6A7C]">
             <span>No credit card required</span>
-            <span>14-day free trial</span>
             <span>Cancel anytime</span>
-          </div>
-        </div>
-
-        {/* Platform Impact Card */}
-        <div className="max-w-[900px] mx-auto mt-10 relative">
-          {/* Even all-sides cyan glow via pseudo-blur layer */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -inset-12 rounded-[60px] blur-3xl"
-            style={{
-              background:
-                "radial-gradient(circle at center, rgba(0,102,204,0.28) 0%, rgba(0,102,204,0.16) 38%, rgba(0,102,204,0.06) 62%, rgba(0,102,204,0) 80%)",
-            }}
-          />
-          <div className="relative bg-white rounded-[28px] px-5 py-8 sm:px-14 sm:py-12 shadow-[0_0_20px_rgba(0,102,204,0.18),0_0_40px_rgba(0,102,204,0.14),0_0_70px_rgba(0,102,204,0.10)]">
-            <h3 className="text-2xl sm:text-3xl lg:text-[36px] font-normal tracking-[-1.2px] text-[#111019] text-center mb-8 sm:mb-10">
-              Platform Impact
-            </h3>
-
-            <div className="grid grid-cols-2 gap-y-6 sm:gap-y-8 gap-x-4 sm:gap-x-14">
-              {[
-                {
-                  label: "Uptime Guarantee",
-                  value: "99.9%",
-                  desc: "Cloud-native reliability",
-                },
-                {
-                  label: "Stations Supported",
-                  value: "1000+",
-                  desc: "Scales seamlessly",
-                },
-                {
-                  label: "On-Time Delivery",
-                  value: "96%",
-                  desc: "Improved vs industry baseline",
-                },
-                {
-                  label: "Delay Reduction",
-                  value: "18%",
-                  desc: "Proven across customers",
-                },
-              ].map((stat, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-6 min-w-0"
-                >
-                  <div className="min-w-0">
-                    <p className="text-[14px] sm:text-[17px] font-medium text-[#111019] leading-tight truncate">
-                      {stat.label}
-                    </p>
-                    <p className="text-[11px] sm:text-[13px] text-[#6B6A7C] mt-1">
-                      {stat.desc}
-                    </p>
-                  </div>
-                  <span className="text-3xl sm:text-[44px] font-normal text-[#111019] tracking-[-1px] leading-none">
-                    {stat.value}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -159,11 +100,11 @@ export function Platform() {
               security, and the ability to scale from 10 stations to 1000+
               without performance degradation.
             </p>
-            <p className="text-[16px] leading-[28px] text-[#3B394E] font-normal">
+            {/* <p className="text-[16px] leading-[28px] text-[#3B394E] font-normal">
               No servers to maintain, automatic updates, 99.9% uptime, and SOC 2
               compliance out of the box — so your team can focus on operations,
               not infrastructure.
-            </p>
+            </p> */}
           </div>
 
           {/* 3-column feature strip on cyan background */}

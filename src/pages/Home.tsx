@@ -1028,15 +1028,6 @@ export function Home() {
       {/* ── Driving ROI Across Fuel Operations ── */}
       <section className="bg-gradient-to-b from-white via-[#eff6ff] to-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-tight text-slate-900 leading-tight">
-              Trusted by <span className="text-[#0066cc]">industry leaders</span>
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-              Our platform serves fuel distributors, logistics companies, and fleet operators of all sizes.
-            </p>
-          </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {

@@ -1,11 +1,11 @@
-import { Link, useLocation } from 'react-router';
-import { Menu, X, LogOut } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Link, useLocation } from "react-router";
+import { Menu, X, LogOut } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 // Import AI Planning Logo
-import aiPlanLogo from '../assets/ai-plan.png';
+import aiPlanLogo from "../assets/ai-plan.png";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,8 +19,8 @@ export function Navbar() {
       setScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSignIn = async () => {
@@ -28,7 +28,7 @@ export function Navbar() {
       setSigningIn(true);
       await signInWithGoogle();
     } catch (error) {
-      console.error('Sign in error:', error);
+      console.error("Sign in error:", error);
     } finally {
       setSigningIn(false);
     }
@@ -44,15 +44,13 @@ export function Navbar() {
 
   const navLinkClass = (path: string) =>
     `px-4 py-2 text-lg font-normal transition-colors ${
-      isActive(path)
-        ? 'text-[#0066cc]'
-        : 'text-[#212121] hover:text-[#0066cc]'
+      isActive(path) ? "text-[#0066cc]" : "text-[#212121] hover:text-[#0066cc]"
     }`;
 
   return (
     <nav
       className={`fixed top-0 w-full z-50 bg-white transition-shadow duration-300 ${
-        scrolled ? 'shadow-sm' : ''
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-9">
@@ -68,22 +66,22 @@ export function Navbar() {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center gap-[40px]">
-            <Link to="/" className={navLinkClass('/')}>
+            <Link to="/" className={navLinkClass("/")}>
               Home
             </Link>
-            <Link to="/features" className={navLinkClass('/features')}>
+            <Link to="/features" className={navLinkClass("/features")}>
               Features
             </Link>
-            <Link to="/platform" className={navLinkClass('/platform')}>
+            <Link to="/platform" className={navLinkClass("/platform")}>
               Platform
             </Link>
-            <Link to="/solutions" className={navLinkClass('/solutions')}>
+            <Link to="/solutions" className={navLinkClass("/solutions")}>
               Solutions
             </Link>
-            <Link to="/about" className={navLinkClass('/about')}>
+            <Link to="/about" className={navLinkClass("/about")}>
               About
             </Link>
-            <Link to="/contact" className={navLinkClass('/contact')}>
+            <Link to="/contact" className={navLinkClass("/contact")}>
               Contact
             </Link>
           </div>
@@ -94,11 +92,16 @@ export function Navbar() {
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-full border border-gray-200">
                   {user.photoURL ? (
-                    <img src={user.photoURL} alt="" className="w-6 h-6 rounded-full" />
+                    <img
+                      src={user.photoURL}
+                      alt=""
+                      className="w-6 h-6 rounded-full"
+                    />
                   ) : (
                     <div className="w-6 h-6 rounded-full bg-[#0f2d52] flex items-center justify-center">
                       <span className="text-white text-xs font-semibold">
-                        {user.displayName?.charAt(0) || user.email?.charAt(0)?.toUpperCase()}
+                        {user.displayName?.charAt(0) ||
+                          user.email?.charAt(0)?.toUpperCase()}
                       </span>
                     </div>
                   )}
@@ -116,12 +119,14 @@ export function Navbar() {
               </div>
             ) : (
               <>
-                <Link
-                  to="/login"
+                {/* <a
+                  href="https://tpanel.thetadynamics.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 bg-[#0f2d52] text-white font-normal text-[14.6px] tracking-[0.08px] rounded-full hover:bg-[#0052a3] transition-colors"
                 >
                   Sign In
-                </Link>
+                </a> */}
                 <Link
                   to="/contact"
                   className="px-6 py-3 bg-[#e8f0f8] text-[#0f2d52] font-normal text-[14.6px] tracking-[0.08px] rounded-full hover:bg-[#c8d7ea] transition-colors border border-[#0f2d52]/10"
@@ -137,7 +142,11 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -195,11 +204,16 @@ export function Navbar() {
                 <>
                   <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-lg">
                     {user.photoURL ? (
-                      <img src={user.photoURL} alt="" className="w-6 h-6 rounded-full" />
+                      <img
+                        src={user.photoURL}
+                        alt=""
+                        className="w-6 h-6 rounded-full"
+                      />
                     ) : (
                       <div className="w-6 h-6 rounded-full bg-[#0f2d52] flex items-center justify-center">
                         <span className="text-white text-xs font-semibold">
-                          {user.displayName?.charAt(0) || user.email?.charAt(0)?.toUpperCase()}
+                          {user.displayName?.charAt(0) ||
+                            user.email?.charAt(0)?.toUpperCase()}
                         </span>
                       </div>
                     )}
@@ -219,13 +233,15 @@ export function Navbar() {
                 </>
               ) : (
                 <>
-                  <Link
-                    to="/login"
+                  <a
+                    href="https://tpanel.thetadynamics.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
                     className="block w-full px-3 py-2.5 bg-[#0f2d52] text-white rounded-full text-center text-sm hover:bg-[#0052a3] transition"
                   >
                     Sign In
-                  </Link>
+                  </a>
                   <Link
                     to="/contact"
                     onClick={() => setMobileMenuOpen(false)}

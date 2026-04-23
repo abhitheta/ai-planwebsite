@@ -23,12 +23,14 @@ export function Safety() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <Link
-              to="/login?redirect=/theta-hse/dashboard"
+            <a
+              href="https://tpanel.thetadynamics.io"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0f2d52] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(30,143,90,0.22)] hover:from-[#0066cc] hover:to-[#0052a3]"
             >
               Start Free Trial
-            </Link>
+            </a>
             <Link
               to="/contact"
               className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[15.6px] font-normal text-white tracking-[0.08px] min-w-[200px] transition-all bg-gradient-to-b from-[#0066cc] to-[#0052a3] shadow-[0_0_0_4px_#e8f0f8,0_6px_14px_rgba(30,143,90,0.18)] hover:from-[#0066cc] hover:to-[#0052a3]"
@@ -39,7 +41,6 @@ export function Safety() {
 
           <div className="flex flex-wrap items-center justify-center gap-8 text-[12px] text-[#6B6A7C]">
             <span>No credit card required</span>
-            <span>14-day free trial</span>
             <span>Cancel anytime</span>
           </div>
         </div>

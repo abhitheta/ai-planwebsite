@@ -160,18 +160,18 @@ export function Footer() {
 
               {/* Legal Links */}
               <div className="flex items-center gap-6 sm:gap-8">
-                <Link
-                  to="/privacy-policy"
+                <a
+                  href="#"
                   className="text-[12px] leading-[18px] text-[#3B394E] hover:text-[#0066cc] transition-colors"
                 >
                   Privacy Policy
-                </Link>
-                <Link
-                  to="/terms-of-service"
+                </a>
+                <a
+                  href="#"
                   className="text-[12px] leading-[18px] text-[#3B394E] hover:text-[#0066cc] transition-colors"
                 >
                   Terms of Service
-                </Link>
+                </a>
                 <a
                   href="#"
                   className="text-[12px] leading-[18px] text-[#3B394E] hover:text-[#0066cc] transition-colors"
