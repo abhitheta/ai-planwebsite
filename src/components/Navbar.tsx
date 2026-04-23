@@ -233,15 +233,6 @@ export function Navbar() {
                 </>
               ) : (
                 <>
-                  <a
-                    href="https://tpanel.thetadynamics.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full px-3 py-2.5 bg-[#0f2d52] text-white rounded-full text-center text-sm hover:bg-[#0052a3] transition"
-                  >
-                    Sign In
-                  </a>
                   <Link
                     to="/contact"
                     onClick={() => setMobileMenuOpen(false)}
