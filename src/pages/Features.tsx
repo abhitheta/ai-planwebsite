@@ -1,5 +1,5 @@
-import { Link } from 'react-router';
-import { useEffect, useRef, useState } from 'react';
+import { Link } from "react-router";
+import { useEffect, useRef, useState } from "react";
 import {
   MapPin,
   Target,
@@ -10,22 +10,29 @@ import {
   CheckCircle2,
   Zap,
   Check,
-} from 'lucide-react';
-import { FadeInView } from '../components/FadeInView';
+} from "lucide-react";
+import { FadeInView } from "../components/FadeInView";
 
 const CATEGORIES = [
-  { icon: MapPin, label: 'Location Tracking' },
-  { icon: Target, label: 'Accurate Predictions' },
-  { icon: ClipboardList, label: 'Precise Logging' },
-  { icon: Bell, label: 'Smart Notifications' },
-  { icon: Package, label: 'Capacity Management' },
-  { icon: Route, label: 'Optimized Paths' },
-  { icon: CheckCircle2, label: 'Reliable Service' },
-  { icon: Zap, label: 'Improved Efficiency' },
+  { icon: MapPin, label: "Location Tracking" },
+  { icon: Target, label: "Accurate Predictions" },
+  { icon: ClipboardList, label: "Precise Logging" },
+  { icon: Bell, label: "Smart Notifications" },
+  { icon: Package, label: "Capacity Management" },
+  { icon: Route, label: "Optimized Paths" },
+  { icon: CheckCircle2, label: "Reliable Service" },
+  { icon: Zap, label: "Improved Efficiency" },
 ];
 
 // ── Feature sections (rendered as long-scroll page) ──────────────────────────
-type MockupKind = 'map' | 'forecast' | 'dashboard' | 'alerts' | 'chart' | 'loop' | 'shield';
+type MockupKind =
+  | "map"
+  | "forecast"
+  | "dashboard"
+  | "alerts"
+  | "chart"
+  | "loop"
+  | "shield";
 
 interface Feature {
   id: string;
@@ -38,81 +45,101 @@ interface Feature {
 
 const FEATURES: Feature[] = [
   {
-    id: 'ai-scheduling',
-    label: 'AI Scheduling',
-    title: 'AI Scheduling',
+    id: "ai-scheduling",
+    label: "AI Scheduling",
+    title: "AI Scheduling",
     description:
-      'Our AI Scheduling engine automatically creates the most efficient delivery and operational schedules by analyzing real-time demand, resource availability, traffic conditions, and business constraints. It intelligently prioritizes tasks, minimizes idle time, reduces operational costs, and dynamically re-adjusts schedules when disruptions occur — ensuring on-time execution without manual intervention.',
-    bullets: ['Route Efficiency', 'Fuel Savings', 'On-time Deliveries'],
-    mockup: 'map',
+      "Our AI Scheduling engine automatically creates the most efficient delivery and operational schedules by analyzing real-time demand, resource availability, traffic conditions, and business constraints. It intelligently prioritizes tasks, minimizes idle time, reduces operational costs, and dynamically re-adjusts schedules when disruptions occur — ensuring on-time execution without manual intervention.",
+    bullets: ["Route Efficiency", "Fuel Savings", "On-time Deliveries"],
+    mockup: "map",
   },
   {
-    id: 'demand-planner',
-    label: 'Demand Planner',
-    title: 'Demand Planner',
+    id: "demand-planner",
+    label: "Demand Planner",
+    title: "Demand Planner",
     description:
-      'The Demand Planner uses historical data, seasonal trends, and recent activity patterns to forecast demand across multiple time horizons — immediate shifts, weekly planning, and monthly capacity planning. This enables businesses to proactively allocate resources, avoid shortages, and maintain optimal service levels with data-driven accuracy.',
-    bullets: ['Immediate shifts', 'Weekly planning', 'Monthly capacity planning'],
-    mockup: 'forecast',
+      "The Demand Planner uses historical data, seasonal trends, and recent activity patterns to forecast demand across multiple time horizons — immediate shifts, weekly planning, and monthly capacity planning. This enables businesses to proactively allocate resources, avoid shortages, and maintain optimal service levels with data-driven accuracy.",
+    bullets: [
+      "Immediate shifts",
+      "Weekly planning",
+      "Monthly capacity planning",
+    ],
+    mockup: "forecast",
   },
   {
-    id: 'auto-stock',
-    label: 'Auto Stock Reconciliation',
-    title: 'Auto Stock Reconciliation',
+    id: "auto-stock",
+    label: "Auto Stock Reconciliation",
+    title: "Auto Stock Reconciliation",
     description:
-      'Auto Stock Reconciliation continuously synchronizes physical stock levels with system records using live inputs from deliveries, sensors, driver confirmations, and system updates. It eliminates manual reconciliation errors, ensures real-time stock visibility, flags discrepancies instantly, and supports accurate inventory and financial reporting.',
-    bullets: ['Real-time stock visibility', 'Instant discrepancy flags', 'Accurate financial reporting'],
-    mockup: 'chart',
+      "Auto Stock Reconciliation continuously synchronizes physical stock levels with system records using live inputs from deliveries, sensors, driver confirmations, and system updates. It eliminates manual reconciliation errors, ensures real-time stock visibility, flags discrepancies instantly, and supports accurate inventory and financial reporting.",
+    bullets: [
+      "Real-time stock visibility",
+      "Instant discrepancy flags",
+      "Accurate financial reporting",
+    ],
+    mockup: "chart",
   },
   {
-    id: 'alerts',
-    label: 'Alerts & Notifications',
-    title: 'Alerts & Notifications',
+    id: "alerts",
+    label: "Alerts & Notifications",
+    title: "Alerts & Notifications",
     description:
-      'Automated notifications for low inventory, delivery delays, and critical events. Delays trigger alerts and escalations automatically so you stay ahead of problems before they impact your customers. Smart notifications keep dispatchers, drivers, and managers informed in real time.',
-    bullets: ['Low inventory alerts', 'Delivery-delay escalations', 'Critical-event notifications'],
-    mockup: 'alerts',
+      "Automated notifications for low inventory, delivery delays, and critical events. Delays trigger alerts and escalations automatically so you stay ahead of problems before they impact your customers. Smart notifications keep dispatchers, drivers, and managers informed in real time.",
+    bullets: [
+      "Low inventory alerts",
+      "Delivery-delay escalations",
+      "Critical-event notifications",
+    ],
+    mockup: "alerts",
   },
   {
-    id: 'visualisation',
-    label: 'Visualisation',
-    title: 'Visualisation',
+    id: "visualisation",
+    label: "Visualisation",
+    title: "Visualisation",
     description:
-      'Interactive dashboards and visual reports to explore delivery metrics, on-time performance, and station health at a glance. Comprehensive reporting on delivery performance, efficiency, and cost optimization — so every stakeholder sees what matters.',
-    bullets: ['Delivery performance', 'On-time metrics', 'Station health overview'],
-    mockup: 'dashboard',
+      "Interactive dashboards and visual reports to explore delivery metrics, on-time performance, and station health at a glance. Comprehensive reporting on delivery performance, efficiency, and cost optimization — so every stakeholder sees what matters.",
+    bullets: [
+      "Delivery performance",
+      "On-time metrics",
+      "Station health overview",
+    ],
+    mockup: "dashboard",
   },
   {
-    id: 'continuous-learning',
-    label: 'Continuous Learning',
-    title: 'Continuous Learning',
+    id: "continuous-learning",
+    label: "Continuous Learning",
+    title: "Continuous Learning",
     description:
-      'The Continuous Learning engine improves system intelligence over time by learning from execution data such as actual delivery times, driver behaviour, route performance, and demand variations. This self-correcting feedback loop ensures that every planning cycle becomes more accurate, efficient, and reliable than the last.',
-    bullets: ['Route performance feedback', 'Driver-behaviour insights', 'Self-correcting forecasts'],
-    mockup: 'loop',
+      "The Continuous Learning engine improves system intelligence over time by learning from execution data such as actual delivery times, driver behaviour, route performance, and demand variations. This self-correcting feedback loop ensures that every planning cycle becomes more accurate, efficient, and reliable than the last.",
+    bullets: [
+      "Route performance feedback",
+      "Driver-behaviour insights",
+      "Self-correcting forecasts",
+    ],
+    mockup: "loop",
   },
   {
-    id: 'security',
-    label: 'Security & Enterprise Controls',
-    title: 'Security & Enterprise Controls',
+    id: "security",
+    label: "Security & Enterprise Controls",
+    title: "Security & Enterprise Controls",
     description:
-      'Bank-grade encryption, role-based access control, and SOC 2 compliance. Your data is always protected. 99.9% uptime, automated backups, and enterprise-ready APIs make deployment and integration straightforward.',
-    bullets: ['Compliance & Safety', 'API Integration', '99.9% Uptime'],
-    mockup: 'shield',
+      "Bank-grade encryption, role-based access control. Your data is always protected. 99.9% uptime, automated backups, and enterprise-ready APIs make deployment and integration straightforward.",
+    bullets: ["Compliance & Safety", "API Integration", "99.9% Uptime"],
+    mockup: "shield",
   },
 ];
 
 // ── Mockup visuals ───────────────────────────────────────────────────────────
 function Mockup({ kind }: { kind: MockupKind }) {
   const base =
-    'relative rounded-[16px] sm:rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden w-full max-w-full aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px]';
+    "relative rounded-[16px] sm:rounded-[18px] border border-[#e8f0f8] bg-white shadow-[0_14px_40px_-16px_rgba(15,45,82,0.25)] overflow-hidden w-full max-w-full aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px]";
 
-  if (kind === 'map') {
+  if (kind === "map") {
     return (
       <div className={base}>
         <div className="absolute inset-0 flex">
           <div className="w-1/4 bg-[#0f2d52] p-3 flex flex-col gap-2">
-            {['Dashboard', 'Orders', 'Trips', 'Drivers', 'Trucks'].map((i) => (
+            {["Dashboard", "Orders", "Trips", "Drivers", "Trucks"].map((i) => (
               <div key={i} className="h-3 rounded bg-white/20" />
             ))}
           </div>
@@ -142,23 +169,27 @@ function Mockup({ kind }: { kind: MockupKind }) {
     );
   }
 
-  if (kind === 'forecast') {
+  if (kind === "forecast") {
     const days = [
-      { d: 'Mon', v: 65 },
-      { d: 'Tue', v: 78 },
-      { d: 'Wed', v: 75 },
-      { d: 'Thu', v: 86 },
-      { d: 'Fri', v: 83 },
-      { d: 'Sat', v: 90 },
-      { d: 'Sun', v: 95 },
+      { d: "Mon", v: 65 },
+      { d: "Tue", v: 78 },
+      { d: "Wed", v: 75 },
+      { d: "Thu", v: 86 },
+      { d: "Fri", v: 83 },
+      { d: "Sat", v: 90 },
+      { d: "Sun", v: 95 },
     ];
     return (
-      <div className={base + ' p-5 sm:p-6 flex flex-col'}>
-        <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">7-Day Forecast</p>
+      <div className={base + " p-5 sm:p-6 flex flex-col"}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">
+          7-Day Forecast
+        </p>
         <div className="flex-1 flex flex-col justify-around gap-3">
           {days.map((d) => (
             <div key={d.d} className="flex items-center gap-3">
-              <span className="w-10 text-[11px] font-medium text-[#3B394E]">{d.d}</span>
+              <span className="w-10 text-[11px] font-medium text-[#3B394E]">
+                {d.d}
+              </span>
               <div className="flex-1 h-3.5 rounded-full bg-[#e8f0f8] overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-[#0066cc] to-[#0f2d52] rounded-full"
@@ -175,10 +206,12 @@ function Mockup({ kind }: { kind: MockupKind }) {
     );
   }
 
-  if (kind === 'chart') {
+  if (kind === "chart") {
     return (
-      <div className={base + ' p-5 flex flex-col'}>
-        <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">Stock vs Sensor Reading</p>
+      <div className={base + " p-5 flex flex-col"}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">
+          Stock vs Sensor Reading
+        </p>
         <svg
           viewBox="0 0 300 180"
           preserveAspectRatio="xMidYMid meet"
@@ -220,16 +253,34 @@ function Mockup({ kind }: { kind: MockupKind }) {
     );
   }
 
-  if (kind === 'alerts') {
+  if (kind === "alerts") {
     const items = [
-      { t: 'Delivery delayed 18 min', tag: 'Critical', color: 'bg-[#0f2d52] text-white' },
-      { t: 'Low inventory at Station #42', tag: 'Warning', color: 'bg-[#0066cc] text-white' },
-      { t: 'Trip completed on time', tag: 'Info', color: 'bg-[#e8f0f8] text-[#0f2d52]' },
-      { t: 'ETA updated: Trip 9018', tag: 'Info', color: 'bg-[#e8f0f8] text-[#0f2d52]' },
+      {
+        t: "Delivery delayed 18 min",
+        tag: "Critical",
+        color: "bg-[#0f2d52] text-white",
+      },
+      {
+        t: "Low inventory at Station #42",
+        tag: "Warning",
+        color: "bg-[#0066cc] text-white",
+      },
+      {
+        t: "Trip completed on time",
+        tag: "Info",
+        color: "bg-[#e8f0f8] text-[#0f2d52]",
+      },
+      {
+        t: "ETA updated: Trip 9018",
+        tag: "Info",
+        color: "bg-[#e8f0f8] text-[#0f2d52]",
+      },
     ];
     return (
-      <div className={base + ' p-5 flex flex-col'}>
-        <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">Recent Alerts</p>
+      <div className={base + " p-5 flex flex-col"}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-4">
+          Recent Alerts
+        </p>
         <div className="flex-1 flex flex-col justify-around gap-2.5">
           {items.map((a, i) => (
             <div
@@ -237,8 +288,12 @@ function Mockup({ kind }: { kind: MockupKind }) {
               className="flex items-center gap-3 rounded-lg border border-[#e8f0f8] p-3"
             >
               <Bell className="w-4 h-4 text-[#0066cc]" />
-              <span className="flex-1 text-[12px] text-[#0f2d52] font-medium">{a.t}</span>
-              <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${a.color}`}>
+              <span className="flex-1 text-[12px] text-[#0f2d52] font-medium">
+                {a.t}
+              </span>
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${a.color}`}
+              >
                 {a.tag}
               </span>
             </div>
@@ -248,18 +303,25 @@ function Mockup({ kind }: { kind: MockupKind }) {
     );
   }
 
-  if (kind === 'dashboard') {
+  if (kind === "dashboard") {
     return (
-      <div className={base + ' p-5 flex flex-col'}>
-        <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">Operational Overview</p>
+      <div className={base + " p-5 flex flex-col"}>
+        <p className="text-[12px] font-semibold text-[#0f2d52] mb-3">
+          Operational Overview
+        </p>
         <div className="grid grid-cols-3 gap-2.5 mb-4">
           {[
-            { l: 'On-time', v: '96%' },
-            { l: 'Active', v: '214' },
-            { l: 'Fuel Saved', v: '18%' },
+            { l: "On-time", v: "96%" },
+            { l: "Active", v: "214" },
+            { l: "Fuel Saved", v: "18%" },
           ].map((s) => (
-            <div key={s.l} className="rounded-lg bg-[#eff6ff] p-2.5 text-center">
-              <p className="text-[9px] text-[#3B394E] uppercase tracking-wide">{s.l}</p>
+            <div
+              key={s.l}
+              className="rounded-lg bg-[#eff6ff] p-2.5 text-center"
+            >
+              <p className="text-[9px] text-[#3B394E] uppercase tracking-wide">
+                {s.l}
+              </p>
               <p className="text-[16px] font-bold text-[#0f2d52]">{s.v}</p>
             </div>
           ))}
@@ -286,10 +348,14 @@ function Mockup({ kind }: { kind: MockupKind }) {
     );
   }
 
-  if (kind === 'loop') {
+  if (kind === "loop") {
     return (
-      <div className={base + ' p-6 flex items-center justify-center'}>
-        <svg viewBox="0 0 280 220" preserveAspectRatio="xMidYMid meet" className="w-full h-full max-h-[80%]">
+      <div className={base + " p-6 flex items-center justify-center"}>
+        <svg
+          viewBox="0 0 280 220"
+          preserveAspectRatio="xMidYMid meet"
+          className="w-full h-full max-h-[80%]"
+        >
           <defs>
             <marker
               id="arrow"
@@ -304,13 +370,20 @@ function Mockup({ kind }: { kind: MockupKind }) {
             </marker>
           </defs>
           {[
-            { cx: 140, cy: 40, t: 'Plan' },
-            { cx: 220, cy: 110, t: 'Execute' },
-            { cx: 140, cy: 180, t: 'Learn' },
-            { cx: 60, cy: 110, t: 'Refine' },
+            { cx: 140, cy: 40, t: "Plan" },
+            { cx: 220, cy: 110, t: "Execute" },
+            { cx: 140, cy: 180, t: "Learn" },
+            { cx: 60, cy: 110, t: "Refine" },
           ].map((n) => (
             <g key={n.t}>
-              <circle cx={n.cx} cy={n.cy} r="30" fill="#e8f0f8" stroke="#0066cc" strokeWidth="2" />
+              <circle
+                cx={n.cx}
+                cy={n.cy}
+                r="30"
+                fill="#e8f0f8"
+                stroke="#0066cc"
+                strokeWidth="2"
+              />
               <text
                 x={n.cx}
                 y={n.cy + 4}
@@ -358,14 +431,20 @@ function Mockup({ kind }: { kind: MockupKind }) {
 
   // shield
   return (
-    <div className={base + ' p-5 flex flex-col items-center justify-center gap-4'}>
+    <div
+      className={base + " p-5 flex flex-col items-center justify-center gap-4"}
+    >
       <div className="w-24 h-24 rounded-full bg-[#0f2d52] flex items-center justify-center shadow-lg">
-        <svg viewBox="0 0 24 24" className="w-12 h-12 text-white" fill="currentColor">
+        <svg
+          viewBox="0 0 24 24"
+          className="w-12 h-12 text-white"
+          fill="currentColor"
+        >
           <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z" />
         </svg>
       </div>
-      <div className="grid grid-cols-3 gap-2 w-full px-4">
-        {['SOC 2', 'GDPR', 'ISO 27001'].map((b) => (
+      <div className="grid grid-cols-2 gap-2 w-full px-4">
+        {["GDPR", "ISO 27001"].map((b) => (
           <div
             key={b}
             className="rounded-lg border border-[#e8f0f8] py-2.5 text-center text-[11px] font-semibold text-[#0f2d52]"
@@ -385,7 +464,7 @@ function scrollToFeature(id: string) {
     // Navbar (88) + sticky tab bar (~52) on desktop; a little less on mobile
     const navOffset = window.innerWidth >= 1024 ? 180 : 140;
     const y = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    window.scrollTo({ top: y, behavior: "smooth" });
   }
 }
 
@@ -405,7 +484,7 @@ export function Features() {
           setActiveId((visible[0].target as HTMLElement).id);
         }
       },
-      { threshold: [0.25, 0.5, 0.75], rootMargin: '-140px 0px -40% 0px' }
+      { threshold: [0.25, 0.5, 0.75], rootMargin: "-140px 0px -40% 0px" },
     );
     FEATURES.forEach((f) => {
       const el = document.getElementById(f.id);
@@ -420,7 +499,7 @@ export function Features() {
     const btn = tabRefs.current[activeId];
     if (!bar || !btn) return;
     const target = btn.offsetLeft - bar.clientWidth / 2 + btn.clientWidth / 2;
-    bar.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    bar.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
   }, [activeId]);
 
   return (
@@ -435,8 +514,8 @@ export function Features() {
             Built for real-world operations
           </h1>
           <p className="text-[14px] sm:text-base lg:text-[18px] leading-[24px] sm:leading-[30px] text-[#3B394E] font-normal max-w-[720px] mx-auto mb-8 sm:mb-10">
-            From forecasting to final delivery, everything you need to manage a reliable, on-time
-            fuel network.
+            From forecasting to final delivery, everything you need to manage a
+            reliable, on-time fuel network.
           </p>
 
           {/* ── Platform Impact card — single clean card with 4 headline metrics ── */}
@@ -447,15 +526,21 @@ export function Features() {
               className="pointer-events-none absolute -inset-6 sm:-inset-10 rounded-[40px] sm:rounded-[60px] blur-3xl"
               style={{
                 background:
-                  'radial-gradient(circle at center, rgba(0,102,204,0.28) 0%, rgba(0,102,204,0.16) 38%, rgba(0,102,204,0.06) 62%, rgba(0,102,204,0) 80%)',
+                  "radial-gradient(circle at center, rgba(0,102,204,0.28) 0%, rgba(0,102,204,0.16) 38%, rgba(0,102,204,0.06) 62%, rgba(0,102,204,0) 80%)",
               }}
             />
 
             <div className="relative rounded-[20px] sm:rounded-[28px] bg-white px-4 py-6 sm:px-14 sm:py-12 shadow-[0_0_20px_rgba(0,102,204,0.18),0_0_40px_rgba(0,102,204,0.14),0_0_70px_rgba(0,102,204,0.10)]">
               <ul className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-10 lg:gap-x-16 gap-y-5 sm:gap-y-8 lg:gap-y-10 list-none p-0 m-0">
                 {CATEGORIES.map((c) => (
-                  <li key={c.label} className="flex items-center gap-2.5 sm:gap-4 text-left">
-                    <c.icon className="h-5 w-5 sm:h-6 sm:w-6 text-[#0066cc] flex-shrink-0" strokeWidth={1.75} />
+                  <li
+                    key={c.label}
+                    className="flex items-center gap-2.5 sm:gap-4 text-left"
+                  >
+                    <c.icon
+                      className="h-5 w-5 sm:h-6 sm:w-6 text-[#0066cc] flex-shrink-0"
+                      strokeWidth={1.75}
+                    />
                     <span className="text-[12.5px] sm:text-[16px] lg:text-[18px] font-medium text-[#111019] leading-tight">
                       {c.label}
                     </span>
@@ -482,15 +567,17 @@ export function Features() {
               return (
                 <button
                   key={t.id}
-                  ref={(el) => { tabRefs.current[t.id] = el; }}
+                  ref={(el) => {
+                    tabRefs.current[t.id] = el;
+                  }}
                   onClick={() => {
                     setActiveId(t.id);
                     scrollToFeature(t.id);
                   }}
                   className={`whitespace-nowrap px-4 sm:px-5 py-3.5 text-[13px] sm:text-[14px] font-medium transition-colors border-b-2 -mb-[1px] ${
                     isActive
-                      ? 'text-[#0066cc] border-[#0066cc]'
-                      : 'text-[#3B394E] border-transparent hover:text-[#0f2d52]'
+                      ? "text-[#0066cc] border-[#0066cc]"
+                      : "text-[#3B394E] border-transparent hover:text-[#0f2d52]"
                   }`}
                 >
                   {t.label}
@@ -504,7 +591,7 @@ export function Features() {
       {/* ── Feature sections — alternating layout ── */}
       {FEATURES.map((f, idx) => {
         const flipped = idx % 2 === 1;
-        const bg = idx % 2 === 0 ? 'bg-white' : 'bg-[#f7f9fc]';
+        const bg = idx % 2 === 0 ? "bg-white" : "bg-[#f7f9fc]";
         return (
           <section
             key={f.id}
@@ -515,9 +602,11 @@ export function Features() {
               <div className="max-w-[1200px] mx-auto">
                 <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 sm:gap-10 lg:gap-14 items-stretch">
                   {/* Text column */}
-                  <div className={`flex flex-col ${flipped ? 'lg:order-2' : ''}`}>
+                  <div
+                    className={`flex flex-col ${flipped ? "lg:order-2" : ""}`}
+                  >
                     <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-3 sm:mb-4 self-start">
-                      Feature · {String(idx + 1).padStart(2, '0')}
+                      Feature · {String(idx + 1).padStart(2, "0")}
                     </span>
                     <h2 className="text-[26px] sm:text-4xl lg:text-[44px] font-bold text-[#0f2d52] tracking-[-0.8px] sm:tracking-[-1.2px] leading-[1.15] sm:leading-[1.1] mb-4 sm:mb-5">
                       {f.title}
@@ -532,23 +621,30 @@ export function Features() {
                           className="flex items-center gap-2.5 sm:gap-3 rounded-lg sm:rounded-xl bg-[#f7f9fc] px-3 sm:px-4 py-2.5 sm:py-3 border border-[#e8f0f8]"
                         >
                           <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#0066cc] text-white flex-shrink-0">
-                            <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={3} />
+                            <Check
+                              className="h-3 w-3 sm:h-3.5 sm:w-3.5"
+                              strokeWidth={3}
+                            />
                           </span>
-                          <span className="text-[13px] sm:text-[14px] font-medium text-[#0f2d52]">{b}</span>
+                          <span className="text-[13px] sm:text-[14px] font-medium text-[#0f2d52]">
+                            {b}
+                          </span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Visual column */}
-                  <div className={`relative flex min-w-0 w-full ${flipped ? 'lg:order-1' : ''}`}>
+                  <div
+                    className={`relative flex min-w-0 w-full ${flipped ? "lg:order-1" : ""}`}
+                  >
                     <Mockup kind={f.mockup} />
                     <div
                       aria-hidden
                       className="pointer-events-none absolute -inset-4 sm:-inset-6 -z-10 rounded-[24px] sm:rounded-[32px] blur-3xl opacity-50"
                       style={{
                         background:
-                          'radial-gradient(circle at center, rgba(0,102,204,0.22) 0%, rgba(0,102,204,0) 70%)',
+                          "radial-gradient(circle at center, rgba(0,102,204,0.22) 0%, rgba(0,102,204,0) 70%)",
                       }}
                     />
                   </div>
@@ -568,24 +664,24 @@ export function Features() {
                 Complete feature set
               </h2>
               <p className="text-[15px] sm:text-[17px] leading-[26px] text-[#3B394E] max-w-[640px] mx-auto">
-                Powerful features designed to optimize every aspect of your fuel delivery
-                operations.
+                Powerful features designed to optimize every aspect of your fuel
+                delivery operations.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {[
                 {
-                  title: 'Compliance & Safety',
-                  desc: 'Automated compliance tracking, safety checklists, and regulatory reporting for peace of mind.',
+                  title: "Compliance & Safety",
+                  desc: "Automated compliance tracking, safety checklists, and regulatory reporting for peace of mind.",
                 },
                 {
-                  title: 'API Integration',
-                  desc: 'Connect with existing systems via robust APIs and webhooks — ERP, telematics, tank sensors, and more.',
+                  title: "API Integration",
+                  desc: "Connect with existing systems via robust APIs and webhooks — ERP, telematics, tank sensors, and more.",
                 },
                 {
-                  title: '99.9% Uptime',
-                  desc: 'Enterprise-grade reliability with automated backups, disaster recovery, and global redundancy.',
+                  title: "99.9% Uptime",
+                  desc: "Enterprise-grade reliability with automated backups, disaster recovery, and global redundancy.",
                 },
               ].map((c) => (
                 <div
@@ -595,8 +691,12 @@ export function Features() {
                   <div className="w-10 h-10 rounded-xl bg-[#e8f0f8] group-hover:bg-[#0066cc] text-[#0066cc] group-hover:text-white flex items-center justify-center mb-4 transition-colors">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
-                  <h3 className="text-[17px] font-semibold text-[#0f2d52] mb-2">{c.title}</h3>
-                  <p className="text-[13px] leading-[20px] text-[#3B394E]">{c.desc}</p>
+                  <h3 className="text-[17px] font-semibold text-[#0f2d52] mb-2">
+                    {c.title}
+                  </h3>
+                  <p className="text-[13px] leading-[20px] text-[#3B394E]">
+                    {c.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -612,8 +712,8 @@ export function Features() {
               Ready to optimize your fuel delivery operations?
             </h2>
             <p className="text-[15px] leading-[26px] text-[#c8d7ea] max-w-[620px] mx-auto mb-8">
-              Join leading fuel distributors who've reduced delays by 18% and improved on-time
-              delivery to 96%.
+              Join leading fuel distributors who've reduced delays by 18% and
+              improved on-time delivery to 96%.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
