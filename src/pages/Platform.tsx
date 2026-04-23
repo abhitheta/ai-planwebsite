@@ -110,7 +110,7 @@ export function Platform() {
           {/* 3-column feature strip on cyan background */}
           <div className="max-w-[1240px] mx-auto">
             <div className="bg-[#c8d7ea] px-8 sm:px-14 lg:px-[72px] py-12 sm:py-14 lg:py-[60px]">
-              <div className="grid md:grid-cols-3 gap-y-10 gap-x-12 lg:gap-x-20">
+              <div className="grid md:grid-cols-2 gap-y-10 gap-x-12 lg:gap-x-20">
                 <div>
                   <h3 className="text-[26px] sm:text-[28px] lg:text-[30px] font-semibold text-[#111019] leading-[1.2] mb-6">
                     Powerful desktop interface
@@ -130,7 +130,7 @@ export function Platform() {
                     backups, and 99.9% uptime guarantee.
                   </p>
                 </div>
-                <div>
+                {/* <div>
                   <h3 className="text-[26px] sm:text-[28px] lg:text-[30px] font-semibold text-[#111019] leading-[1.2] mb-6">
                     Bank-grade encryption
                   </h3>
@@ -139,7 +139,7 @@ export function Platform() {
                     access control, and SOC 2 compliance. Your data is always
                     protected.
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
