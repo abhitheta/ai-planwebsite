@@ -1,36 +1,69 @@
-import { Link } from 'react-router';
-import { ArrowRight, CheckCircle, BarChart3, Brain, Shield, Users, Clock, TrendingUp, Zap, Target, Database, LineChart, Wrench, Smartphone, BrainCircuit, Play, BarChart2, Settings, Send, Sparkles, DollarSign, Activity, Layers, AlertTriangle, FileText, Camera, Radio, Bell, Lock, ClipboardList, CheckCircle2Icon, Check } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { Link } from "react-router";
+import {
+  ArrowRight,
+  CheckCircle,
+  BarChart3,
+  Brain,
+  Shield,
+  Users,
+  Clock,
+  TrendingUp,
+  Zap,
+  Target,
+  Database,
+  LineChart,
+  Wrench,
+  Smartphone,
+  BrainCircuit,
+  Play,
+  BarChart2,
+  Settings,
+  Send,
+  Sparkles,
+  DollarSign,
+  Activity,
+  Layers,
+  AlertTriangle,
+  FileText,
+  Camera,
+  Radio,
+  Bell,
+  Lock,
+  ClipboardList,
+  CheckCircle2Icon,
+  Check,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
-import productImg1 from '../assets/projectHub.png';
-import productImg2 from '../assets/reports.png';
-import productImg3 from '../assets/aiAdvisor.png';
-import productImg4 from '../assets/intelligenceHub.png';
-import productImg5 from "../assets/knowlegdeBase.png"
-import productImg6 from "../assets/thetaEngage.png"
-import productImg7 from "../assets/thetaEngage.png"
-import heroPreviewImage from '../assets/da9160705c98e71563d498abb92c880ae16f869c.png';
-import cyberImage from "../assets/image.png"
-import designBG from '../assets/designBG.png';
-import heroVideo from '../assets/demo.mp4';
-import heroVideoPoster from '../assets/videoframe_8177.png';
-import { useParallax } from '../components/useParallax';
-import chartViewIcon from '../assets/icons/chartView.png';
-import messageIcon from '../assets/icons/messageIcon.png';
-import noteIcon from '../assets/icons/noteIcon.png';
-import settingIcon from '../assets/icons/setttingIcon.png';
-import shareIcon from '../assets/icons/shareIcon.png';
-import upDirectionIcon from '../assets/icons/upDirection.png';
-import NSCCIcon from '../assets/icons/nsccIcon.png'
-import DesconIcon from '../assets/icons/desconIcon.png'
+import productImg1 from "../assets/projectHub.png";
+import productImg2 from "../assets/reports.png";
+import productImg3 from "../assets/aiAdvisor.png";
+import productImg4 from "../assets/intelligenceHub.png";
+import productImg5 from "../assets/knowlegdeBase.png";
+import productImg6 from "../assets/thetaEngage.png";
+import productImg7 from "../assets/thetaEngage.png";
+import heroPreviewImage from "../assets/da9160705c98e71563d498abb92c880ae16f869c.png";
+import cyberImage from "../assets/image.png";
+import designBG from "../assets/designBG.png";
+import heroVideo from "../assets/demo.mp4";
+import heroVideoPoster from "../assets/videoframe_8177.png";
+import { useParallax } from "../components/useParallax";
+import chartViewIcon from "../assets/icons/chartView.png";
+import messageIcon from "../assets/icons/messageIcon.png";
+import noteIcon from "../assets/icons/noteIcon.png";
+import settingIcon from "../assets/icons/setttingIcon.png";
+import shareIcon from "../assets/icons/shareIcon.png";
+import upDirectionIcon from "../assets/icons/upDirection.png";
+import NSCCIcon from "../assets/icons/nsccIcon.png";
+import DesconIcon from "../assets/icons/desconIcon.png";
 
-import microsoftLogo from '../assets/brand/microsoft.png';
-import powerbiLogo from '../assets/brand/powerbi.png';
-import sqlLogo from '../assets/brand/sql.png';
-import nosqlLogo from '../assets/brand/nosql.png';
-import awsLogo from '../assets/brand/aws.png';
-import googleLogo from '../assets/brand/google.png';
+import microsoftLogo from "../assets/brand/microsoft.png";
+import powerbiLogo from "../assets/brand/powerbi.png";
+import sqlLogo from "../assets/brand/sql.png";
+import nosqlLogo from "../assets/brand/nosql.png";
+import awsLogo from "../assets/brand/aws.png";
+import googleLogo from "../assets/brand/google.png";
 
 // --- Interfaces ---
 interface ProductTileProps {
@@ -53,72 +86,72 @@ interface ShowcaseFeature {
 
 const SHOWCASE_FEATURES: ShowcaseFeature[] = [
   {
-    key: 'ai',
-    label: 'AI Intelligence',
-    title: 'AI Intelligence',
+    key: "ai",
+    label: "AI Intelligence",
+    title: "AI Intelligence",
     description:
-      'Leverage advanced machine learning to detect cost anomalies, predict budget overruns, and deliver smart recommendations helping you make faster, data-driven decisions.',
+      "Leverage advanced machine learning to detect cost anomalies, predict budget overruns, and deliver smart recommendations helping you make faster, data-driven decisions.",
     bullets: [
-      'Automated anomaly detection in real time',
-      'Predictive cost forecasting with 95% accuracy',
-      'Smart insights and actionable recommendations',
-      'Natural language queries for instant answers',
+      "Automated anomaly detection in real time",
+      "Predictive cost forecasting with 95% accuracy",
+      "Smart insights and actionable recommendations",
+      "Natural language queries for instant answers",
     ],
     image: heroPreviewImage,
   },
   {
-    key: 'portfolio',
-    label: 'Project Management',
-    title: 'Project Management',
+    key: "portfolio",
+    label: "Project Management",
+    title: "Project Management",
     description:
-      'Manage hundreds of projects with unified portfolio views. Track progress, dependencies, and priorities in one centralized platform designed for enterprise scale.',
+      "Manage hundreds of projects with unified portfolio views. Track progress, dependencies, and priorities in one centralized platform designed for enterprise scale.",
     bullets: [
-      'Unified dashboard for all projects and programs',
-      'Cross-project dependency tracking',
-      'Portfolio-level resource optimization',
-      'Executive rollup reports and KPIs',
+      "Unified dashboard for all projects and programs",
+      "Cross-project dependency tracking",
+      "Portfolio-level resource optimization",
+      "Executive rollup reports and KPIs",
     ],
     image: productImg2,
   },
   {
-    key: 'analytics',
-    label: 'Real-Time Analytics',
-    title: 'Real-Time Analytics',
+    key: "analytics",
+    label: "Real-Time Analytics",
+    title: "Real-Time Analytics",
     description:
-      'Get instant visibility with live dashboards that update every 15 minutes and interactive drill-down reporting from portfolio to task level.',
+      "Get instant visibility with live dashboards that update every 15 minutes and interactive drill-down reporting from portfolio to task level.",
     bullets: [
-      'Live dashboards with 15-minute refresh cycles',
-      'Customizable KPI scorecards and widgets',
-      'Interactive charts with drill-down capabilities',
-      'Scheduled reports delivered to your inbox',
+      "Live dashboards with 15-minute refresh cycles",
+      "Customizable KPI scorecards and widgets",
+      "Interactive charts with drill-down capabilities",
+      "Scheduled reports delivered to your inbox",
     ],
     image: productImg1,
   },
   {
-    key: 'resources',
-    label: 'Resource Planning',
-    title: 'Resource Planning',
+    key: "resources",
+    label: "Resource Planning",
+    title: "Resource Planning",
     description:
-      'Optimize resource allocation across projects using capacity planning, skill matching, and workload balancing to keep teams focused on priority outcomes.',
+      "Optimize resource allocation across projects using capacity planning, skill matching, and workload balancing to keep teams focused on priority outcomes.",
     bullets: [
-      'Team capacity planning and utilization tracking',
-      'Skills-based resource matching',
-      'Workload balancing across projects',
-      'Time tracking and timesheet management',
+      "Team capacity planning and utilization tracking",
+      "Skills-based resource matching",
+      "Workload balancing across projects",
+      "Time tracking and timesheet management",
     ],
     image: productImg4,
   },
   {
-    key: 'cost',
-    label: 'Cost Intelligence',
-    title: 'Cost Intelligence',
+    key: "cost",
+    label: "Cost Intelligence",
+    title: "Cost Intelligence",
     description:
-      'Monitor budgets in real time with AI-powered variance analysis. Get instant alerts on overruns and identify optimization opportunities early.',
+      "Monitor budgets in real time with AI-powered variance analysis. Get instant alerts on overruns and identify optimization opportunities early.",
     bullets: [
-      'Real-time budget tracking and variance analysis',
-      'Automated cost anomaly detection and alerts',
-      'Spend forecasting with predictive models',
-      'Cost optimization recommendations',
+      "Real-time budget tracking and variance analysis",
+      "Automated cost anomaly detection and alerts",
+      "Spend forecasting with predictive models",
+      "Cost optimization recommendations",
     ],
     image: productImg3,
   },
@@ -126,7 +159,14 @@ const SHOWCASE_FEATURES: ShowcaseFeature[] = [
 
 // --- Helper Components ---
 
-function ProductTile({ title, description, icon: Icon, colorClass, linkTo, hoverColorClass }: ProductTileProps) {
+function ProductTile({
+  title,
+  description,
+  icon: Icon,
+  colorClass,
+  linkTo,
+  hoverColorClass,
+}: ProductTileProps) {
   return (
     <Link to={linkTo}>
       <motion.div
@@ -193,30 +233,54 @@ function CenterProcess() {
 
       {/* 1. Processing (Top Left) */}
       <div className="absolute top-[10%] left-0 w-64 text-right pr-4 border-r-2 border-blue-300">
-        <div className="flex justify-end mb-2 text-blue-500"><Database size={28} /></div>
+        <div className="flex justify-end mb-2 text-blue-500">
+          <Database size={28} />
+        </div>
         <h4 className="font-bold text-slate-800 text-lg">1. Processing</h4>
-        <p className="text-xs text-slate-600 mt-1">Ingests data from diverse sources like IoT trackers, operational controls, and historical records.</p>
+        <p className="text-xs text-slate-600 mt-1">
+          Ingests data from diverse sources like IoT trackers, operational
+          controls, and historical records.
+        </p>
       </div>
 
       {/* 2. Engagement & Actions (Top Right) */}
       <div className="absolute top-[10%] right-0 w-64 text-left pl-4 border-l-2 border-orange-300">
-        <div className="flex justify-start mb-2 text-orange-500"><BarChart2 size={28} /></div>
-        <h4 className="font-bold text-slate-800 text-lg">2. Engagement & Actions</h4>
-        <p className="text-xs text-slate-600 mt-1">Reports deviations, learns from them, and generates follow-up actions for closure.</p>
+        <div className="flex justify-start mb-2 text-orange-500">
+          <BarChart2 size={28} />
+        </div>
+        <h4 className="font-bold text-slate-800 text-lg">
+          2. Engagement & Actions
+        </h4>
+        <p className="text-xs text-slate-600 mt-1">
+          Reports deviations, learns from them, and generates follow-up actions
+          for closure.
+        </p>
       </div>
 
       {/* 3. App for Actions (Bottom Right) */}
       <div className="absolute bottom-[10%] right-0 w-64 text-left pl-4 border-l-2 border-purple-300">
-        <div className="flex justify-start mb-2 text-purple-500"><Smartphone size={28} /></div>
+        <div className="flex justify-start mb-2 text-purple-500">
+          <Smartphone size={28} />
+        </div>
         <h4 className="font-bold text-slate-800 text-lg">3. App for Actions</h4>
-        <p className="text-xs text-slate-600 mt-1">Pushes alerts and actionable tasks directly to field teams via a dedicated mobile app.</p>
+        <p className="text-xs text-slate-600 mt-1">
+          Pushes alerts and actionable tasks directly to field teams via a
+          dedicated mobile app.
+        </p>
       </div>
 
       {/* 4. Predictions & What-IFs (Bottom Left) */}
       <div className="absolute bottom-[10%] left-0 w-64 text-right pr-4 border-r-2 border-green-300">
-        <div className="flex justify-end mb-2 text-green-500"><Sparkles size={28} /></div>
-        <h4 className="font-bold text-slate-800 text-lg">4. Predictions & What-IFs</h4>
-        <p className="text-xs text-slate-600 mt-1">Offers forecasts and controlled scenario analysis through an interactive chatbot assistant.</p>
+        <div className="flex justify-end mb-2 text-green-500">
+          <Sparkles size={28} />
+        </div>
+        <h4 className="font-bold text-slate-800 text-lg">
+          4. Predictions & What-IFs
+        </h4>
+        <p className="text-xs text-slate-600 mt-1">
+          Offers forecasts and controlled scenario analysis through an
+          interactive chatbot assistant.
+        </p>
       </div>
     </div>
   );
@@ -225,11 +289,13 @@ function CenterProcess() {
 export function Home() {
   const [activeProduct, setActiveProduct] = useState(0);
   const productRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeFeature, setActiveFeature] = useState('ai');
+  const [activeFeature, setActiveFeature] = useState("ai");
   const [isShowcaseImageError, setIsShowcaseImageError] = useState(false);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeHeroOption, setActiveHeroOption] = useState('project-data-hub');
-  const [activeProcessStep, setActiveProcessStep] = useState('automation-processing');
+  const [activeHeroOption, setActiveHeroOption] = useState("project-data-hub");
+  const [activeProcessStep, setActiveProcessStep] = useState(
+    "automation-processing",
+  );
   const [isMobileHero, setIsMobileHero] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   // Subtle parallax for the hero glow layer — premium, non-distracting
@@ -238,10 +304,13 @@ export function Home() {
   const [isLocked, setIsLocked] = useState(false);
   const [fadeIn, setFadeIn] = useState(false);
 
-  const sectionTitleClass = 'text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900';
-  const sectionSubtitleClass = 'text-base sm:text-lg text-slate-600 leading-relaxed';
-  const cardTitleClass = 'text-2xl sm:text-3xl font-semibold text-slate-900 leading-tight';
-  const cardBodyClass = 'text-base text-slate-700 leading-relaxed';
+  const sectionTitleClass =
+    "text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900";
+  const sectionSubtitleClass =
+    "text-base sm:text-lg text-slate-600 leading-relaxed";
+  const cardTitleClass =
+    "text-2xl sm:text-3xl font-semibold text-slate-900 leading-tight";
+  const cardBodyClass = "text-base text-slate-700 leading-relaxed";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -252,10 +321,14 @@ export function Home() {
       const windowHeight = window.innerHeight;
 
       // Lock when section reaches top
-      if (containerTop <= 0 && containerTop > -(containerHeight - windowHeight)) {
+      if (
+        containerTop <= 0 &&
+        containerTop > -(containerHeight - windowHeight)
+      ) {
         setIsLocked(true);
         // Calculate progress through the section (0 to 1)
-        const progress = Math.abs(containerTop) / (containerHeight - windowHeight);
+        const progress =
+          Math.abs(containerTop) / (containerHeight - windowHeight);
         // 2 stages (AI PMO Assistance features, Portfolio Dashboard)
         const newStage = Math.min(Math.floor(progress * 2) + 1, 2);
         if (newStage !== currentStage) {
@@ -270,9 +343,9 @@ export function Home() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [currentStage]);
 
   useEffect(() => {
@@ -285,9 +358,9 @@ export function Home() {
     };
 
     updateHeroMode();
-    window.addEventListener('resize', updateHeroMode);
+    window.addEventListener("resize", updateHeroMode);
 
-    return () => window.removeEventListener('resize', updateHeroMode);
+    return () => window.removeEventListener("resize", updateHeroMode);
   }, []);
 
   useEffect(() => {
@@ -295,7 +368,9 @@ export function Home() {
 
     const interval = window.setInterval(() => {
       setActiveHeroOption((currentOption) => {
-        const currentIndex = heroOptions.findIndex((option) => option.key === currentOption);
+        const currentIndex = heroOptions.findIndex(
+          (option) => option.key === currentOption,
+        );
         const nextIndex = (currentIndex + 1) % heroOptions.length;
         return heroOptions[nextIndex].key;
       });
@@ -305,7 +380,9 @@ export function Home() {
   }, [isMobileHero]);
 
   useEffect(() => {
-    const elements = featureRefs.current.filter((el): el is HTMLDivElement => el !== null);
+    const elements = featureRefs.current.filter(
+      (el): el is HTMLDivElement => el !== null,
+    );
     if (elements.length === 0) return;
 
     const observer = new IntersectionObserver(
@@ -313,7 +390,7 @@ export function Home() {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
 
-          const key = entry.target.getAttribute('data-feature-key');
+          const key = entry.target.getAttribute("data-feature-key");
           if (key) {
             setActiveFeature(key);
           }
@@ -321,8 +398,8 @@ export function Home() {
       },
       {
         threshold: 0.55,
-        rootMargin: '-10% 0px -35% 0px',
-      }
+        rootMargin: "-10% 0px -35% 0px",
+      },
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -335,152 +412,171 @@ export function Home() {
 
   const heroOptions = [
     {
-      key: 'project-data-hub',
-      label: 'Project Data Hub',
+      key: "project-data-hub",
+      label: "Project Data Hub",
       icon: Layers,
       image: productImg1,
-      bg: 'from-[#f5fbf7] via-[#edf7f0] to-[#ffffff]',
-      glow: 'bg-[#0066cc]/20',
-      accent: 'border-[#0066cc] bg-[#f8fffa]',
-      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
-      lineStrong: 'bg-[#0066cc]/35',
-      lineSoft: 'bg-[#0066cc]/18',
-      miniTitle: 'Project Data Hub',
-      miniDesc: 'Centralize live project data, tracking, and operational visibility.',
+      bg: "from-[#f5fbf7] via-[#edf7f0] to-[#ffffff]",
+      glow: "bg-[#0066cc]/20",
+      accent: "border-[#0066cc] bg-[#f8fffa]",
+      marker: "bg-[#0066cc]/15 border-[#0066cc]/25",
+      lineStrong: "bg-[#0066cc]/35",
+      lineSoft: "bg-[#0066cc]/18",
+      miniTitle: "Project Data Hub",
+      miniDesc:
+        "Centralize live project data, tracking, and operational visibility.",
     },
     {
-      key: 'reports-analytics',
-      label: 'Reports & Analytics',
+      key: "reports-analytics",
+      label: "Reports & Analytics",
       icon: BarChart3,
       image: productImg2,
-      bg: 'from-[#f7fbff] via-[#edf5ff] to-[#ffffff]',
-      glow: 'bg-[#4fa3ff]/18',
-      accent: 'border-[#4fa3ff] bg-[#f9fdff]',
-      marker: 'bg-[#4fa3ff]/15 border-[#4fa3ff]/25',
-      lineStrong: 'bg-[#4fa3ff]/35',
-      lineSoft: 'bg-[#4fa3ff]/18',
-      miniTitle: 'Reports & Analytics',
-      miniDesc: 'Review trends, dashboards, and outcome summaries in one place.',
+      bg: "from-[#f7fbff] via-[#edf5ff] to-[#ffffff]",
+      glow: "bg-[#4fa3ff]/18",
+      accent: "border-[#4fa3ff] bg-[#f9fdff]",
+      marker: "bg-[#4fa3ff]/15 border-[#4fa3ff]/25",
+      lineStrong: "bg-[#4fa3ff]/35",
+      lineSoft: "bg-[#4fa3ff]/18",
+      miniTitle: "Reports & Analytics",
+      miniDesc:
+        "Review trends, dashboards, and outcome summaries in one place.",
     },
     {
-      key: 'ai-project-advisor',
-      label: 'AI Project Advisor',
+      key: "ai-project-advisor",
+      label: "AI Project Advisor",
       icon: Sparkles,
       image: productImg3,
-      bg: 'from-[#fbf7ff] via-[#f2ecff] to-[#ffffff]',
-      glow: 'bg-[#0066cc]/18',
-      accent: 'border-[#0066cc] bg-[#fdfaff]',
-      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
-      lineStrong: 'bg-[#0066cc]/35',
-      lineSoft: 'bg-[#0066cc]/18',
-      miniTitle: 'AI Project Advisor',
-      miniDesc: 'Ask natural-language questions and get guided project support.',
+      bg: "from-[#fbf7ff] via-[#f2ecff] to-[#ffffff]",
+      glow: "bg-[#0066cc]/18",
+      accent: "border-[#0066cc] bg-[#fdfaff]",
+      marker: "bg-[#0066cc]/15 border-[#0066cc]/25",
+      lineStrong: "bg-[#0066cc]/35",
+      lineSoft: "bg-[#0066cc]/18",
+      miniTitle: "AI Project Advisor",
+      miniDesc:
+        "Ask natural-language questions and get guided project support.",
     },
     {
-      key: 'intelligence-hub',
-      label: 'Intelligence Hub',
+      key: "intelligence-hub",
+      label: "Intelligence Hub",
       icon: Brain,
       image: productImg4,
-      bg: 'from-[#fff9f3] via-[#fff1e7] to-[#ffffff]',
-      glow: 'bg-[#0066cc]/18',
-      accent: 'border-[#0066cc] bg-[#fffcf8]',
-      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
-      lineStrong: 'bg-[#0066cc]/35',
-      lineSoft: 'bg-[#0066cc]/18',
-      miniTitle: 'Intelligence Hub',
-      miniDesc: 'Bring insights, alerts, and operational intelligence together.',
+      bg: "from-[#fff9f3] via-[#fff1e7] to-[#ffffff]",
+      glow: "bg-[#0066cc]/18",
+      accent: "border-[#0066cc] bg-[#fffcf8]",
+      marker: "bg-[#0066cc]/15 border-[#0066cc]/25",
+      lineStrong: "bg-[#0066cc]/35",
+      lineSoft: "bg-[#0066cc]/18",
+      miniTitle: "Intelligence Hub",
+      miniDesc:
+        "Bring insights, alerts, and operational intelligence together.",
     },
     {
-      key: 'knowledge-base',
-      label: 'Knowledge Base',
+      key: "knowledge-base",
+      label: "Knowledge Base",
       icon: FileText,
       image: productImg5,
-      bg: 'from-[#f8fafc] via-[#eef2f7] to-[#ffffff]',
-      glow: 'bg-[#7c8aa5]/18',
-      accent: 'border-[#7c8aa5] bg-[#fbfcfe]',
-      marker: 'bg-[#7c8aa5]/15 border-[#7c8aa5]/25',
-      lineStrong: 'bg-[#7c8aa5]/35',
-      lineSoft: 'bg-[#7c8aa5]/18',
-      miniTitle: 'Knowledge Base',
-      miniDesc: 'Store references, SOPs, and project context for quick retrieval.',
+      bg: "from-[#f8fafc] via-[#eef2f7] to-[#ffffff]",
+      glow: "bg-[#7c8aa5]/18",
+      accent: "border-[#7c8aa5] bg-[#fbfcfe]",
+      marker: "bg-[#7c8aa5]/15 border-[#7c8aa5]/25",
+      lineStrong: "bg-[#7c8aa5]/35",
+      lineSoft: "bg-[#7c8aa5]/18",
+      miniTitle: "Knowledge Base",
+      miniDesc:
+        "Store references, SOPs, and project context for quick retrieval.",
     },
     {
-      key: 'theta-engage',
-      label: 'Theta Engage',
+      key: "theta-engage",
+      label: "Theta Engage",
       icon: Send,
       image: productImg6,
-      bg: 'from-[#f6fbff] via-[#edf7ff] to-[#ffffff]',
-      glow: 'bg-[#47a3ff]/18',
-      accent: 'border-[#47a3ff] bg-[#f8fcff]',
-      marker: 'bg-[#47a3ff]/15 border-[#47a3ff]/25',
-      lineStrong: 'bg-[#47a3ff]/35',
-      lineSoft: 'bg-[#47a3ff]/18',
-      miniTitle: 'Theta Engage',
-      miniDesc: 'Share updates, collaborate, and route actions across teams.',
+      bg: "from-[#f6fbff] via-[#edf7ff] to-[#ffffff]",
+      glow: "bg-[#47a3ff]/18",
+      accent: "border-[#47a3ff] bg-[#f8fcff]",
+      marker: "bg-[#47a3ff]/15 border-[#47a3ff]/25",
+      lineStrong: "bg-[#47a3ff]/35",
+      lineSoft: "bg-[#47a3ff]/18",
+      miniTitle: "Theta Engage",
+      miniDesc: "Share updates, collaborate, and route actions across teams.",
     },
     {
-      key: 'prediction-what-if',
-      label: 'Prediction what if',
+      key: "prediction-what-if",
+      label: "Prediction what if",
       icon: Target,
       image: productImg3,
-      bg: 'from-[#fff8f2] via-[#fff0e5] to-[#ffffff]',
-      glow: 'bg-[#0066cc]/18',
-      accent: 'border-[#0066cc] bg-[#fffaf7]',
-      marker: 'bg-[#0066cc]/15 border-[#0066cc]/25',
-      lineStrong: 'bg-[#0066cc]/35',
-      lineSoft: 'bg-[#0066cc]/18',
-      miniTitle: 'Prediction what if',
-      miniDesc: 'Run scenarios and compare likely outcomes before acting.',
+      bg: "from-[#fff8f2] via-[#fff0e5] to-[#ffffff]",
+      glow: "bg-[#0066cc]/18",
+      accent: "border-[#0066cc] bg-[#fffaf7]",
+      marker: "bg-[#0066cc]/15 border-[#0066cc]/25",
+      lineStrong: "bg-[#0066cc]/35",
+      lineSoft: "bg-[#0066cc]/18",
+      miniTitle: "Prediction what if",
+      miniDesc: "Run scenarios and compare likely outcomes before acting.",
     },
   ];
 
   const processSteps = [
     {
-      key: 'dynamic-orders',
-      title: 'Stage 1: Dynamic Orders',
-      description: 'Ingests regular and emergency orders and enriches them with optimization-ready data like locations, time windows, and constraints.',
+      key: "dynamic-orders",
+      title: "Stage 1: Dynamic Orders",
+      description:
+        "Ingests regular and emergency orders and enriches them with optimization-ready data like locations, time windows, and constraints.",
       image: productImg1,
-      subtitleLink: '/how-it-works#dynamic-orders',
+      subtitleLink: "/how-it-works#dynamic-orders",
     },
     {
-      key: 'optimized-trips',
-      title: 'Stage 2: Optimized Trips',
-      description: 'Builds efficient multi-drop trips using AI routing, live traffic, risk scoring, and operational constraints.',
+      key: "optimized-trips",
+      title: "Stage 2: Optimized Trips",
+      description:
+        "Builds efficient multi-drop trips using AI routing, live traffic, risk scoring, and operational constraints.",
       image: productImg2,
-      subtitleLink: '/how-it-works#optimized-trips',
+      subtitleLink: "/how-it-works#optimized-trips",
     },
     {
-      key: 'resource-assignment',
-      title: 'Stage 3: Intelligent Resource Assignment',
-      description: 'Assigns the right truck and driver based on compatibility, certifications, capacity, and real-time status.',
+      key: "resource-assignment",
+      title: "Stage 3: Intelligent Resource Assignment",
+      description:
+        "Assigns the right truck and driver based on compatibility, certifications, capacity, and real-time status.",
       image: productImg5,
-      subtitleLink: '/how-it-works#resource-assignment',
+      subtitleLink: "/how-it-works#resource-assignment",
     },
     {
-      key: 'sequential-dispatch',
-      title: 'Stage 4: Real-Time Sequential Dispatch',
-      description: 'Monitors execution, tracks progress, handles exceptions, and dynamically re-optimizes plans in real time.',
+      key: "sequential-dispatch",
+      title: "Stage 4: Real-Time Sequential Dispatch",
+      description:
+        "Monitors execution, tracks progress, handles exceptions, and dynamically re-optimizes plans in real time.",
       image: productImg3,
-      subtitleLink: '/how-it-works#sequential-dispatch',
+      subtitleLink: "/how-it-works#sequential-dispatch",
     },
     {
-      key: 'continuous-learning',
-      title: 'Stage 5: Continuous Learning',
-      description: 'Execution data continuously feeds back into the AI models to refine forecasting, routing, and planning for future operations.',
+      key: "continuous-learning",
+      title: "Stage 5: Continuous Learning",
+      description:
+        "Execution data continuously feeds back into the AI models to refine forecasting, routing, and planning for future operations.",
       image: productImg3,
-      subtitleLink: '/how-it-works#continuous-learning',
+      subtitleLink: "/how-it-works#continuous-learning",
     },
   ];
 
-  const activeProcess = processSteps.find((step) => step.key === activeProcessStep) ?? processSteps[0];
+  const activeProcess =
+    processSteps.find((step) => step.key === activeProcessStep) ??
+    processSteps[0];
 
-  const activeHeroTheme = heroOptions.find((option) => option.key === activeHeroOption) ?? heroOptions[0];
+  const activeHeroTheme =
+    heroOptions.find((option) => option.key === activeHeroOption) ??
+    heroOptions[0];
 
-  const activeShowcaseFeature = SHOWCASE_FEATURES.find((feature) => feature.key === activeFeature) ?? SHOWCASE_FEATURES[0];
-  const activeFeatureIndex = SHOWCASE_FEATURES.findIndex((feature) => feature.key === activeFeature);
+  const activeShowcaseFeature =
+    SHOWCASE_FEATURES.find((feature) => feature.key === activeFeature) ??
+    SHOWCASE_FEATURES[0];
+  const activeFeatureIndex = SHOWCASE_FEATURES.findIndex(
+    (feature) => feature.key === activeFeature,
+  );
   const desktopFeatureSlots = SHOWCASE_FEATURES.map((_, slotIndex) => {
     const normalizedIndex =
-      (activeFeatureIndex - 2 + slotIndex + SHOWCASE_FEATURES.length) % SHOWCASE_FEATURES.length;
+      (activeFeatureIndex - 2 + slotIndex + SHOWCASE_FEATURES.length) %
+      SHOWCASE_FEATURES.length;
 
     return {
       feature: SHOWCASE_FEATURES[normalizedIndex],
@@ -489,11 +585,11 @@ export function Home() {
   });
 
   const getDesktopChipPositionClass = (slotIndex: number) => {
-    if (slotIndex === 0) return 'self-end';
-    if (slotIndex === 1) return 'self-center';
-    if (slotIndex === 2) return 'self-start';
-    if (slotIndex === 3) return 'self-center';
-    return 'self-end';
+    if (slotIndex === 0) return "self-end";
+    if (slotIndex === 1) return "self-center";
+    if (slotIndex === 2) return "self-start";
+    if (slotIndex === 3) return "self-center";
+    return "self-end";
   };
 
   useEffect(() => {
@@ -508,7 +604,7 @@ export function Home() {
             }
           });
         },
-        { threshold: 0.6 }
+        { threshold: 0.6 },
       );
 
       observer.observe(ref);
@@ -523,34 +619,58 @@ export function Home() {
   const products = [
     {
       icon: Zap,
-      title: 'Intelligent Cost Tracking',
-      description: 'Automatically track and categorize project costs in real-time. Our AI engine identifies anomalies and provides instant alerts when spending exceeds thresholds.',
-      features: ['Real-time cost monitoring', 'Automated categorization', 'Budget variance alerts', 'Predictive analytics'],
-      color: 'from-blue-500 to-cyan-500',
+      title: "Intelligent Cost Tracking",
+      description:
+        "Automatically track and categorize project costs in real-time. Our AI engine identifies anomalies and provides instant alerts when spending exceeds thresholds.",
+      features: [
+        "Real-time cost monitoring",
+        "Automated categorization",
+        "Budget variance alerts",
+        "Predictive analytics",
+      ],
+      color: "from-blue-500 to-cyan-500",
       image: productImg1,
     },
     {
       icon: Target,
-      title: 'Resource Optimization',
-      description: 'Maximize efficiency with intelligent resource allocation. Match the right people to the right projects and eliminate bottlenecks before they impact delivery.',
-      features: ['Smart allocation algorithms', 'Capacity planning', 'Utilization tracking', 'Skills-based matching'],
-      color: 'from-purple-500 to-pink-500',
+      title: "Resource Optimization",
+      description:
+        "Maximize efficiency with intelligent resource allocation. Match the right people to the right projects and eliminate bottlenecks before they impact delivery.",
+      features: [
+        "Smart allocation algorithms",
+        "Capacity planning",
+        "Utilization tracking",
+        "Skills-based matching",
+      ],
+      color: "from-purple-500 to-pink-500",
       image: productImg2,
     },
     {
       icon: Database,
-      title: 'Portfolio Analytics',
-      description: 'Get complete visibility across your entire project portfolio. Interactive dashboards and custom reports help you make data-driven decisions faster.',
-      features: ['Custom dashboards', 'Executive reporting', 'Trend analysis', 'Export capabilities'],
-      color: 'from-green-500 to-emerald-500',
+      title: "Portfolio Analytics",
+      description:
+        "Get complete visibility across your entire project portfolio. Interactive dashboards and custom reports help you make data-driven decisions faster.",
+      features: [
+        "Custom dashboards",
+        "Executive reporting",
+        "Trend analysis",
+        "Export capabilities",
+      ],
+      color: "from-green-500 to-emerald-500",
       image: productImg3,
     },
     {
       icon: LineChart,
-      title: 'Predictive Insights',
-      description: 'Leverage machine learning to forecast project outcomes. Identify risks early and take proactive action to keep projects on track and within budget.',
-      features: ['Risk prediction', 'Timeline forecasting', 'Cost projections', 'Success probability'],
-      color: 'from-orange-500 to-red-500',
+      title: "Predictive Insights",
+      description:
+        "Leverage machine learning to forecast project outcomes. Identify risks early and take proactive action to keep projects on track and within budget.",
+      features: [
+        "Risk prediction",
+        "Timeline forecasting",
+        "Cost projections",
+        "Success probability",
+      ],
+      color: "from-orange-500 to-red-500",
       image: productImg4,
     },
   ];
@@ -566,12 +686,10 @@ export function Home() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 60% 50% at 50% 45%, rgba(99,72,229,0.22) 0%, rgba(99,72,229,0.08) 45%, rgba(255,255,255,0) 75%)',
+              "radial-gradient(ellipse 60% 50% at 50% 45%, rgba(99,72,229,0.22) 0%, rgba(99,72,229,0.08) 45%, rgba(255,255,255,0) 75%)",
           }}
         />
-        <div className="relative z-20 pt-8 sm:pt-10"
-
-        >
+        <div className="relative z-20 pt-8 sm:pt-10">
           <div className="max-w-4xl mx-auto text-center" data-stagger>
             <span className="inline-block px-3 py-1 bg-[#e8f0f8] text-[#0066cc] text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full mb-4">
               AI-Planning.io
@@ -582,8 +700,9 @@ export function Home() {
               Built for real operations.
             </h2>
             <h3 className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              AI-powered fuel delivery planning and tracking platform. Optimize routes, predict demand,
-              and manage your fleet with real-time visibility.
+              AI-powered fuel delivery planning and tracking platform. Optimize
+              routes, predict demand, and manage your fleet with real-time
+              visibility.
             </h3>
 
             <div className="mt-14 flex flex-col items-center gap-3">
@@ -600,12 +719,11 @@ export function Home() {
           </div>
 
           <motion.div
-
             className="relative pt-8 sm:pt-10 lg:pt-12 w-full"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.div
               className={`relative overflow-hidden lg:overflow-visible`}
@@ -614,18 +732,20 @@ export function Home() {
               <div
                 className="pointer-events-none absolute inset-0 bg-cover text-center bg-center bg-no-repeat "
                 style={{ backgroundImage: `url(${designBG})` }}
-              // style={{ background: 'radial-gradient(circle at bottom right, rgba(22,101,52,0.58) 0%, rgba(22,101,52,0.28) 36%, rgba(22,101,52,0.00) 74%)' }}
-
+                // style={{ background: 'radial-gradient(circle at bottom right, rgba(22,101,52,0.58) 0%, rgba(22,101,52,0.28) 36%, rgba(22,101,52,0.00) 74%)' }}
               />
-              <div className={`absolute -right-14 top-10 h-52 w-52 rounded-full blur-3xl ${activeHeroTheme.glow}`} />
-              <div className="absolute inset-0 opacity-12"
-              // style={{ backgroundImage: 'linear-gradient(to right, rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.18) 1px, transparent 1px)', backgroundSize: '72px 72px' }}
+              <div
+                className={`absolute -right-14 top-10 h-52 w-52 rounded-full blur-3xl ${activeHeroTheme.glow}`}
+              />
+              <div
+                className="absolute inset-0 opacity-12"
+                // style={{ backgroundImage: 'linear-gradient(to right, rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.18) 1px, transparent 1px)', backgroundSize: '72px 72px' }}
               />
 
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/45 to-transparent" />
               <div
                 className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 sm:h-96 sm:w-96"
-              // style={{ background: 'radial-gradient(circle at bottom right, rgba(22,101,52,0.72) 0%, rgba(22,101,52,0.36) 34%, rgba(22,101,52,0.00) 72%)' }}
+                // style={{ background: 'radial-gradient(circle at bottom right, rgba(22,101,52,0.72) 0%, rgba(22,101,52,0.36) 34%, rgba(22,101,52,0.00) 72%)' }}
               />
 
               {/* Continuously-looping hero video (replaces static dashboard image) */}
@@ -651,7 +771,6 @@ export function Home() {
                 >
                   <div className={`h-10 w-10 rounded-xl border ${activeHeroTheme.marker}`} />
                 </motion.div> */}
-
               </div>
             </motion.div>
           </motion.div>
@@ -757,7 +876,6 @@ export function Home() {
           </div>
         </section> */}
 
-
       {/* Product Showcase Section */}
       {/* <section className="min-h-screen lg:block hidden py-12 px-6 font-sans text-slate-900 overflow-x-hidden">
         <div className="max-w-[1400px] mx-auto">
@@ -837,8 +955,8 @@ export function Home() {
               Core Capabilities
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-              Complete visibility, complete control. Powerful features designed to optimize every
-              aspect of your fuel delivery operations.
+              Complete visibility, complete control. Powerful features designed
+              to optimize every aspect of your fuel delivery operations.
             </p>
           </div>
 
@@ -854,8 +972,9 @@ export function Home() {
                   Real-time GPS
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  Track trucks live with precise timestamps. Know exactly where every vehicle is and when
-                  it will arrive. Complete visibility across your entire fleet.
+                  Track trucks live with precise timestamps. Know exactly where
+                  every vehicle is and when it will arrive. Complete visibility
+                  across your entire fleet.
                 </p>
               </div>
             </Link>
@@ -871,8 +990,9 @@ export function Home() {
                   Smart scheduling
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  Predict demand and auto-assign deliveries. Let AI handle the complexity of driver shifts
-                  and route planning. Optimize for efficiency automatically.
+                  Predict demand and auto-assign deliveries. Let AI handle the
+                  complexity of driver shifts and route planning. Optimize for
+                  efficiency automatically.
                 </p>
               </div>
             </Link>
@@ -888,8 +1008,9 @@ export function Home() {
                   Route optimization
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  Reduce miles and maximize utilization. Our algorithms find the most efficient paths while
-                  respecting driver hours and fuel requirements.
+                  Reduce miles and maximize utilization. Our algorithms find the
+                  most efficient paths while respecting driver hours and fuel
+                  requirements.
                 </p>
               </div>
             </Link>
@@ -905,8 +1026,9 @@ export function Home() {
                   Exception handling
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-800">
-                  Delays trigger alerts and escalations automatically. Stay ahead of problems before they
-                  impact your customers. Smart notifications keep you informed.
+                  Delays trigger alerts and escalations automatically. Stay
+                  ahead of problems before they impact your customers. Smart
+                  notifications keep you informed.
                 </p>
               </div>
             </Link>
@@ -919,10 +1041,12 @@ export function Home() {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-900 leading-tight">
-              The smarter way to <span className="text-[#0066cc]">plan, predict, and perform</span>
+              The smarter way to{" "}
+              <span className="text-[#0066cc]">plan, predict, and perform</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-              From forecasting to final delivery, everything you need to manage a reliable, on-time fuel network.
+              From forecasting to final delivery, everything you need to manage
+              a reliable, on-time fuel network.
             </p>
           </div>
 
@@ -933,11 +1057,14 @@ export function Home() {
               </p>
               <ul className="space-y-4">
                 {[
-                  'Spreadsheet-driven planning and disconnected systems',
-                  'Reactive dispatch after delays have already happened',
-                  'Static routes and guesswork demand planning',
+                  "Spreadsheet-driven planning and disconnected systems",
+                  "Reactive dispatch after delays have already happened",
+                  "Static routes and guesswork demand planning",
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-[15px] leading-[24px] text-slate-700">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-[15px] leading-[24px] text-slate-700"
+                  >
                     <span className="mt-[9px] w-1.5 h-1.5 bg-slate-400 rounded-full flex-shrink-0" />
                     {item}
                   </li>
@@ -951,11 +1078,14 @@ export function Home() {
               </p>
               <ul className="space-y-4">
                 {[
-                  'Real-time GPS tracking across your entire fleet',
-                  'AI demand forecasting with auto-assigned deliveries',
-                  'Self-correcting routes using live traffic & constraints',
+                  "Real-time GPS tracking across your entire fleet",
+                  "AI demand forecasting with auto-assigned deliveries",
+                  "Self-correcting routes using live traffic & constraints",
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-[15px] leading-[24px] text-slate-800">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-[15px] leading-[24px] text-slate-800"
+                  >
                     <span className="mt-[9px] w-1.5 h-1.5 bg-[#0066cc] rounded-full flex-shrink-0" />
                     {item}
                   </li>
@@ -969,7 +1099,7 @@ export function Home() {
       {/* ── Selecting the Right Theta Intelligence Layer ── */}
 
       {/* ── Sync your tools, keep teams connected ── */}
-      <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      {/* <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-[56px] font-bold tracking-tight text-[#0f2d52] leading-[1.1]">
@@ -983,7 +1113,7 @@ export function Home() {
             </p>
           </div>
 
-          {/* Infinite auto-scrolling logo marquee */}
+       
           <div
             className="relative overflow-hidden"
             style={{
@@ -1023,7 +1153,7 @@ export function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Driving ROI Across Fuel Operations ── */}
       <section className="bg-gradient-to-b from-white via-[#eff6ff] to-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -1031,31 +1161,34 @@ export function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                title: 'Regional Distribution Networks',
-                desc: 'Coordinate deliveries across multiple stations with centralized dispatch and real-time visibility.',
+                title: "Regional Distribution Networks",
+                desc: "Coordinate deliveries across multiple stations with centralized dispatch and real-time visibility.",
               },
               {
-                title: 'Logistics Providers',
-                desc: 'Optimize delivery routes, reduce fuel costs, and improve customer satisfaction with data-driven insights.',
+                title: "Logistics Providers",
+                desc: "Optimize delivery routes, reduce fuel costs, and improve customer satisfaction with data-driven insights.",
               },
               {
-                title: 'Enterprise Fleets',
-                desc: 'Manage large-scale operations with enterprise-grade security, compliance, and scalability.',
+                title: "Enterprise Fleets",
+                desc: "Manage large-scale operations with enterprise-grade security, compliance, and scalability.",
               },
               {
-                title: 'Collaborative Teams',
-                desc: 'Enable cross-functional collaboration with shared dashboards and task assignments.',
+                title: "Collaborative Teams",
+                desc: "Enable cross-functional collaboration with shared dashboards and task assignments.",
               },
               {
-                title: 'Cost Savings',
-                desc: 'Reduce operational expenses through optimized routing and resource utilization.',
+                title: "Cost Savings",
+                desc: "Reduce operational expenses through optimized routing and resource utilization.",
               },
               {
-                title: 'On-Time Deliveries',
-                desc: 'Achieve higher punctuality with predictive ETAs and proactive adjustments.',
+                title: "On-Time Deliveries",
+                desc: "Achieve higher punctuality with predictive ETAs and proactive adjustments.",
               },
             ].map((card) => (
-              <div key={card.title} className="rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]">
+              <div
+                key={card.title}
+                className="rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]"
+              >
                 <h3 className="text-[22px] sm:text-[24px] font-semibold text-slate-900 mb-3">
                   {card.title}
                 </h3>
@@ -1067,7 +1200,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Stats Section */}
       {/* <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-200">
@@ -1366,8 +1498,6 @@ export function Home() {
           </div>
         </div>
       </section> */}
-
-
 
       {/* Why + CTA Section */}
     </div>
