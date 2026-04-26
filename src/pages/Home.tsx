@@ -777,6 +777,54 @@ export function Home() {
         </div>
       </section>
 
+      {/* ── See AI-Planning in action — explainer + intro videos ── */}
+      <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f2d52] leading-[1.1]">
+              See AI-Planning in action
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              From data to delivery — watch how AI-Planning is trailblazing fuel logistics.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {[
+              {
+                id: 'o9ymnUL9AFo',
+                title: 'AI-Planning — The Optimization Engine From Data to Delivery',
+              },
+              {
+                id: 'fXfjg_U3tnA',
+                title: 'AI-Planning — Trailblazing Fuel Logistics',
+              },
+            ].map((video) => (
+              <div
+                key={video.id}
+                className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]"
+              >
+                <div className="relative w-full aspect-video bg-black">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={video.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-[16px] sm:text-[18px] font-semibold text-slate-900 leading-snug">
+                    {video.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Product Showcase Section */}
       {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto">

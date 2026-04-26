@@ -61,14 +61,12 @@ export function Platform() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <a
-              href="https://tpanel.thetadynamics.io"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center rounded-full bg-[#0066cc] px-8 py-3.5 text-[15.6px] font-normal text-white shadow-[0_0_0_4.45px_#c8d7ea] hover:bg-[#0052a3] transition-colors tracking-[0.08px] min-w-[200px]"
             >
               Start Free Trial
-            </a>
+            </Link>
             <Link
               to="/contact"
               className="inline-flex items-center justify-center rounded-full bg-[#0066cc] px-8 py-3.5 text-[15.6px] font-normal text-white shadow-[0_0_0_4.45px_#c8d7ea] hover:bg-[#0052a3] transition-colors tracking-[0.08px] min-w-[200px]"

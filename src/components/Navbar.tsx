@@ -119,14 +119,6 @@ export function Navbar() {
               </div>
             ) : (
               <>
-                {/* <a
-                  href="https://tpanel.thetadynamics.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-[#0f2d52] text-white font-normal text-[14.6px] tracking-[0.08px] rounded-full hover:bg-[#0052a3] transition-colors"
-                >
-                  Sign In
-                </a> */}
                 <Link
                   to="/contact"
                   className="px-6 py-3 bg-[#e8f0f8] text-[#0f2d52] font-normal text-[14.6px] tracking-[0.08px] rounded-full hover:bg-[#c8d7ea] transition-colors border border-[#0f2d52]/10"
