@@ -18,6 +18,7 @@ import {
   RefreshCw,
   XCircle,
   Briefcase,
+  Send,
 } from 'lucide-react';
 
 const NAV_PILLS: { label: string; href: string; icon: React.ComponentType<{ className?: string }> }[] = [
@@ -31,11 +32,14 @@ export function Contact() {
   return (
     <div className="min-h-screen bg-white overflow-x-clip">
       <HeroSection />
+      <ContactFormSection />
+      {/*
       <NewCustomerSection />
       <ExistingCustomerSection />
       <GeneralInquiriesSection />
       <OfficesSection />
       <FooterCTA />
+      */}
     </div>
   );
 }
@@ -64,26 +68,178 @@ function HeroSection() {
         <p className="text-base sm:text-[17px] leading-[28px] text-[#3B394E] max-w-[640px] mx-auto">
           Ready to transform your fuel delivery operations? Let's talk about your needs.
         </p>
-
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-          {NAV_PILLS.map((p) => (
-            <a
-              key={p.label}
-              href={p.href}
-              className="inline-flex items-center gap-1.5 rounded-full border border-[#c8d7ea] bg-white/80 backdrop-blur px-4 py-1.5 text-[12.5px] font-medium text-[#0f2d52] hover:border-[#0066cc] hover:text-[#0066cc] transition-colors"
-            >
-              <p.icon className="w-3.5 h-3.5" />
-              {p.label}
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// NEW CUSTOMER
+// CONTACT FORM
+// ═══════════════════════════════════════════════════════════════════════════
+function ContactFormSection() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#f7f9fc]">
+      <div className="max-w-[720px] mx-auto">
+        <div className="rounded-[24px] border border-[#e8f0f8] bg-white p-6 sm:p-10 shadow-[0_10px_30px_-15px_rgba(15,45,82,0.18)]">
+          {submitted ? (
+            <div className="text-center py-10">
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#dcf3e4] text-[#1a7a3a]">
+                <BadgeCheck className="w-7 h-7" />
+              </div>
+              <h2 className="text-2xl sm:text-[28px] font-bold text-[#0f2d52] mb-2">
+                Thank you!
+              </h2>
+              <p className="text-[15px] text-[#3B394E]">
+                We've received your message and will get back to you shortly.
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="text-center mb-8">
+                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#0f2d52] tracking-[-0.6px] leading-[1.2] mb-2">
+                  Send us a message
+                </h2>
+                <p className="text-[14px] sm:text-[15px] text-[#3B394E]">
+                  Fill out the form and our team will reach out to you.
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-[13px] font-semibold text-[#0f2d52] mb-1.5"
+                    >
+                      Full name <span className="text-[#0066cc]">*</span>
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Your full name"
+                      className="w-full rounded-lg border border-[#c8d7ea] bg-white px-4 py-2.5 text-[14px] text-[#0f2d52] placeholder:text-[#9aa3b2] focus:outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0066cc]/15 transition"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-[13px] font-semibold text-[#0f2d52] mb-1.5"
+                    >
+                      Email <span className="text-[#0066cc]">*</span>
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="you@company.com"
+                      className="w-full rounded-lg border border-[#c8d7ea] bg-white px-4 py-2.5 text-[14px] text-[#0f2d52] placeholder:text-[#9aa3b2] focus:outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0066cc]/15 transition"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label
+                      htmlFor="company"
+                      className="block text-[13px] font-semibold text-[#0f2d52] mb-1.5"
+                    >
+                      Company
+                    </label>
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      value={form.company}
+                      onChange={handleChange}
+                      placeholder="Your company"
+                      className="w-full rounded-lg border border-[#c8d7ea] bg-white px-4 py-2.5 text-[14px] text-[#0f2d52] placeholder:text-[#9aa3b2] focus:outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0066cc]/15 transition"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-[13px] font-semibold text-[#0f2d52] mb-1.5"
+                    >
+                      Phone
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="+1 555 000 0000"
+                      className="w-full rounded-lg border border-[#c8d7ea] bg-white px-4 py-2.5 text-[14px] text-[#0f2d52] placeholder:text-[#9aa3b2] focus:outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0066cc]/15 transition"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-[13px] font-semibold text-[#0f2d52] mb-1.5"
+                  >
+                    Message <span className="text-[#0066cc]">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    value={form.message}
+                    onChange={handleChange}
+                    placeholder="Tell us a little about what you need..."
+                    className="w-full rounded-lg border border-[#c8d7ea] bg-white px-4 py-2.5 text-[14px] text-[#0f2d52] placeholder:text-[#9aa3b2] focus:outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0066cc]/15 transition resize-y"
+                  />
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0066cc] px-7 py-3 text-[14px] font-semibold text-white shadow-[0_8px_20px_-8px_rgba(0,102,204,0.55)] hover:bg-[#0052a3] hover:shadow-[0_12px_28px_-8px_rgba(0,102,204,0.75)] transition-all"
+                  >
+                    Send message <Send className="w-4 h-4" />
+                  </button>
+                </div>
+              </form>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/*
+// ═══════════════════════════════════════════════════════════════════════════
+// NEW CUSTOMER (commented — content under review)
 // ═══════════════════════════════════════════════════════════════════════════
 function NewCustomerSection() {
   const cards = [
@@ -141,7 +297,6 @@ function NewCustomerSection() {
           ))}
         </div>
 
-        {/* India sales call-out */}
         <div className="rounded-[24px] border border-[#e8f0f8] bg-white p-6 sm:p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-center">
             <div>
@@ -203,7 +358,7 @@ function NewCustomerSection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// EXISTING CUSTOMER
+// EXISTING CUSTOMER (commented — content under review)
 // ═══════════════════════════════════════════════════════════════════════════
 function ExistingCustomerSection() {
   return (
@@ -276,7 +431,7 @@ function ExistingCustomerSection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// GENERAL INQUIRIES
+// GENERAL INQUIRIES (commented — content under review)
 // ═══════════════════════════════════════════════════════════════════════════
 function GeneralInquiriesSection() {
   const relations = [
@@ -333,7 +488,6 @@ function GeneralInquiriesSection() {
               key={r.title}
               className="group relative bg-white rounded-[20px] p-6 sm:p-7 text-center ring-1 ring-white/0 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.2)] hover:-translate-y-1.5 hover:shadow-[0_30px_50px_-15px_rgba(0,0,0,0.35)] hover:ring-white/40 transition-all duration-300 ease-out overflow-hidden"
             >
-              {/* Accent glow on hover */}
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 -top-1 h-24 bg-gradient-to-b from-[#4fa3ff]/0 to-transparent group-hover:from-[#4fa3ff]/20 transition-all duration-500"
@@ -374,7 +528,6 @@ function GeneralInquiriesSection() {
           ))}
         </div>
 
-        {/* Partnership block */}
         <div className="group relative bg-white rounded-[20px] p-6 sm:p-8 lg:p-10 overflow-hidden shadow-[0_10px_30px_-15px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_50px_-15px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-300 ease-out">
           <span
             aria-hidden
@@ -423,7 +576,7 @@ function GeneralInquiriesSection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// OFFICES
+// OFFICES (commented — content under review)
 // ═══════════════════════════════════════════════════════════════════════════
 type Region = 'na' | 'eu' | 'apac';
 
@@ -570,7 +723,7 @@ function OfficesSection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// FOOTER CTA
+// FOOTER CTA (commented — content under review)
 // ═══════════════════════════════════════════════════════════════════════════
 function FooterCTA() {
   return (
@@ -631,4 +784,4 @@ function SectionHeader({
     </div>
   );
 }
-
+*/
