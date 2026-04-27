@@ -145,7 +145,7 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="mailto:hello@ai-planning.io"
+                  href="mailto:contact@ai-planning.io"
                   aria-label="Email"
                   className="w-10 h-10 bg-[#e8f0f8] rounded-full flex items-center justify-center hover:bg-[#c8d7ea] transition-colors"
                 >
