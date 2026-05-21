@@ -86,5 +86,6 @@
     server: {
       port: 3000,
       open: true,
+      allowedHosts: ['ai-planning.io', 'www.ai-planning.io'],
     },
   });
