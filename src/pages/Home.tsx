@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import {
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   CheckCircle,
   BarChart3,
   Brain,
@@ -34,7 +36,7 @@ import {
   Check,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type TouchEvent } from "react";
 
 import productImg1 from "../assets/projectHub.png";
 import productImg2 from "../assets/reports.png";
@@ -281,6 +283,156 @@ function CenterProcess() {
           Offers forecasts and controlled scenario analysis through an
           interactive chatbot assistant.
         </p>
+      </div>
+    </div>
+  );
+}
+
+const VIDEO_SHOWCASE = [
+  {
+    id: 'o9ymnUL9AFo',
+    title: 'AI-Planning — The Optimization Engine From Data to Delivery',
+  },
+  {
+    id: 'bLNen-wmBPw',
+    title: 'AI-Planning — Quick Insights Short',
+  },
+  {
+    id: 'fXfjg_U3tnA',
+    title: 'AI-Planning — Trailblazing Fuel Logistics',
+  },
+];
+
+function VideoShowcaseCarousel() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const total = VIDEO_SHOWCASE.length;
+
+  const go = (next: number) => setIndex(((next % total) + total) % total);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => setIndex((current) => (current + 1) % total), 7000);
+    return () => window.clearInterval(id);
+  }, [paused, total]);
+
+  const onTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
+
+  const onTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current == null) return;
+    const delta = event.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(delta) > 40) {
+      go(index + (delta < 0 ? 1 : -1));
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <div className="relative mx-auto max-w-[1080px] h-[260px] sm:h-[360px] md:h-[460px]">
+        {VIDEO_SHOWCASE.map((video, idx) => {
+          let offset = idx - index;
+          if (offset > total / 2) offset -= total;
+          if (offset < -total / 2) offset += total;
+
+          const isActive = offset === 0;
+          const isSide = Math.abs(offset) === 1;
+          const visible = isActive || isSide;
+
+          const positionClasses = isActive
+            ? "-translate-x-1/2"
+            : offset < 0
+            ? "-translate-x-[92%] sm:-translate-x-[88%]"
+            : "-translate-x-[8%] sm:-translate-x-[12%]";
+
+          return (
+            <div
+              key={video.id}
+              role="button"
+              tabIndex={isActive ? 0 : -1}
+              aria-hidden={!visible}
+              onClick={() => !isActive && go(index + offset)}
+              onKeyDown={(event) => {
+                if (!isActive) return;
+                if (event.key === "Enter" || event.key === " ") {
+                  go(index + offset);
+                }
+              }}
+              className={`absolute top-1/2 left-1/2 w-[86%] sm:w-[72%] md:w-[64%] h-full -translate-y-1/2 ${positionClasses} rounded-[24px] overflow-hidden border border-white bg-slate-950 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                isActive
+                  ? "z-20 scale-100 opacity-100 shadow-[0_30px_60px_-20px_rgba(15,45,82,0.45)]"
+                  : isSide
+                  ? "z-10 scale-[0.86] opacity-60 cursor-pointer hover:opacity-90"
+                  : "z-0 scale-[0.7] opacity-0 pointer-events-none"
+              }`}
+            >
+              <div className="relative w-full h-full bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  title={video.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+              <div className="p-4 sm:p-5 bg-white">
+                <h3 className="text-base sm:text-lg font-semibold text-slate-900 leading-snug">
+                  {video.title}
+                </h3>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="absolute inset-x-0 top-1/2 flex items-center justify-between px-2 pointer-events-none">
+        <button
+          type="button"
+          onClick={() => go(index - 1)}
+          className="pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0f2d52] border border-slate-200 shadow-md hover:bg-[#0f2d52] hover:text-white transition"
+          aria-label="Previous video"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          type="button"
+          onClick={() => go(index + 1)}
+          className="pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0f2d52] border border-slate-200 shadow-md hover:bg-[#0f2d52] hover:text-white transition"
+          aria-label="Next video"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      <div className="mt-6 flex items-center justify-center gap-2">
+        {VIDEO_SHOWCASE.map((_, idx) => {
+          const active = idx === index;
+          return (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => go(idx)}
+              aria-label={`Go to video ${idx + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                active
+                  ? "w-8 bg-[#0066cc]"
+                  : "w-2 bg-[#c8d7ea] hover:bg-[#0066cc]/50"
+              }`}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -789,39 +941,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {[
-              {
-                id: 'o9ymnUL9AFo',
-                title: 'AI-Planning — The Optimization Engine From Data to Delivery',
-              },
-              {
-                id: 'fXfjg_U3tnA',
-                title: 'AI-Planning — Trailblazing Fuel Logistics',
-              },
-            ].map((video) => (
-              <div
-                key={video.id}
-                className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_24px_-8px_rgba(16,24,40,0.08)]"
-              >
-                <div className="relative w-full aspect-video bg-black">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.id}`}
-                    title={video.title}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-5 sm:p-6">
-                  <h3 className="text-[16px] sm:text-[18px] font-semibold text-slate-900 leading-snug">
-                    {video.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
+          <VideoShowcaseCarousel />
         </div>
       </section>
 
