@@ -36,7 +36,7 @@ import {
   Check,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect, type TouchEvent } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import productImg1 from "../assets/projectHub.png";
 import productImg2 from "../assets/reports.png";
@@ -290,12 +290,12 @@ function CenterProcess() {
 
 const VIDEO_SHOWCASE = [
   {
-    id: 'o9ymnUL9AFo',
-    title: 'AI-Planning — The Optimization Engine From Data to Delivery',
+    id: 'bLNen-wmBPw',
+    title: 'AI-Planning — Flexi Shift',
   },
   {
-    id: 'bLNen-wmBPw',
-    title: 'AI-Planning — Quick Insights Short',
+    id: 'o9ymnUL9AFo',
+    title: 'AI-Planning — The Optimization Engine From Data to Delivery',
   },
   {
     id: 'fXfjg_U3tnA',
@@ -305,41 +305,12 @@ const VIDEO_SHOWCASE = [
 
 function VideoShowcaseCarousel() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const touchStartX = useRef<number | null>(null);
   const total = VIDEO_SHOWCASE.length;
 
   const go = (next: number) => setIndex(((next % total) + total) % total);
 
-  useEffect(() => {
-    if (paused) return;
-    const id = window.setInterval(() => setIndex((current) => (current + 1) % total), 7000);
-    return () => window.clearInterval(id);
-  }, [paused, total]);
-
-  const onTouchStart = (event: TouchEvent<HTMLDivElement>) => {
-    touchStartX.current = event.touches[0].clientX;
-  };
-
-  const onTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
-    if (touchStartX.current == null) return;
-    const delta = event.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(delta) > 40) {
-      go(index + (delta < 0 ? 1 : -1));
-    }
-    touchStartX.current = null;
-  };
-
   return (
-    <div
-      className="relative"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
+    <div className="relative">
       <div className="relative mx-auto max-w-[1080px] h-[260px] sm:h-[360px] md:h-[460px]">
         {VIDEO_SHOWCASE.map((video, idx) => {
           let offset = idx - index;
@@ -359,21 +330,12 @@ function VideoShowcaseCarousel() {
           return (
             <div
               key={video.id}
-              role="button"
-              tabIndex={isActive ? 0 : -1}
               aria-hidden={!visible}
-              onClick={() => !isActive && go(index + offset)}
-              onKeyDown={(event) => {
-                if (!isActive) return;
-                if (event.key === "Enter" || event.key === " ") {
-                  go(index + offset);
-                }
-              }}
               className={`absolute top-1/2 left-1/2 w-[86%] sm:w-[72%] md:w-[64%] h-full -translate-y-1/2 ${positionClasses} rounded-[24px] overflow-hidden border border-white bg-slate-950 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 isActive
                   ? "z-20 scale-100 opacity-100 shadow-[0_30px_60px_-20px_rgba(15,45,82,0.45)]"
                   : isSide
-                  ? "z-10 scale-[0.86] opacity-60 cursor-pointer hover:opacity-90"
+                  ? "z-10 scale-[0.86] opacity-60"
                   : "z-0 scale-[0.7] opacity-0 pointer-events-none"
               }`}
             >
